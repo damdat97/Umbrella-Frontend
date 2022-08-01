@@ -2,12 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>FEUmbrella</title>
+  <title>Umbrella</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet'>
+  <link href="assets/css/skdslider.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
 </head>
+
 <body>
-  <app-root></app-root>
+<app-root></app-root>
+
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script src="assets/js/move-top.js"></script>
+<script src="assets/js/easing.js"></script>
+<script>
+  $(document).ready(function($) {
+    $(".scroll").click(function(event){
+      event.preventDefault();
+      $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+    });
+  });
+</script>
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-98H8KRKT85'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-98H8KRKT85');
+</script>
+<script src="assets/js/move-top.js"></script>
+<script src="assets/js/easing.js"></script>
+<script>
+  $(document).ready(function($) {
+    $(".scroll").click(function(event){
+      event.preventDefault();
+      $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+    });
+  });
+</script>
+<script src="assets/js/skdslider.min.js"></script>
+<script src="assets/m.servedby-buysellads.com/monetization.js"></script>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+      // format, zoneKey, segment:value, options
+      _bsa.init('flexbar', 'CKYI627U', 'placement:w3layoutscom');
+    }
+  })();
+</script>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+      // format, zoneKey, segment:value, options
+      _bsa.init('fancybar', 'CKYDL2JN', 'placement:demo');
+    }
+  })();
+</script>
+<script>
+  (function(){
+    if(typeof _bsa !== 'undefined' && _bsa) {
+      // format, zoneKey, segment:value, options
+      _bsa.init('stickybox', 'CKYI653J', 'placement:w3layoutscom');
+    }
+  })();
+</script>
+<script async src='https://www.googletagmanager.com/gtag/js?id=G-98H8KRKT85'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-98H8KRKT85');
+</script>
+<script src="assets/js/skdslider.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+
+    $('#responsive').change(function(){
+      $('#responsive_wrapper').width($(this).val());
+    });
+
+  });
+</script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $().UItoTop({ easingType: 'easeOutQuart' });
+  });
+</script>
+<script src="assets/js/minicart.min.js"></script>
+<script>
+  paypal.minicart.render({
+    action: '#'
+  });
+
+  if (~window.location.search.indexOf('reset=true')) {
+    paypal.minicart.reset();
+  }
+</script>
 </body>
 </html>

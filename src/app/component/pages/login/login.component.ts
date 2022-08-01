@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['']);
       }
     }, error => {
-      alert("Tài khoản của bạn bị sai")
+      alert("Sai tài khoản hoặc mật khẩu!")
     })
   }
 }
