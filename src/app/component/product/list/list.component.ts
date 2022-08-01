@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ProductService} from "../../../service/product.service";
 import {Product} from "../../../model/product";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-list',
@@ -11,7 +12,9 @@ export class ListComponent implements OnInit {
   products: Product[] | any;
 
   cartProducts: any[] = [];
-
+  product:FormGroup=new FormGroup({
+    name:new FormControl('')
+  })
   constructor(private productService: ProductService) {
   }
 
@@ -27,7 +30,15 @@ export class ListComponent implements OnInit {
       console.log(error);
     })
   }
-
+  searchByName() {
+    const name = this.product.value.name;
+    this.productService.searchByName(name).subscribe((data) => {
+      console.log(data)
+      this.products = data;
+    }, error => {
+      console.log(error)
+    })
+  }
   addToCart(event: any) {
     console.log(event)
    if ("cart" in localStorage){

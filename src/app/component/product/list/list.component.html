@@ -19,6 +19,11 @@
                 a great deal.</p>
             </div>
 
+            <form [formGroup]="product" (ngSubmit)="searchByName()">
+              <input type="text" formControlName='name'>
+              <button>Tìm theo tên</button>
+            </form>
+
             <div class="agile_top_brands_grids">
               <div class="col-md-4 top_brand_left" *ngFor="let product of products, index as i">
                 <app-product [data]="product" (item)="addToCart($event)"></app-product>

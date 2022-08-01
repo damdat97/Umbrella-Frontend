@@ -28,4 +28,7 @@ export class ProductService {
   updateProduct(id: number, product: Product): Observable<Product> {
     return this.httpClient.put<Product>(API_URL + '/products/' + id, product);
   }
+  searchByName(name:any):Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-by-name?name='+name);
+  }
 }
