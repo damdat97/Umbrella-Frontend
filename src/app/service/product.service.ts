@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Product} from "../model/product";
 import {Observable} from "rxjs";
+import {Category} from "../model/category";
 
 const API_URL = environment.apiUrl;
 
@@ -27,5 +28,8 @@ export class ProductService {
   }
   updateProduct(id: number, product: Product): Observable<Product> {
     return this.httpClient.put<Product>(API_URL + '/products/' + id, product);
+  }
+  findProductByCategories(id: any): Observable<Product>{
+    return this.httpClient.get<Product>(API_URL + '/products/find-product-by-category/' + id)
   }
 }

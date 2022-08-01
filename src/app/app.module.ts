@@ -19,6 +19,7 @@ import {DetailProductComponent} from "./component/product/detail-product/detail-
 import {NewProductComponent} from "./component/product/new-product/new-product.component";
 import {EditComponent} from "./component/product/edit/edit.component";
 import {ListCategoryComponent} from "./component/category/list-category/list-category.component";
+import {ProductByCategoryComponent} from "./component/product/product-by-category/product-by-category.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import {ListCategoryComponent} from "./component/category/list-category/list-cat
     NewProductComponent,
     DetailProductComponent,
     EditComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+    ProductByCategoryComponent
   ],
   imports: [
     BrowserModule,
