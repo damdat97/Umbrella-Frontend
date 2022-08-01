@@ -15,6 +15,7 @@ import {ErrorInterceptor} from "./helper/error-interceptor";
 import {ProductComponent} from "./component/product/product/product.component";
 import {HeaderComponent} from "./component/blocks/header/header.component";
 import {ListComponent} from "./component/product/list/list.component";
+import {DetailProductComponent} from "./component/product/detail-product/detail-product.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import {ListComponent} from "./component/product/list/list.component";
     NavbarComponent,
     ProductComponent,
     HeaderComponent,
-    ListComponent
+    ListComponent,
+    DetailProductComponent
   ],
   imports: [
     BrowserModule,
