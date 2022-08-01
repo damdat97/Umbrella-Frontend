@@ -11,11 +11,16 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent implements OnInit {
   registerForm = new FormGroup({
-    username: new FormControl("", [Validators.required]),
-    password: new FormControl("", [Validators.required]),
-    confirmPassword: new FormControl("", [Validators.required]),
-    phone: new FormControl("", [Validators.required])
+    name: new FormControl("", [Validators.required]),
+    phone: new FormControl("", [Validators.required,Validators.pattern("(03|05|07|08|09)+([0-9]{8})")]),
+    username: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
+    password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
+    confirmPassword: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
   })
+
+  get name() {
+    return this.registerForm.get("name")
+  }
 
   get username() {
     return this.registerForm.get("username")
@@ -39,16 +44,22 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.authenticationService.register(<string>this.registerForm.value.username, <string>this.registerForm.value.password,
-      <string>this.registerForm.value.confirmPassword, <string>this.registerForm.value.phone).pipe(first()).subscribe(data => {
-        // @ts-ignore
-      $("#exampleModal").modal("show")
+    this.authenticationService.register(<string>this.registerForm.value.name,
+      <string>this.registerForm.value.phone,
+      <string>this.registerForm.value.username,
+      <string>this.registerForm.value.password,
+      <string>this.registerForm.value.confirmPassword).pipe(first()).subscribe(data => {
+      alert("done")
+      this.router.navigate(["/login"])
     }, error => {
       console.log(error)
     })
   }
 
-  switchToLogin() {
-    this.router.navigate(["/login"])
+  checkConfirmPassword() {
+    if (this.registerForm.get('password')?.value != this.registerForm.get('confirmPassword')?.value) {
+      // @ts-ignore
+      document.getElementById("confirm").style.display = "block";
+    }
   }
 }
