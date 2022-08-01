@@ -28,4 +28,8 @@ export class ProductService {
   updateProduct(id: number, product: Product): Observable<Product> {
     return this.httpClient.put<Product>(API_URL + '/products/' + id, product);
   }
+
+  save(product: Product): Observable<Product> {
+    return this.httpClient.post<Product>(API_URL + '/products', product);
+  }
 }

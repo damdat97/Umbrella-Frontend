@@ -4,6 +4,17 @@
 
 export const environment = {
   production: false,
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+     firebaseConfig : {
+      apiKey: "AIzaSyD5NykbtL6dnB9YdvxD9boqZb4EUrYRnbM",
+      authDomain: "tanghoa01-1bfb9.firebaseapp.com",
+      databaseURL: "https://tanghoa01-1bfb9-default-rtdb.firebaseio.com",
+      projectId: "tanghoa01-1bfb9",
+      storageBucket: "tanghoa01-1bfb9.appspot.com",
+      messagingSenderId: "656737352140",
+      appId: "1:656737352140:web:c93cea5bd189ff46c30569",
+      measurementId: "G-XYXE3XCE7H"
+      },
   apiUrl: 'http://localhost:8080'
 };
 
