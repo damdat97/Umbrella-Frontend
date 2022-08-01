@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="register-area">
+  <div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="box-for overflow">
+        <div class="col-md-12 col-xs-12 login-blocks">
+          <h2>Đăng nhập: </h2>
+          <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+            <div class="form-group">
+              <label for="email">Tên đăng nhập</label>
+              <input type="text" class="form-control" id="email" formControlName="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Mật khẩu</label>
+              <input type="password" class="form-control" id="password" formControlName="password">
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-default btn-login"> Đăng nhập</button>
+              <button class="btn btn-default btn-login" routerLink="/register"> Đăng ký</button>
+            </div>
+          </form>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+<app-footer></app-footer>
