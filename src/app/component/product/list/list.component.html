@@ -19,11 +19,18 @@
                 a great deal.</p>
             </div>
 
-            <form [formGroup]="product" (ngSubmit)="searchByName()">
-              <input type="text" formControlName='name'>
-              <button>Tìm theo tên</button>
-            </form>
-
+<!--            <form [formGroup]="product" (ngSubmit)="searchByName()">-->
+<!--              <input type="text" formControlName='name'>-->
+<!--              <button>Tìm theo tên</button>-->
+<!--            </form>-->
+<div class="w3l_search">
+                    <form  [formGroup]="product" (ngSubmit)="searchByName()">
+                      <input type="text"  name="Search" formControlName='name' placeholder="Search for a Product..." >
+                      <button type="submit" class="btn btn-default search" >
+                        <i class="fa fa-search" aria-hidden="true"> </i>
+                      </button>
+                    </form>
+</div>
             <div class="agile_top_brands_grids">
               <div class="col-md-4 top_brand_left" *ngFor="let product of products, index as i">
                 <app-product [data]="product" (item)="addToCart($event)"></app-product>
