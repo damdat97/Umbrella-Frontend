@@ -12,8 +12,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {JwtInterceptor} from "./helper/jwt-interceptor";
 import {ErrorInterceptor} from "./helper/error-interceptor";
+import {ProductComponent} from "./component/product/product/product.component";
 import {HeaderComponent} from "./component/blocks/header/header.component";
-
+import {ListComponent} from "./component/product/list/list.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,9 @@ import {HeaderComponent} from "./component/blocks/header/header.component";
     RegisterComponent,
     FooterComponent,
     NavbarComponent,
-    HeaderComponent
+    ProductComponent,
+    HeaderComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

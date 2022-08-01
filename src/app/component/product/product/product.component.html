@@ -1,0 +1,26 @@
+<div class="hover14 column">
+  <div class="agile_top_brand_left_grid">
+    <div class="agile_top_brand_left_grid1">
+      <figure>
+        <div class="snipcart-item block">
+          <div class="snipcart-thumb">
+            <img
+              src="https://uploads-ssl.webflow.com/5ce272038eff8bc2bf0b7a0e/5f929df0fd248ba1eecd80db_iphone-12%20(15).jpg"
+              style="width: 500px"/>
+            <p><a href="#" [routerLink]="['/product-detail',data.id]">{{data.name}}</a></p>
+            <h4>{{data.price}} $</h4>
+          </div>
+          <div class="snipcart-details top_brand_home_details">
+
+            <fieldset>
+              <input type="submit" name="submit" value="Thêm vào giỏ hàng" (click)="add()"  class="button"/>
+            </fieldset>
+            <br>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',data.id]">Sửa</button>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+</div>
+<br>
