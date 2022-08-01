@@ -30,8 +30,8 @@ export class AuthenticationService {
       }));
   }
 
-  register(username: string, password: string, confirmPassword: string, phone: string) {
-    return this.httpClient.post<any>(API_URL + '/register', {username, password, confirmPassword, phone})
+  register(name: string, phone: string, username: string, password: string, confirmPassword: string) {
+    return this.httpClient.post<any>(API_URL + '/register', {name, phone,username, password, confirmPassword})
       .pipe(map(user => {localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
         return user;
