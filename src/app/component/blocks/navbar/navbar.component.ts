@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../service/authentication.service";
+import {CategoryService} from "../../../service/category.service";
+import {Category} from "../../../model/category";
 
 @Component({
   selector: 'app-navbar',
@@ -10,14 +12,29 @@ export class NavbarComponent implements OnInit {
   isLogin = false;
   username: any;
   id: any
-  constructor(private authenticationService : AuthenticationService) { }
+  categories: Category[] = [];
+
+  constructor(private authenticationService: AuthenticationService,
+              private categoryService: CategoryService) {
+  }
 
   ngOnInit(): void {
     this.isLogin = localStorage.getItem("USERNAME") == null ? false : true;
     this.username = localStorage.getItem("USERNAME")
     this.id = localStorage.getItem("ID")
+    this.categoryService.getAll().subscribe((data) => {
+      console.log(data);
+      this.categories=data;
+    })
   }
-
+  searchCountry(id: any) {
+    // const id = this.productForm.value.categoryId;
+    this.categoryService.findByIdCategory(id).subscribe(data => {
+      // @ts-ignore
+      this.categories = data;
+      console.log(data);
+    });
+  }
   logOut() {
     this.authenticationService.logout();
     this.isLogin = false;
