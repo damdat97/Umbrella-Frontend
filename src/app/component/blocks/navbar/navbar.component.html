@@ -14,7 +14,7 @@
         <ul class="nav navbar-nav">
           <li class="active columns-3"><a href="index.html" class="act">Home</a></li>
           <li class="active" *ngFor="let category of categories">
-            <a href="#" [routerLink]="['/product-by-category']" class="act">{{category.name}}</a></li>
+            <a href="#" [routerLink]="['/product-by-category',category.id]"  class="act" (click)="searchCategory(category.id)" >{{category.name}}</a></li>
         </ul>
       </div>
     </nav>

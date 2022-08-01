@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../service/authentication.service";
 import {CategoryService} from "../../../service/category.service";
 import {Category} from "../../../model/category";
+import {Product} from "../../../model/product";
+import {ProductService} from "../../../service/product.service";
 
 @Component({
   selector: 'app-navbar',
@@ -13,9 +15,11 @@ export class NavbarComponent implements OnInit {
   username: any;
   id: any
   categories: Category[] = [];
+  products: Product[]=[];
 
   constructor(private authenticationService: AuthenticationService,
-              private categoryService: CategoryService) {
+              private categoryService: CategoryService,
+              private productService: ProductService) {
   }
 
   ngOnInit(): void {
@@ -27,11 +31,11 @@ export class NavbarComponent implements OnInit {
       this.categories=data;
     })
   }
-  searchCountry(id: any) {
+  searchCategory(id: any) {
     // const id = this.productForm.value.categoryId;
-    this.categoryService.findByIdCategory(id).subscribe(data => {
+    this.productService.findProductByCategories(id).subscribe(data => {
       // @ts-ignore
-      this.categories = data;
+      this.products = data;
       console.log(data);
     });
   }

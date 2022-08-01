@@ -1,4 +1,5 @@
-<!-- breadcrumbs -->
+<app-header></app-header>
+<app-navbar></app-navbar>
 <div class="breadcrumbs">
   <div class="container">
     <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
@@ -73,19 +74,16 @@
         </div>
       </div>
       <div class="agile_top_brands_grids">
-        <div class="col-md-4 top_brand_left">
+        <div class="col-md-4 top_brand_left" *ngFor="let product of products, index as i">
           <div class="hover14 column">
             <div class="agile_top_brand_left_grid">
-              <div class="agile_top_brand_left_grid_pos">
-                <img src="https://uploads-ssl.webflow.com/5ce272038eff8bc2bf0b7a0e/5f929df0fd248ba1eecd80db_iphone-12%20(15).jpg" alt=" " class="img-responsive">
-              </div>
               <div class="agile_top_brand_left_grid1">
                 <figure>
                   <div class="snipcart-item block">
                     <div class="snipcart-thumb">
-                      <a href="single.html"><img title=" " alt=" " src="images/hh1.png"></a>
-                      <p>...</p>
-                      <h4>$35.99 <span>$55.00</span></h4>
+                      <a href="single.html"><img title=" " alt=" " src="https://bizweb.dktcdn.net/100/364/149/files/mau-theu-chibi9.jpg?v=1596012289991" style="width: 200px; height: 500px"></a>
+                      <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
+                      <h4>{{product.price}} $</h4>
                     </div>
                     <div class="snipcart-details top_brand_home_details">
                       <form action="#" method="post">
@@ -110,6 +108,7 @@
           </div>
         </div>
         <div class="clearfix"> </div>
+      </div>
       <nav class="numbering">
         <ul class="pagination paging">
           <li>
@@ -133,3 +132,4 @@
     <div class="clearfix"> </div>
   </div>
 </div>
+<app-footer></app-footer>
