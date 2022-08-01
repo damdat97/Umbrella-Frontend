@@ -43,4 +43,13 @@ export class NavbarComponent implements OnInit {
     this.authenticationService.logout();
     this.isLogin = false;
   }
+  getAllProduct() {
+    this.productService.getAll().subscribe(data => {
+      // @ts-ignore
+      this.products = data;
+      console.log(data);
+    }, error => {
+      console.log(error);
+    })
+  }
 }

@@ -23,6 +23,7 @@ export class ProductByCategoryComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe((param) => {
       const id = param.get('id');
       this.findById(id);
+      this.getAllProduct()
     })
   }
   searchCategory(id: any) {
@@ -39,6 +40,15 @@ export class ProductByCategoryComponent implements OnInit {
       this.listCategory = data;
       console.log(data)
       this.searchCategory(id)
+    })
+  }
+  getAllProduct() {
+    this.productService.getAll().subscribe(data => {
+      // @ts-ignore
+      this.products = data;
+      console.log(data);
+    }, error => {
+      console.log(error);
     })
   }
 }
