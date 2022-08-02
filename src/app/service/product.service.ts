@@ -21,7 +21,7 @@ export class ProductService {
     return this.httpClient.get<Product>(API_URL + '/products/' + id)
   }
   findNewProduct(): Observable<Product> {
-    return this.httpClient.get<Product>(API_URL + '/products/find-new-product')
+    return this.httpClient.get<Product>(API_URL + '/products/find-new-products')
   }
   delete(id: any): Observable<Product> {
     return this.httpClient.delete<Product>(API_URL + '/products/' + id);
@@ -29,8 +29,8 @@ export class ProductService {
   updateProduct(id: number, product: Product): Observable<Product> {
     return this.httpClient.put<Product>(API_URL + '/products/' + id, product);
   }
-  findProductByCategories(id: any): Observable<Product>{
-    return this.httpClient.get<Product>(API_URL + '/products/find-product-by-category/' + id)
+  findProductByCategories(id: any): Observable<Product[]>{
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-category/' + id)
   }
 
   save(product: Product): Observable<Product> {

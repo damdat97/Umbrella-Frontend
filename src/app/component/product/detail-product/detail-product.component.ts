@@ -41,7 +41,7 @@ export class DetailProductComponent implements OnInit {
             price: data.price,
             quantity: data.quantity,
             category: data.category,
-            owner: data.owner,
+            user: data.user,
             images: x
           })
 

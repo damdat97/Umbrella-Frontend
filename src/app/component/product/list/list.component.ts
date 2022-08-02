@@ -11,9 +11,13 @@ import {User} from "../../../model/user";
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  products: any = [];
+  products: Product[] = [];
 
   cartProducts: any[] = [];
+
+  images: any[] = []
+
+  image: any;
 
   constructor(private productService: ProductService,
               private imageService: ImageService) {
@@ -24,24 +28,16 @@ export class ListComponent implements OnInit {
   }
 
   getAllProduct() {
+    this.images = []
     this.productService.getAll().subscribe(data => {
-      for (let i =0; i<data.length; i++) {
-        this.imageService.findAllByProductId(data[i].id).subscribe((x)=> {
-          this.products.push({
-            id: data[i].id,
-            name:data[i].name,
-            description: data[i].description,
-            price: data[i].price,
-            quantity: data[i].quantity,
-            category: data[i].category,
-            owner: data[i].owner,
-            images: x
-          })
-
-          console.log(this.products)
+      this.products = data
+      for (let i = 0; i < data.length; i++) {
+        this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
+          data[i].image = image.image;
+          console.log(this.image)
         })
       }
-
+      console.log(this.images)
     }, error => {
       console.log(error);
     })
@@ -49,18 +45,18 @@ export class ListComponent implements OnInit {
 
   addToCart(event: any) {
     console.log(event)
-   if ("cart" in localStorage){
-     this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
-     let exist = this.cartProducts.find(item => item.id == event.id)
-     if (exist) {
-       alert("Product is already in you cart")
-     } else {
-       this.cartProducts.push(event)
-       localStorage.setItem("cart", JSON.stringify(this.cartProducts))
-     }
-   } else {
-     this.cartProducts.push(event)
-     localStorage.setItem("cart", JSON.stringify(this.cartProducts))
-   }
+    if ("cart" in localStorage) {
+      this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
+      let exist = this.cartProducts.find(item => item.id == event.id)
+      if (exist) {
+        alert("Product is already in you cart")
+      } else {
+        this.cartProducts.push(event)
+        localStorage.setItem("cart", JSON.stringify(this.cartProducts))
+      }
+    } else {
+      this.cartProducts.push(event)
+      localStorage.setItem("cart", JSON.stringify(this.cartProducts))
+    }
   }
 }

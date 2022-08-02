@@ -22,10 +22,6 @@ const routes: Routes = [
     component:ProductByCategoryComponent
   },
   {
-    path:'product-by-category',
-    component:ProductByCategoryComponent
-  },
-  {
     path:'edit-product/:id',
     component:EditComponent
   },{

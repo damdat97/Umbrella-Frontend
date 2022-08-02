@@ -21,7 +21,32 @@
 
             <div class="agile_top_brands_grids">
               <div class="col-md-4 top_brand_left" *ngFor="let product of products, index as i">
-                <app-product [data]="product" (item)="addToCart($event)"></app-product>
+                <div class="hover14 column">
+                  <div class="agile_top_brand_left_grid">
+                    <div class="agile_top_brand_left_grid1">
+                      <figure>
+                        <div class="snipcart-item block">
+                          <div class="snipcart-thumb">
+                            <img
+                              src="{{product.image}}"
+                              style="width: 100%; height: 300px"/>
+                            <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
+                            <h4>{{product.price}} $</h4>
+                          </div>
+                          <div class="snipcart-details top_brand_home_details">
+
+                            <fieldset>
+                              <input type="submit" name="submit" value="Thêm vào giỏ hàng"  class="button"/>
+                            </fieldset>
+                            <br>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]">Sửa</button>
+                          </div>
+                        </div>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+                <br>
               </div>
               <div class="clearfix"></div>
             </div>

@@ -73,7 +73,7 @@
         </div>
       </div>
       <div class="agile_top_brands_grids">
-        <div class="col-md-4 top_brand_left" *ngFor="let product of products, index as i">
+        <div class="col-md-4 top_brand_left" *ngFor="let product of productByCate, index as i">
           <div class="hover14 column">
             <div class="agile_top_brand_left_grid">
               <div class="agile_top_brand_left_grid1">
@@ -81,7 +81,7 @@
                   <div class="snipcart-item block">
                     <div class="snipcart-thumb">
                       <a href="single.html"><img
-                        src="{{product.images[0].images}}"
+                        src="{{product.images}}"
                         style="width: 500px"/></a>
                       <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
                       <h4>{{product.price}} $</h4>

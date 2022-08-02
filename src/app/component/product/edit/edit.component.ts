@@ -52,7 +52,7 @@ export class EditComponent implements OnInit {
         quantity: new FormControl(data.quantity),
         description: new FormControl(data.description),
         categoryId: new FormControl(data.category),
-        user:new FormControl(data.owner)
+        user:new FormControl(data.user)
       })
     })
   }

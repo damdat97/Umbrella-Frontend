@@ -1,5 +1,7 @@
 import {Category} from "./category";
 import {User} from "./user";
+import firebase from "firebase/compat";
+import UserMetadata = firebase.auth.UserMetadata;
 
 export interface Product {
   id: string,
@@ -8,5 +10,6 @@ export interface Product {
   price: string,
   quantity: string,
   category: Category,
-  owner: User
+  user: User,
+  image: string
 }
