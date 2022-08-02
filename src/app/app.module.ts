@@ -19,6 +19,10 @@ import {DetailProductComponent} from "./component/product/detail-product/detail-
 import {NewProductComponent} from "./component/product/new-product/new-product.component";
 import {EditComponent} from "./component/product/edit/edit.component";
 import {ListCategoryComponent} from "./component/category/list-category/list-category.component";
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {CreateProductComponent} from "./component/product/create-product/create-product.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,7 @@ import {ListCategoryComponent} from "./component/category/list-category/list-cat
     ListComponent,
     NewProductComponent,
     DetailProductComponent,
+    CreateProductComponent,
     EditComponent,
     ListCategoryComponent
   ],
@@ -39,7 +44,10 @@ import {ListCategoryComponent} from "./component/category/list-category/list-cat
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
