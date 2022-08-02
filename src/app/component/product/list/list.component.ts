@@ -11,11 +11,10 @@ import {User} from "../../../model/user";
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  products: Product[] = [];
-
+  products: Product[] | any;
   cartProducts: any[] = [];
-
   image: any;
+  userId = localStorage.getItem("ID")
 
   constructor(private productService: ProductService,
               private imageService: ImageService) {

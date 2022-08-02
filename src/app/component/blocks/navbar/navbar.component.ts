@@ -17,15 +17,11 @@ export class NavbarComponent implements OnInit {
   categories: Category[] = [];
   products: Product[]=[];
 
-  constructor(private authenticationService: AuthenticationService,
-              private categoryService: CategoryService,
+  constructor(private categoryService: CategoryService,
               private productService: ProductService) {
   }
 
   ngOnInit(): void {
-    this.isLogin = localStorage.getItem("USERNAME") == null ? false : true;
-    this.username = localStorage.getItem("USERNAME")
-    this.id = localStorage.getItem("ID")
     this.categoryService.getAll().subscribe((data) => {
       this.categories=data;
     })
@@ -36,17 +32,6 @@ export class NavbarComponent implements OnInit {
       this.products = data;
     });
   }
-  logOut() {
-    this.authenticationService.logout();
-    this.isLogin = false;
-  }
-  // getAllProduct() {
-  //   this.productService.getAll().subscribe(data => {
-  //     // @ts-ignore
-  //     this.products = data;
-  //     console.log(data);
-  //   }, error => {
-  //     console.log(error);
-  //   })
-  // }
+
+
 }

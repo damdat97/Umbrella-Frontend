@@ -33,13 +33,13 @@
                             <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
                             <h4>{{product.price}} $</h4>
                           </div>
-                          <div class="snipcart-details top_brand_home_details">
-
-                            <fieldset>
+                          <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
                               <input type="submit" name="submit" value="Thêm vào giỏ hàng"  class="button"/>
-                            </fieldset>
                             <br>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]">Sửa</button>
+                          </div>
+                          <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
+                          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]">Sửa</button>
+                            <br>
                           </div>
                         </div>
                       </figure>

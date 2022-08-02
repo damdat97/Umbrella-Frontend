@@ -11,6 +11,7 @@ import {ImageService} from "../../../service/image.service";
 export class DetailProductComponent implements OnInit {
   obj: any;
   id: any
+  userId = localStorage.getItem("ID")
 
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,

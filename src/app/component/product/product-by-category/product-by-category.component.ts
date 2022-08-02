@@ -12,12 +12,12 @@ import {ImageService} from "../../../service/image.service";
   styleUrls: ['./product-by-category.component.css']
 })
 export class ProductByCategoryComponent implements OnInit {
-  productByCate: Product[] = [];
+  productByCate: Product[] | any;
   id: any
-
   image: any;
-
   listCategory: any;
+  userId = localStorage.getItem("ID")
+
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private imageService: ImageService,
