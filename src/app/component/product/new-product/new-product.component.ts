@@ -24,4 +24,7 @@ export class NewProductComponent implements OnInit {
       console.log(error);
     })
   }
+
+
+
 }

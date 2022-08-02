@@ -13,9 +13,9 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) {
   }
-  getAll(): Observable<Product> {
-    return this.httpClient.get<Product>(API_URL + '/products');
-  }
+  // getAll(): Observable<Product> {
+  //   return this.httpClient.get<Product>(API_URL + '/products');
+  // }
   findById(id: any): Observable<Product> {
     return this.httpClient.get<Product>(API_URL + '/products/' + id)
   }
@@ -35,4 +35,13 @@ export class ProductService {
   save(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(API_URL + '/products', product);
   }
+  getAllProduct():Observable<Product>{
+    return this.httpClient.get<Product>(API_URL + '/products');
+  }
+
+  // @ts-ignore
+  // getAllPro(request){
+  //   const params=request;
+  //   return this.httpClient.get(API_URL+'/products',{params})
+  // }
 }
