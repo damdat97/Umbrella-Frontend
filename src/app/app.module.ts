@@ -24,6 +24,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {CreateProductComponent} from "./component/product/create-product/create-product.component";
 import {ProductByCategoryComponent} from "./component/product/product-by-category/product-by-category.component";
+
 @NgModule({
   declarations: [
     AppComponent,

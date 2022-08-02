@@ -80,7 +80,9 @@
                 <figure>
                   <div class="snipcart-item block">
                     <div class="snipcart-thumb">
-                      <a href="single.html"><img title=" " alt=" " src=""></a>
+                      <a href="single.html"><img
+                        src="{{product.images[0].images}}"
+                        style="width: 500px"/></a>
                       <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
                       <h4>{{product.price}} $</h4>
                     </div>

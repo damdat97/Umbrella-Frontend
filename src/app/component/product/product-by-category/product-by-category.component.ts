@@ -11,6 +11,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./product-by-category.component.css']
 })
 export class ProductByCategoryComponent implements OnInit {
+
   products: Product[] | any;
   id: any
 

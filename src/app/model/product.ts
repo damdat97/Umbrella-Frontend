@@ -9,5 +9,4 @@ export interface Product {
   quantity: string,
   category: Category,
   owner: User
-
 }
