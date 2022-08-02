@@ -31,7 +31,6 @@ export class DetailProductComponent implements OnInit {
 
   getProduct() {
     this.productService.findById(this.id).subscribe((data) => {
-      console.log(data)
         this.imageService.findAllByProductId(data.id).subscribe((x)=> {
           console.log(x)
           this.obj = ({
@@ -42,10 +41,8 @@ export class DetailProductComponent implements OnInit {
             quantity: data.quantity,
             category: data.category,
             user: data.user,
-            images: x
+            image: x
           })
-
-          console.log(this.obj)
         })
     }, error => {
       console.log(error);

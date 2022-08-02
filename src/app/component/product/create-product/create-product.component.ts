@@ -66,7 +66,7 @@ export class CreateProductComponent implements OnInit {
       this.idProductImage = product.id
       for (let i = 0; i < this.images.length; i++) {
         this.image = {
-          images: this.images[i],
+          image: this.images[i],
           product: {
             id: this.idProductImage
           }

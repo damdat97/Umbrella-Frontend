@@ -27,29 +27,26 @@ export class NavbarComponent implements OnInit {
     this.username = localStorage.getItem("USERNAME")
     this.id = localStorage.getItem("ID")
     this.categoryService.getAll().subscribe((data) => {
-      console.log(data);
       this.categories=data;
     })
   }
   searchCategory(id: any) {
-    // const id = this.productForm.value.categoryId;
     this.productService.findProductByCategories(id).subscribe(data => {
       // @ts-ignore
       this.products = data;
-      console.log(data);
     });
   }
   logOut() {
     this.authenticationService.logout();
     this.isLogin = false;
   }
-  getAllProduct() {
-    this.productService.getAll().subscribe(data => {
-      // @ts-ignore
-      this.products = data;
-      console.log(data);
-    }, error => {
-      console.log(error);
-    })
-  }
+  // getAllProduct() {
+  //   this.productService.getAll().subscribe(data => {
+  //     // @ts-ignore
+  //     this.products = data;
+  //     console.log(data);
+  //   }, error => {
+  //     console.log(error);
+  //   })
+  // }
 }

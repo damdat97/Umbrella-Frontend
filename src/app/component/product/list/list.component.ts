@@ -15,8 +15,6 @@ export class ListComponent implements OnInit {
 
   cartProducts: any[] = [];
 
-  images: any[] = []
-
   image: any;
 
   constructor(private productService: ProductService,
@@ -28,16 +26,16 @@ export class ListComponent implements OnInit {
   }
 
   getAllProduct() {
-    this.images = []
-    this.productService.getAll().subscribe(data => {
+    this.image = []
+    this.productService.getAll().subscribe((data) => {
       this.products = data
+      console.log("1", data)
       for (let i = 0; i < data.length; i++) {
         this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
-          data[i].image = image.image;
-          console.log(this.image)
+          this.products[i].image = image;
+          console.log(this.products)
         })
       }
-      console.log(this.images)
     }, error => {
       console.log(error);
     })

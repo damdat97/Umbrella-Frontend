@@ -12,10 +12,8 @@ import {ImageService} from "../../../service/image.service";
   styleUrls: ['./product-by-category.component.css']
 })
 export class ProductByCategoryComponent implements OnInit {
-  productByCate: any = [];
+  productByCate: Product[] = [];
   id: any
-
-  images: [] = []
 
   image: any;
 
@@ -32,25 +30,22 @@ export class ProductByCategoryComponent implements OnInit {
     })
   }
   searchCategory(id: any) {
-    this.images = []
-    // const id = this.productForm.value.categoryId;
+    this.image = []
     this.productService.findProductByCategories(id).subscribe((data) => {
       this.productByCate = data
+      console.log("1", data)
       for (let i =0; i<data.length; i++) {
         this.imageService.findAllByProductId(data[i].id).subscribe((image)=> {
-          data[i].image = image.image;
+          this.productByCate[i].image = image;
           console.log(this.productByCate)
         })
       }
-
-          console.log(this.productByCate)
         })
       }
 
   findById(id: any) {
     this.categoryService.findById(id).subscribe((data) => {
       this.listCategory = data;
-      console.log(data)
       this.searchCategory(id)
     })
   }

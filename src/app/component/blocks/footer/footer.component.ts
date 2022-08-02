@@ -18,7 +18,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.categoryService.getAll().subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       this.categories=data;
     })
     this.getAllProduct()
