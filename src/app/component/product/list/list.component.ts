@@ -1,6 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ProductService} from "../../../service/product.service";
 import {Product} from "../../../model/product";
+import {ImageService} from "../../../service/image.service";
+import {Category} from "../../../model/category";
+import {User} from "../../../model/user";
 
 @Component({
   selector: 'app-list',
@@ -8,11 +11,12 @@ import {Product} from "../../../model/product";
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  products: Product[] | any;
+  products: any = [];
 
   cartProducts: any[] = [];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private imageService: ImageService) {
   }
 
   ngOnInit(): void {
@@ -21,8 +25,23 @@ export class ListComponent implements OnInit {
 
   getAllProduct() {
     this.productService.getAll().subscribe(data => {
-      this.products = data;
-      console.log(data);
+      for (let i =0; i<data.length; i++) {
+        this.imageService.findAllByProductId(data[i].id).subscribe((x)=> {
+          this.products.push({
+            id: data[i].id,
+            name:data[i].name,
+            description: data[i].description,
+            price: data[i].price,
+            quantity: data[i].quantity,
+            category: data[i].category,
+            owner: data[i].owner,
+            images: x
+          })
+
+          console.log(this.products)
+        })
+      }
+
     }, error => {
       console.log(error);
     })
