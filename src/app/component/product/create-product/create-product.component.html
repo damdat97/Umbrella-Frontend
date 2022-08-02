@@ -50,30 +50,48 @@
 <!--</div>-->
 
 <app-navbar></app-navbar>
-<form [formGroup]="productForm" (ngSubmit)="add()">
-  <input type="text" placeholder="Tên sản phẩm" formControlName="name"> <br>
-  <input type="text" placeholder="Nội dung" formControlName="description"> <br>
-  <input type="text" placeholder="Gía sản phẩm" formControlName="price"><br>
-  <input type="text" placeholder="Số lượng sản phẩm" formControlName="quantity"><br>
-  <select formControlName="categoryId">
-    <option *ngFor="let categories of listCategory" value="{{categories.id}}">
-      {{categories.name}}
-    </option>
-  </select>
-
-  <input type="file" placeholder="Chọn ảnh" id="file"
-         #userPhoto
-         multiple
-         (change)="showPreview($event)"
-         name="image"
-         autocomplete="off" class="custom-file-input" id="inputGroupFile01">
-  <div *ngFor="let img of images" style="width: 30%; margin: 1%; float: left; height: 250px; overflow: hidden">
-    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4"
-         style="width: 100%"
-         src="{{img}}"
-         alt="">
-
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h5 style="text-align: center">Thêm sản phẩm </h5> <br>
+      <form [formGroup]="productForm" (ngSubmit)="add()" style="margin-left: 28% ; border: solid 2px" >
+        <label>Tên sản phẩm:</label><br>
+        <input type="text" placeholder="Tên sản phẩm" formControlName="name" style="width: 500px; height: 35px"> <br>
+        <br>
+        <label>Nội dung :</label><br>
+        <input type="text" placeholder="Nội dung" formControlName="description" style="width: 500px; height: 35px"> <br>
+        <br>
+        <label>Gía sản phẩm:</label><br>
+        <input type="text" placeholder="Gía sản phẩm" formControlName="price" style="width: 500px; height: 35px"><br>
+        <br>
+        <label>Số lượng sản phẩm:</label><br>
+        <input type="text" placeholder="Số lượng sản phẩm" formControlName="quantity"
+               style="width: 500px; height: 35px"><br>
+        <br>
+        <label>Danh mục :</label><br>
+        <select formControlName="categoryId">
+          <option *ngFor="let categories of listCategory" value="{{categories.id}}">
+            {{categories.name}}
+          </option>
+        </select><br>
+        <br>
+        <label>Ảnh :</label>
+        <input type="file" placeholder="Chọn ảnh" id="file"
+               #userPhoto
+               multiple
+               (change)="showPreview($event)"
+               name="image"
+               autocomplete="off" class="custom-file-input" id="inputGroupFile01">
+        <div *ngFor="let img of images" style="width: 30%; margin: 1%; float: left; height: 250px; overflow: hidden">
+          <img class="img-fluid px-3 px-sm-4 mt-3 mb-4"
+               style="width: 100%"
+               src="{{img}}"
+               alt="">
+        </div>
+        <br>
+        <button type="submit">Thêm</button>
+      </form>
+    </div>
   </div>
-  <button type="submit">Thêm</button>
-</form>
-
+</div>
