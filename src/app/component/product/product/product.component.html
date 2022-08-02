@@ -5,8 +5,8 @@
         <div class="snipcart-item block">
           <div class="snipcart-thumb">
             <img
-              src="https://uploads-ssl.webflow.com/5ce272038eff8bc2bf0b7a0e/5f929df0fd248ba1eecd80db_iphone-12%20(15).jpg"
-              style="width: 500px"/>
+              src="{{data.images[0].images}}"
+              style="width: 100%; height: 300px"/>
             <p><a href="#" [routerLink]="['/product-detail',data.id]">{{data.name}}</a></p>
             <h4>{{data.price}} $</h4>
           </div>

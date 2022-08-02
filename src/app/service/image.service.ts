@@ -13,10 +13,7 @@ export class ImageService {
   save(image: any): Observable<any>{
     return this.httpClient.post(API_URL , image);
   }
-  findByIdProduct(id: any):Observable<any>{
-    return this.httpClient.get(API_URL + `/products/${id}`);
-  }
-  showFullProduct(id: any):Observable<any>{
+  findAllByProductId(id: any):Observable<any>{
     return this.httpClient.get(API_URL + `/${id}`);
   }
 }

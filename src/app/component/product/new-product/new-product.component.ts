@@ -8,7 +8,7 @@ import {ProductService} from "../../../service/product.service";
   styleUrls: ['./new-product.component.css']
 })
 export class NewProductComponent implements OnInit {
-  products: Product[] | any;
+  newProduct: Product[] | any;
 
   constructor(private productService: ProductService) { }
 
@@ -17,8 +17,8 @@ export class NewProductComponent implements OnInit {
   }
 
   getNewProduct() {
-    this.productService.findNewProduct().subscribe(data => {
-      this.products = data;
+    this.productService.findNewProduct().subscribe((data:any) => {
+      this.newProduct = data;
       console.log(data);
     }, error => {
       console.log(error);

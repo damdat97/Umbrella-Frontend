@@ -73,11 +73,11 @@ export class CreateProductComponent implements OnInit {
         this.imageService.save(image).subscribe(() => {
           console.log('SUCCESSFULLY CREATE')
 
-
         });
       }
       this.productForm.reset()
       this.images = []
+      this.router.navigate(["/"]);
       console.log(this.images)
     }, error => {
       console.log(error)

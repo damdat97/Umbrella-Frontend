@@ -9,7 +9,7 @@ import {LoginComponent} from "./component/pages/login/login.component";
 import {FooterComponent} from "./component/blocks/footer/footer.component";
 import {NavbarComponent} from "./component/blocks/navbar/navbar.component";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {JwtInterceptor} from "./helper/jwt-interceptor";
 import {ErrorInterceptor} from "./helper/error-interceptor";
 import {ProductComponent} from "./component/product/product/product.component";
@@ -35,6 +35,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {ProductByCategoryComponent} from "./component/product/product-by-category/product-by-category.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,29 +52,31 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     DetailProductComponent,
     CreateProductComponent,
     EditComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+    ProductByCategoryComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    NgxPaginationModule,
-    ReactiveFormsModule,
-    AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-    MatInputModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatRadioModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
-    MatProgressBarModule,
-    MatPaginatorModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        ReactiveFormsModule,
+        AngularFireStorageModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+        MatInputModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        MatSlideToggleModule,
+        MatButtonModule,
+        MatProgressSpinnerModule,
+        MatProgressBarModule,
+        MatPaginatorModule,
+        FormsModule
+    ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptor, multi: true
