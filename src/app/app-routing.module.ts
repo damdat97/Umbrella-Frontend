@@ -6,6 +6,7 @@ import {RegisterComponent} from "./component/pages/register/register.component";
 import {DetailProductComponent} from "./component/product/detail-product/detail-product.component";
 import {EditComponent} from "./component/product/edit/edit.component";
 import {ProductByCategoryComponent} from "./component/product/product-by-category/product-by-category.component";
+import {CreateProductComponent} from "./component/product/create-product/create-product.component";
 
 const routes: Routes = [
   {
@@ -27,6 +28,9 @@ const routes: Routes = [
   {
     path:'edit-product/:id',
     component:EditComponent
+  },{
+    path:'create-product',
+    component:CreateProductComponent
   },
   {
     path: "login",
