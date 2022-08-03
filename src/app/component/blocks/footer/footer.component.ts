@@ -24,7 +24,7 @@ export class FooterComponent implements OnInit {
       // console.log(data);
       this.categories = data;
     })
-    this.getAllProduct()
+    // this.getAllProduct()
   }
 
   searchCategory(id: any) {

@@ -19,12 +19,14 @@
           <th>Tên Sản Phẩm</th>
           <th>Giá</th>
           <th>Chức Năng</th>
-
         </tr>
         </thead>
         <tr class="rem1" *ngFor="let product of products,index as i">
           <td class="invert">{{i + 1}}</td>
-          <td class="invert-image"><a href="single.html"><img src="" alt=" " class="img-responsive"/></a>
+          <td class="invert-image"><a [routerLink]="['/product-detail', product.id]">
+            <img
+            src="{{product.image[0].image}}"
+            class="img-responsive"/></a>
           </td>
           <td class="invert">
             <div class="quantity">

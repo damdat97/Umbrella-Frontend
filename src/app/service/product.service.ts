@@ -32,8 +32,12 @@ export class ProductService {
   findProductByCategories(id: any): Observable<Product[]>{
     return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-category/' + id)
   }
+
   save(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(API_URL + '/products', product);
+  }
+  searchByAll( name:any,category_id:any,from:any,to:any):Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find?name='+name+'&category_id'+category_id+'&from='+from+'&to='+to );
   }
   sortProductByQuantity(id: any):Observable<Product[]>{
     return this.httpClient.get<Product[]>(API_URL + '/products/sort-products-by-quantity/' + id)
