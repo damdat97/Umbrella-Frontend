@@ -90,8 +90,8 @@
                       <br>
                     </div>
                     <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
-                      <button class="btn button-edit button-ed" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]" style="margin-right: 10px;width: 50px">Sửa</button>
-                      <button class="btn button-cl button-ed"  (click)="deleteProduct(product.id)" style="width: 50px">Xóa</button>
+                      <button class="btn button-edit button-ed" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]" style="margin-right: 5px;width: 60px"><i class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Sửa</button>
+                      <button class="btn button-cl button-ed"  (click)="deleteProduct(product.id)" style="width: 60px"><i class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa</button>
 
                       <br>
                     </div>
