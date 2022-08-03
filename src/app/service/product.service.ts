@@ -38,4 +38,7 @@ export class ProductService {
   sortProductByQuantity(id: any):Observable<Product[]>{
     return this.httpClient.get<Product[]>(API_URL + '/products/sort-products-by-quantity/' + id)
   }
+  findProductByUserId(id:any):Observable<Product[]>{
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-my-shop/' + id)
+  }
 }

@@ -25,7 +25,6 @@
       <div class="col-md-3 w3_footer_grid">
         <h3>Category</h3>
           <ul class="info" >
-            <li><i class="fa fa-arrow-right" aria-hidden="true"></i>
             <li *ngFor="let category of categories"><i class="fa fa-arrow-right" aria-hidden="true"></i>
               <a [routerLink]="['/products-by-categories',category.id]" (click)="searchCategory(category.id)">{{category.name}}</a>
             </li>

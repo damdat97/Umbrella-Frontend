@@ -77,7 +77,7 @@ export class CreateProductComponent implements OnInit {
       }
       this.productForm.reset()
       this.image = []
-      this.router.navigate(["/"]);
+      this.router.navigate(["/my-shop",this.product.user.id]);
       console.log(this.image)
     }, error => {
       console.log(error)

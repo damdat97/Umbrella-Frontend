@@ -20,9 +20,11 @@ import {ListCategoryComponent} from "./component/category/list-category/list-cat
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
-import {CreateProductComponent} from "./component/product/create-product/create-product.component";
+import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
 import {ProductByCategoryComponent} from "./component/product/product-by-category/product-by-category.component";
 import { DeleteComponent } from './component/product/delete/delete.component';
+import { ListProductComponent } from './component/my-shop/list-product/list-product.component';
+import { EditProductComponent } from './component/my-shop/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { DeleteComponent } from './component/product/delete/delete.component';
     EditComponent,
     ListCategoryComponent,
     ProductByCategoryComponent,
-    DeleteComponent
+    DeleteComponent,
+    ListProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
