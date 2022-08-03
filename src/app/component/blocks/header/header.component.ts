@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
   findProductByUserId(id: any) {
     this.productService.findProductByUserId(id).subscribe((data)=>{
       this.products=data;
-      console.log(data);
 
     })
   }

@@ -26,9 +26,9 @@ import { DeleteComponent } from './component/product/delete/delete.component';
 import { ListProductComponent } from './component/my-shop/list-product/list-product.component';
 import { EditProductComponent } from './component/my-shop/edit-product/edit-product.component';
 
-import {CreateProductComponent} from "./component/product/create-product/create-product.component";
 import { CreateCommentComponent } from './component/comment/create-comment/create-comment.component';
 import { ListCommentComponent } from './component/comment/list-comment/list-comment.component';
+import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,19 +37,16 @@ import { ListCommentComponent } from './component/comment/list-comment/list-comm
     RegisterComponent,
     FooterComponent,
     NavbarComponent,
-    ProductComponent,
     HeaderComponent,
     ListComponent,
-    NewProductComponent,
     DetailProductComponent,
-    CreateProductComponent,
     EditComponent,
     ListCategoryComponent,
     ProductByCategoryComponent,
     DeleteComponent,
     ListProductComponent,
-    EditProductComponent
-    ListCategoryComponent,
+    EditProductComponent,
+    CreateProductComponent,
     CreateCommentComponent,
     ListCommentComponent
   ],

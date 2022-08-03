@@ -89,8 +89,8 @@
                            style="width: 500px; height: 35px ;margin-left: 20%"><br>
                     <label style="margin-left: 20%">Loại Sản Phẩm:</label>
                     <select  formControlName="categoryId" class="form-control" style="width: 500px; height: 35px;margin-left: 20%">
-                      <option *ngFor="let categories of listCategory">
-                        {{categories.name}}
+                      <option *ngFor="let category of listCategory" value="{{category.id}}">
+                        {{category.name}}
                       </option><br>
                     </select>
                     <label style="margin-left: 20%">Ảnh :</label>

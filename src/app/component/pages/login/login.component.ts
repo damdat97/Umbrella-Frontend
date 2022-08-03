@@ -23,11 +23,14 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    console.log("123")
     this.authenticationService.login(this.loginForm.value.username, this.loginForm.value.password).pipe(first()).subscribe(data => {
       localStorage.setItem('ACCESS_TOKEN', data.accessToken);
       localStorage.setItem('ROLE', data.roles[0].authority);
       localStorage.setItem('USERNAME', data.username);
       localStorage.setItem('ID', data.id);
+      localStorage.setItem('NAME', data.name);
+      console.log(data)
       if (data.roles[0].authority == "ROLE_USER") {
         alert("Dang nhap thanh cong")
         this.router.navigate(['']);
@@ -37,6 +40,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/admin']);
       }
     }, error => {
+      console.log(error)
       alert("Sai tài khoản hoặc mật khẩu!")
     })
   }

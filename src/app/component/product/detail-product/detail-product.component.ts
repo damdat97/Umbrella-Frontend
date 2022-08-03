@@ -12,10 +12,17 @@ import {ImageService} from "../../../service/image.service";
   styleUrls: ['./detail-product.component.css']
 })
 export class DetailProductComponent implements OnInit {
-  obj: any;
+  obj: any = {
+    image: [{
+      id: 0,
+      image: ''
+    }],
+    user: {
+      id: 0
+    }
+  }
 
   commentForm: FormGroup = new FormGroup({
-    id: new FormControl(''),
     description: new FormControl('')
 
   })
@@ -35,31 +42,31 @@ export class DetailProductComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param) => {
       this.id = param.get('id');
-      console.log(param);
       this.productService.findById(this.id).subscribe((data) => {
-        console.log(data);
-        this.obj = data;
+        this.imageService.findAllByProductId(this.id).subscribe((image) => {
+          this.obj = data
+          this.obj.image = image;
+          console.log(this.obj)
+        })
       });
     });
     this.comment();
-    console.log(this.listComment)
   }
 
 
   submit() {
-    this.obj = {
+    const obj = {
       product: {
         id: this.id
       },
       user: {
-        id: localStorage.getItem('ID')
+        id: localStorage.getItem('ID'),
       },
       description: this.commentForm.value.description
     }
-    console.log(this.obj)
-    this.commentService.save(this.obj).subscribe((data) => {
-        console.log(data)
+    this.commentService.save(obj).subscribe(() => {
       this.commentForm.reset();
+      this.comment()
       }, error => {
         alert("Loi");
         console.log(error)
@@ -70,11 +77,8 @@ export class DetailProductComponent implements OnInit {
   comment() {
     this.commentService.getAllComment().subscribe((data) => {
       this.listComment = data;
-      console.log(data)
     }, error => {
-
     })
-    this.getProduct();
   }
 
   getProduct() {

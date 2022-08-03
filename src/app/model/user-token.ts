@@ -5,6 +5,7 @@ export interface UserToken {
   username: string;
   password: string;
   confirmPassword: string;
+  name : string;
   phone: string;
   accessToken: string;
   enabled: boolean;

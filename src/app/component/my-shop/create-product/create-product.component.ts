@@ -49,6 +49,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   add() {
+
     this.product = {
       name: this.productForm.value.name,
       category: {
