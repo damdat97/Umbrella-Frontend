@@ -21,17 +21,6 @@ import {NgxPaginationModule} from "ngx-pagination";
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
-import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {MatButtonModule} from "@angular/material/button";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatRadioModule} from "@angular/material/radio";
-import {MatIconModule} from "@angular/material/icon";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatCardModule} from "@angular/material/card";
-import {MatInputModule} from "@angular/material/input";
-import {MatPaginatorModule} from "@angular/material/paginator";
 import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
 import {ProductByCategoryComponent} from "./component/product/product-by-category/product-by-category.component";
 import { DeleteComponent } from './component/product/delete/delete.component';
@@ -66,17 +55,6 @@ import { EditProductComponent } from './component/my-shop/edit-product/edit-prod
         ReactiveFormsModule,
         AngularFireStorageModule,
         AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-        MatInputModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatRadioModule,
-        MatCheckboxModule,
-        MatSlideToggleModule,
-        MatButtonModule,
-        MatProgressSpinnerModule,
-        MatProgressBarModule,
-        MatPaginatorModule,
         FormsModule
     ],
   providers: [{
