@@ -11,30 +11,14 @@
     </div>
 
       <ul class="main-nav nav navbar-nav navbar-right">
-        <li class="dropdown yamm-fw" data-wow-delay="0.1s" *ngIf="isLogin">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">{{username}} <b class="caret"></b></a>
-          <ul class="dropdown-menu" style="width: 22%; position: absolute; left: auto">
-            <li id="use">
-              <div class="yamm-content">
-                <div class="row">
-                  <div class="col-12">
-                    <ul>
-                      <li>
-                        <a [routerLink]="['/my-shop', id]" >Cửa hàng của tôi</a>
-                      </li>
-<!--                      <li>-->
-<!--                        <a [routerLink]="['/my-order', id]">Danh sách đơn thuê</a>-->
-<!--                      </li>-->
-                      <li>
-                        <a href="" (click)="logOut()">Đăng xuất</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </li>
+        <div class="dropdown" *ngIf="isLogin">
+          <button class="dropbtn">{{username}}</button>
+          <div class="dropdown-content">
+            <a [routerLink]="['/my-shop', id]" >Cửa hàng của tôi</a>
+            <a href="" (click)="logOut()">Đăng xuất</a>
+          </div>
+        </div>
+
       </ul>
 
     <div class="product_list_header">
