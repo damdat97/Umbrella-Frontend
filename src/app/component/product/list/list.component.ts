@@ -4,6 +4,7 @@ import {Product} from "../../../model/product";
 import {ImageService} from "../../../service/image.service";
 import {Category} from "../../../model/category";
 import {User} from "../../../model/user";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-list',
@@ -11,7 +12,7 @@ import {User} from "../../../model/user";
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  products: Product[] = [];
+  products: Product[] | any;
 
   p: number = 1;
   total: number = 0;
@@ -77,6 +78,10 @@ export class ListComponent implements OnInit {
     }, error => {
       console.log(error)
     })
+  }
 
+  pageChangeEvent(event: number) {
+    this.p = event;
+    this.getAllProduct();
   }
 }
