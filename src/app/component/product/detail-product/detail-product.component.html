@@ -45,11 +45,13 @@
               </fieldset>
             </form>
           </div>
+          <br>
+          <input type="submit"[routerLink]="['/create-comment',obj.id]" name="submit" value="Bình luận " class="button" >
         </div>
       </div>
       <div class="clearfix"></div>
     </div>
   </div>
 </div>
-
+<app-list-comment></app-list-comment>
 <app-footer></app-footer>

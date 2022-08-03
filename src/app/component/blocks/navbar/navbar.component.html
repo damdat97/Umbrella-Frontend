@@ -13,7 +13,8 @@
       <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
         <ul class="nav navbar-nav">
           <li class="active columns-3"><a href="index.html" class="act">Home</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#exampleModal1" [routerLink] ="['/create-product/']">Thêm sản phẩm</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#exampleModalCreate" [routerLink] ="['/create-product/']">Thêm sản phẩm</a></li>
+
           <li class="active" *ngFor="let category of categories">
             <a href="#" [routerLink]="['/product-by-category']" class="act">{{category.name}}</a></li>
         </ul>

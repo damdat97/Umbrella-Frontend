@@ -1,9 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ProductService} from "../../../service/product.service";
-import {Product} from "../../../model/product";
 import {ImageService} from "../../../service/image.service";
-import {Category} from "../../../model/category";
-import {User} from "../../../model/user";
+
 
 @Component({
   selector: 'app-list',

@@ -6,6 +6,7 @@ import {RegisterComponent} from "./component/pages/register/register.component";
 import {DetailProductComponent} from "./component/product/detail-product/detail-product.component";
 import {EditComponent} from "./component/product/edit/edit.component";
 import {CreateProductComponent} from "./component/product/create-product/create-product.component";
+import {CreateCommentComponent} from "./component/comment/create-comment/create-comment.component";
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   },{
     path:'create-product',
     component:CreateProductComponent
+  },{
+    path:'create-comment/:id',
+    component:CreateCommentComponent
   },
   {
     path: "login",

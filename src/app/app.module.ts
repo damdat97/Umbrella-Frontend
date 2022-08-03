@@ -23,6 +23,8 @@ import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {CreateProductComponent} from "./component/product/create-product/create-product.component";
+import { CreateCommentComponent } from './component/comment/create-comment/create-comment.component';
+import { ListCommentComponent } from './component/comment/list-comment/list-comment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,9 @@ import {CreateProductComponent} from "./component/product/create-product/create-
     DetailProductComponent,
     CreateProductComponent,
     EditComponent,
-    ListCategoryComponent
+    ListCategoryComponent,
+    CreateCommentComponent,
+    ListCommentComponent
   ],
   imports: [
     BrowserModule,
