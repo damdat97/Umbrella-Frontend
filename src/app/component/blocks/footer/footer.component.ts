@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../service/authentication.service";
 import {CategoryService} from "../../../service/category.service";
 import {ProductService} from "../../../service/product.service";
@@ -11,19 +11,22 @@ import {Category} from "../../../model/category";
 })
 export class FooterComponent implements OnInit {
   categories: Category[] = [];
+  id = localStorage.getItem("ID")
 
   constructor(private authenticationService: AuthenticationService,
               private categoryService: CategoryService,
-              private productService: ProductService) { }
+              private productService: ProductService) {
+  }
 
   ngOnInit(): void {
     this.getAllCategory()
     this.categoryService.getAll().subscribe((data) => {
       // console.log(data);
-      this.categories=data;
+      this.categories = data;
     })
     this.getAllProduct()
   }
+
   searchCategory(id: any) {
     // const id = this.productForm.value.categoryId;
     this.productService.findProductByCategories(id).subscribe(data => {
@@ -32,12 +35,14 @@ export class FooterComponent implements OnInit {
       console.log(data);
     });
   }
-  getAllCategory(){
+
+  getAllCategory() {
     this.categoryService.getAll().subscribe((data) => {
       console.log(data);
-      this.categories=data;
+      this.categories = data;
     })
   }
+
   getAllProduct() {
     this.productService.getAll().subscribe(data => {
       // @ts-ignore

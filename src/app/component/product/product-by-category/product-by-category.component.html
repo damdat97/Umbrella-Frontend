@@ -81,7 +81,7 @@
                     <div class="snipcart-thumb">
                       <a href="single.html"><img
                         src="{{product.image[0].image}}"
-                        style="width: 500px"/></a>
+                      class="img-responsive"/></a>
                       <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
                       <h4>{{product.price}} $</h4>
                     </div>
@@ -90,8 +90,8 @@
                       <br>
                     </div>
                     <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
-                      <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]">Sửa</button>
-                      <button class="btn btn-primary"  (click)="deleteProduct(product.id)">Xóa</button>
+                      <button class="btn btn-info" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]" style="margin-right: 10px;width: 50px">Sửa</button>
+                      <button class="btn btn-primary"  (click)="deleteProduct(product.id)" style="width: 50px">Xóa</button>
 
                       <br>
                     </div>

@@ -77,9 +77,14 @@ export class CreateProductComponent implements OnInit {
       }
       this.productForm.reset()
       this.image = []
+      alert("Thành Công")
+      // @ts-ignore
+      $('#exampleModalCreateProduct').modal('hide');
+      this.productForm.reset()
       this.router.navigate(["/my-shop",this.product.user.id]);
       console.log(this.image)
     }, error => {
+      alert("Lỗi")
       console.log(error)
     })
   }

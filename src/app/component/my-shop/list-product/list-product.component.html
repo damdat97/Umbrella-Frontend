@@ -5,7 +5,7 @@
 
   <div class="container">
     <div style="margin-bottom: 50px">
-      <a  [routerLink] ="['/create-product/']">Thêm sản phẩm</a>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCreateProduct" [routerLink] ="['/create-product/']">Thêm sản phẩm</button>
     </div>
 
 
@@ -17,7 +17,6 @@
           <th>Ảnh</th>
           <th>Số Lượng</th>
           <th>Tên Sản Phẩm</th>
-
           <th>Giá</th>
           <th>Chức Năng</th>
 
@@ -40,7 +39,7 @@
           <td class="invert">{{product.price}}</td>
           <td class="invert">
             <div class="rem">
-              <button type="submit" class="btn btn-primary" style="margin-right: 30px" data-toggle="modal" data-target="#exampleModalEditProductMyShop" [routerLink]="['/edit-product-my-shop',product.id]">Sửa</button>
+              <button type="submit" class="btn btn-info" style="margin-right: 30px" data-toggle="modal" data-target="#exampleModalEditProductMyShop" [routerLink]="['/edit-product-my-shop',product.id]">Sửa</button>
               <button class="btn btn-danger" (click)="deleteProduct(product.id)">Xóa</button>
             </div>
           </td>
