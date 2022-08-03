@@ -23,7 +23,6 @@ export class CreateCommentComponent implements OnInit {
   listProduct: Product[] = []
 
 
-
   constructor(private commentService: CommentService,
               private activatedRoute: ActivatedRoute,
               private productService: ProductService,
@@ -54,9 +53,6 @@ export class CreateCommentComponent implements OnInit {
     console.log(this.obj)
     this.commentService.save(this.obj).subscribe((data) => {
         console.log(data)
-        this.commentForm.reset()
-        this.router.navigate(["detail-product"]);
-
       }, error => {
         alert("Loi");
         console.log(error)

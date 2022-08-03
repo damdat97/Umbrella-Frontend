@@ -17,7 +17,9 @@
     <div class="agileinfo_single">
 
       <div class="col-md-4 agileinfo_single_left">
-        <img id="example" src="https://uploads-ssl.webflow.com/5ce272038eff8bc2bf0b7a0e/5f929df0fd248ba1eecd80db_iphone-12%20(15).jpg" alt=" " class="img-responsive">
+        <img id="example"
+             src="https://uploads-ssl.webflow.com/5ce272038eff8bc2bf0b7a0e/5f929df0fd248ba1eecd80db_iphone-12%20(15).jpg"
+             alt=" " class="img-responsive">
       </div>
       <div class="col-md-8 agileinfo_single_right">
         <h2>{{obj.name}}</h2>
@@ -46,10 +48,25 @@
             </form>
           </div>
           <br>
-          <input type="submit"[routerLink]="['/create-comment',obj.id]" name="submit" value="Bình luận " class="button" >
         </div>
       </div>
       <div class="clearfix"></div>
+    </div>
+  </div>
+  <div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+      <div class="d-flex flex-column col-md-8">
+        <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
+        </div>
+        <div class="coment-bottom bg-white p-2 px-4">
+          <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+            <form [formGroup]="commentForm" (ngSubmit)="submit()">
+              <input type="text" class="form-control mr-3" placeholder="Add comment" formControlName="description"> <br>
+              <button class="btn btn-primary" type="submit">Comment</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

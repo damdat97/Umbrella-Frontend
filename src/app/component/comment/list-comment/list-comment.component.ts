@@ -15,14 +15,13 @@ export class ListCommentComponent implements OnInit {
 
   constructor(private httpClient: HttpClient,
               private commentService: CommentService,
-              private router:Router) {
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this.commentService.getAllComment().subscribe((data) => {
       console.log(data)
       this.listComment = data;
-      this.router.navigate(["/detail-commnent"])
     }, error => {
 
     })
