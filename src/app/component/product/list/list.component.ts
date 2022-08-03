@@ -13,13 +13,11 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class ListComponent implements OnInit {
   products: Product[] | any;
-
   p: number = 1;
-  total: number = 0;
-
-
+  total: number = 0
   cartProducts: any[] = [];
   image: any;
+
   userId = localStorage.getItem("ID")
   product: FormGroup = new FormGroup({
     name: new FormControl(''),
