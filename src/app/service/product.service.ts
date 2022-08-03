@@ -36,4 +36,7 @@ export class ProductService {
   save(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(API_URL + '/products', product);
   }
+  searchByAll( name:any,category_id:any,from:any,to:any):Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find?name='+name+'&category_id'+category_id+'&from='+from+'&to='+to );
+  }
 }
