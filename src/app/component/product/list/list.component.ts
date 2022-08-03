@@ -5,6 +5,7 @@ import {ImageService} from "../../../service/image.service";
 import {Category} from "../../../model/category";
 import {User} from "../../../model/user";
 import {FormControl, FormGroup} from "@angular/forms";
+import {PageEvent} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-list',
@@ -16,6 +17,9 @@ export class ListComponent implements OnInit {
 
   p: number = 1;
   total: number = 0;
+
+  // @ts-ignore
+  loading:boolean;
 
 
   cartProducts: any[] = [];

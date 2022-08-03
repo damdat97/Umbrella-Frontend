@@ -19,10 +19,7 @@
                 a great deal.</p>
             </div>
 
-            <!--            <form [formGroup]="product" (ngSubmit)="searchByName()">-->
-            <!--              <input type="text" formControlName='name'>-->
-            <!--              <button>Tìm theo tên</button>-->
-            <!--            </form>-->
+
             <div class="w3l_search">
               <form [formGroup]="product" (ngSubmit)="searchByAll()">
                 <p>tìm theo tên</p>
@@ -40,15 +37,7 @@
             </div>
 
 
-            <!--              <input type="text" [(ngModel)]="name"><br>-->
-
-            <!--            <input type="text" [(ngModel)]="from"><br>-->
-
-            <!--            <input type="text" [(ngModel)]="to"><br>-->
-
-            <!--            <input type="text" [(ngModel)]="category_id" >-->
-            <!--            <button (click)="searchByAll()">Tìm theo giá</button>-->
-
+          </div>
 
             <div class="agile_top_brands_grids">
               <div class="col-md-4 top_brand_left"
@@ -82,9 +71,9 @@
                 </div>
                 <br>
                 <div class="clearfix"></div>
-
-                <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
               </div>
+                <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+
               <div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
                 <div class="agile-tp">
                   <h5>This week</h5>
@@ -365,4 +354,4 @@
         </div>
       </div>
     </div>
-
+</div>
