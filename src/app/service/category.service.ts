@@ -14,7 +14,9 @@ export class CategoryService {
   getAll(): Observable<Category[]> {
     return this.httpClient.get<Category[]>(API_URL + '/categories');
   }
-  findByIdCategory(id: any): Observable<Category> {
-    return this.httpClient.get<Category>(API_URL + '/categories/' + id)
+
+
+  findById(id:any): Observable<Category> {
+    return this.httpClient.get<Category>(API_URL + '/categories/' +id)
   }
 }

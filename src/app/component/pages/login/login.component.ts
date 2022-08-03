@@ -29,7 +29,12 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('USERNAME', data.username);
       localStorage.setItem('ID', data.id);
       if (data.roles[0].authority == "ROLE_USER") {
+        alert("Dang nhap thanh cong")
         this.router.navigate(['']);
+      }
+      if (data.roles[0].authority == "ROLE_ADMIN") {
+        alert("Dang nhap thanh cong")
+        this.router.navigate(['/admin']);
       }
     }, error => {
       alert("Sai tài khoản hoặc mật khẩu!")

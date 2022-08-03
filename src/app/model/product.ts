@@ -8,6 +8,6 @@ export interface Product {
   price: string,
   quantity: string,
   category: Category,
-  owner: User
-
+  user: User,
+  image: any
 }

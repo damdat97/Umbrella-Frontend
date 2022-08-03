@@ -1,0 +1,36 @@
+<app-list-product></app-list-product>
+<div class="modal fade" id="exampleModalEditProductMyShop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel" style="text-align: center">Sửa Sản Phẩm</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="editProductMyShopForm" (submit)="save()">
+          <input type="hidden" formControlName="id">
+          <label style="margin-left: 20%">Tên Sản Phẩm:</label>
+          <input type='text' formControlName="name"  class="form-control"  style="width: 500px; height: 35px;margin-left: 20%"><br>
+          <label style="margin-left: 20%">Mô Tả Sản Phẩm:</label>
+          <input type='text' formControlName="description" class="form-control" style="width: 500px; height: 35px;margin-left: 20%"><br>
+          <label style="margin-left: 20%">Số Lượng Sản Phẩm:</label>
+          <input type='text' formControlName="quantity" class="form-control" style="width: 500px; height: 35px;margin-left: 20%"><br>
+          <label style="margin-left: 20%">Giá Sản Phẩm:</label>
+          <input type='text' formControlName="price" class="form-control" style="width: 500px; height: 35px;margin-left: 20%"><br>
+          <label style="margin-left: 20%">Loại Sản Phẩm:</label>
+          <select formControlName="categoryId" class="form-control" style="width: 500px; height: 35px;margin-left: 20%">
+            <option *ngFor="let category of listCategory" value="{{category.id}}">
+              {{category.name}}
+            </option>
+          </select>
+          <br>
+          <div class="modal-footer" >
+            <button type="submit" style="margin-right: 375px"  class="btn btn-primary">Sửa</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

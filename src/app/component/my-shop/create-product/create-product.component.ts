@@ -30,11 +30,12 @@ export class CreateProductComponent implements OnInit {
               private categoryService: CategoryService) {
   }
 
-  selectedImages: any[] = [];
+  selectedImag: any;
   product: any;
   listCategory: Category[] = []
   idProductImage: any;
-  images: any[] = [];
+  image: any;
+  images: any[] = []
 
   ngOnInit(): void {
     this.getAllCategory();
@@ -62,48 +63,49 @@ export class CreateProductComponent implements OnInit {
     }
     console.log(this.product)
     this.productService.save(this.product).subscribe((product) => {
-      console.log(this.images)
+      this.idProductImage = product.id
       for (let i = 0; i < this.images.length; i++) {
-        const image = {
-          images: this.images[i],
+        this.image = {
+          image: this.images[i],
           product: {
-            id: product.id
+            id: this.idProductImage
           }
         };
-        this.imageService.save(image).subscribe(() => {
+        this.imageService.save(this.image).subscribe(() => {
           console.log('SUCCESSFULLY CREATE')
-
         });
       }
       this.productForm.reset()
-      this.images = []
-      this.router.navigate(["/"]);
-      console.log(this.images)
+      this.image = []
+      alert("Thành Công")
+      // @ts-ignore
+      $('#exampleModalCreateProduct').modal('hide');
+      this.productForm.reset()
+      this.router.navigate(["/my-shop",this.product.user.id]);
+      console.log(this.image)
     }, error => {
+      alert("Lỗi")
       console.log(error)
     })
   }
 
+  selectedImages: any[] = [];
 
-  async showPreview(event: any) {
-    let newSelectedImages = [];
+  showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
-      newSelectedImages = event.target.files;
-      for (let i = 0; i < event.target.files.length; i++) {
-        this.selectedImages.push(event.target.files[i]);
-      }
+      this.selectedImages = event.target.files;
     } else {
       this.selectedImages = [];
     }
-    if (newSelectedImages.length !== 0) {
-      for (let i = 0; i < newSelectedImages.length; i++) {
-        let selectedImage = newSelectedImages[i];
+    if (this.selectedImages.length !== 0) {
+      for (let i = 0; i < this.selectedImages.length; i++) {
+        let selectedImage = this.selectedImages[i];
         var n = Date.now();
         const filePath = `RoomsImages/${n}`;
         const fileRef = this.storage.ref(filePath);
-        await this.storage.upload(filePath, selectedImage).snapshotChanges().pipe(
+        this.storage.upload(filePath, selectedImage).snapshotChanges().pipe(
           finalize(() => {
             fileRef.getDownloadURL().subscribe(url => {
               this.images.push(url);

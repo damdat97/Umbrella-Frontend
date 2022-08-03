@@ -1,18 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {ProductService} from "../../../service/product.service";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {Category} from "../../../model/category";
+import {ProductService} from "../../../service/product.service";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CategoryService} from "../../../service/category.service";
-import {Product} from "../../../model/product";
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  selector: 'app-edit-product',
+  templateUrl: './edit-product.component.html',
+  styleUrls: ['./edit-product.component.css']
 })
-export class EditComponent implements OnInit {
-  editForm: FormGroup = new FormGroup({
+export class EditProductComponent implements OnInit {
+
+  editProductMyShopForm: FormGroup = new FormGroup({
     id: new FormControl(0),
     name: new FormControl(''),
     description: new FormControl(''),
@@ -37,15 +37,15 @@ export class EditComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe((param) => {
       const id = param.get('id');
-      this.findById(id);
+      this.findProductByMyShopId(id);
     })
   }
 
 
-  findById(id: any) {
+  findProductByMyShopId(id: any) {
     this.productService.findById(id).subscribe((data) => {
       console.log(data);
-      this.editForm = new FormGroup({
+      this.editProductMyShopForm = new FormGroup({
         id: new FormControl(data.id),
         name: new FormControl(data.name),
         price: new FormControl(data.price),
@@ -59,24 +59,24 @@ export class EditComponent implements OnInit {
 
   save() {
     this.obj = {
-      name: this.editForm.value.name,
+      name: this.editProductMyShopForm.value.name,
       category: {
-        id: this.editForm.value.categoryId
+        id: this.editProductMyShopForm.value.categoryId
       },
-      quantity: this.editForm.value.quantity,
-      price: this.editForm.value.price,
-      description: this.editForm.value.description,
+      quantity: this.editProductMyShopForm.value.quantity,
+      price: this.editProductMyShopForm.value.price,
+      description: this.editProductMyShopForm.value.description,
       user: {
         id: localStorage.getItem("ID")
       }
     }
     console.log(this.obj)
-    this.productService.updateProduct(this.editForm.value.id, this.obj).subscribe(() => {
+    this.productService.updateProduct(this.editProductMyShopForm.value.id, this.obj).subscribe(() => {
       alert("Thành Công")
       // @ts-ignore
-      $('#exampleModalEdit').modal('hide');
-      this.editForm.reset()
-      this.router.navigate(["/"])
+      $('#exampleModalEditProductMyShop').modal('hide');
+      this.editProductMyShopForm.reset()
+      this.router.navigate(["/my-shop",this.obj.user.id])
     }, error => {
       alert("Lỗi")
       console.log(error)

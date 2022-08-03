@@ -1,0 +1,53 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<div class="checkout">
+
+  <div class="container">
+    <div style="margin-bottom: 50px">
+      <button class="button-23 button-ed" role="button" data-toggle="modal" data-target="#exampleModalCreateProduct" [routerLink] ="['/create-product/']"><i class="fa-solid fa-plus" style="margin-right: 5px"></i> Thêm sản phẩm</button>
+    </div>
+
+
+    <div class="checkout-right">
+      <table class="timetable_sub">
+        <thead>
+        <tr>
+          <th>STT</th>
+          <th>Ảnh</th>
+          <th>Số Lượng</th>
+          <th>Tên Sản Phẩm</th>
+          <th>Giá</th>
+          <th>Chức Năng</th>
+        </tr>
+        </thead>
+        <tr class="rem1" *ngFor="let product of products,index as i">
+          <td class="invert">{{i + 1}}</td>
+          <td class="invert-image"><a [routerLink]="['/product-detail', product.id]">
+            <img
+            src="{{product.image[0].image}}"
+            class="img-responsive"/></a>
+          </td>
+          <td class="invert">
+            <div class="quantity">
+              <div class="quantity-select">
+                <div>{{product.quantity}}</div>
+
+              </div>
+            </div>
+          </td>
+          <td class="invert">{{product.name}}</td>
+
+          <td class="invert">{{product.price}}</td>
+          <td class="invert">
+            <div class="rem">
+              <button type="button" class="btn button-edit button-ed" style="margin-right: 30px" data-toggle="modal" data-target="#exampleModalEditProductMyShop" [routerLink]="['/edit-product-my-shop',product.id]"><i class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i> Sửa</button>
+              <button class="btn button-ed button-cl" (click)="deleteProduct(product.id)"><i class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

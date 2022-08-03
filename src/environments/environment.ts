@@ -4,17 +4,17 @@
 
 export const environment = {
   production: false,
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-     firebaseConfig : {
-      apiKey: "AIzaSyD5NykbtL6dnB9YdvxD9boqZb4EUrYRnbM",
-      authDomain: "tanghoa01-1bfb9.firebaseapp.com",
-      databaseURL: "https://tanghoa01-1bfb9-default-rtdb.firebaseio.com",
-      projectId: "tanghoa01-1bfb9",
-      storageBucket: "tanghoa01-1bfb9.appspot.com",
-      messagingSenderId: "656737352140",
-      appId: "1:656737352140:web:c93cea5bd189ff46c30569",
-      measurementId: "G-XYXE3XCE7H"
-      },
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+ firebaseConfig : {
+   apiKey: "AIzaSyCRmRUfBSuLx1aG6VPPGte-Apzg3gsOdD8",
+   authDomain: "ducthuan.firebaseapp.com",
+   databaseURL:"https://ducthuan-default-rtdb.firebaseio.com/",
+   projectId: "ducthuan",
+   storageBucket: "ducthuan.appspot.com",
+   messagingSenderId: "105940412277",
+   appId: "1:105940412277:web:7db616fdaf23055245953c",
+   measurementId: "G-312SC4N6W2"
+ },
   apiUrl: 'http://localhost:8080'
 };
 

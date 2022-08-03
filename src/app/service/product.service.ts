@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Product} from "../model/product";
 import {Observable} from "rxjs";
+import {Category} from "../model/category";
 
 const API_URL = environment.apiUrl;
 
@@ -20,7 +21,7 @@ export class ProductService {
     return this.httpClient.get<Product>(API_URL + '/products/' + id)
   }
   findNewProduct(): Observable<Product> {
-    return this.httpClient.get<Product>(API_URL + '/products/find-new-product')
+    return this.httpClient.get<Product>(API_URL + '/products/find-new-products')
   }
   delete(id: any): Observable<Product> {
     return this.httpClient.delete<Product>(API_URL + '/products/' + id);
@@ -28,8 +29,20 @@ export class ProductService {
   updateProduct(id: number, product: Product): Observable<Product> {
     return this.httpClient.put<Product>(API_URL + '/products/' + id, product);
   }
+  findProductByCategories(id: any): Observable<Product[]>{
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-category/' + id)
+  }
 
   save(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(API_URL + '/products', product);
+  }
+  searchByAll( name:any,category_id:any,from:any,to:any):Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find?name='+name+'&category_id'+category_id+'&from='+from+'&to='+to );
+  }
+  sortProductByQuantity(id: any):Observable<Product[]>{
+    return this.httpClient.get<Product[]>(API_URL + '/products/sort-products-by-quantity/' + id)
+  }
+  findProductByUserId(id:any):Observable<Product[]>{
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-my-shop/' + id)
   }
 }

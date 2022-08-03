@@ -5,8 +5,10 @@ import {LoginComponent} from "./component/pages/login/login.component";
 import {RegisterComponent} from "./component/pages/register/register.component";
 import {DetailProductComponent} from "./component/product/detail-product/detail-product.component";
 import {EditComponent} from "./component/product/edit/edit.component";
-import {CreateProductComponent} from "./component/product/create-product/create-product.component";
-import {CreateCommentComponent} from "./component/comment/create-comment/create-comment.component";
+import {ProductByCategoryComponent} from "./component/product/product-by-category/product-by-category.component";
+import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
+import {ListProductComponent} from "./component/my-shop/list-product/list-product.component";
+import {EditProductComponent} from "./component/my-shop/edit-product/edit-product.component";
 
 const routes: Routes = [
   {
@@ -18,14 +20,23 @@ const routes: Routes = [
     component:DetailProductComponent
   },
   {
+    path:'my-shop/:id',
+    component:ListProductComponent
+  },
+  {
+    path:'products-by-categories/:id',
+    component:ProductByCategoryComponent
+  },
+  {
+    path:'edit-product-my-shop/:id',
+    component:EditProductComponent
+  },
+  {
     path:'edit-product/:id',
     component:EditComponent
   },{
     path:'create-product',
     component:CreateProductComponent
-  },{
-    path:'create-comment/:id',
-    component:CreateCommentComponent
   },
   {
     path: "login",

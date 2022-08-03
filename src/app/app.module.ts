@@ -9,19 +9,23 @@ import {LoginComponent} from "./component/pages/login/login.component";
 import {FooterComponent} from "./component/blocks/footer/footer.component";
 import {NavbarComponent} from "./component/blocks/navbar/navbar.component";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {JwtInterceptor} from "./helper/jwt-interceptor";
 import {ErrorInterceptor} from "./helper/error-interceptor";
-import {ProductComponent} from "./component/product/product/product.component";
 import {HeaderComponent} from "./component/blocks/header/header.component";
 import {ListComponent} from "./component/product/list/list.component";
 import {DetailProductComponent} from "./component/product/detail-product/detail-product.component";
-import {NewProductComponent} from "./component/product/new-product/new-product.component";
 import {EditComponent} from "./component/product/edit/edit.component";
 import {ListCategoryComponent} from "./component/category/list-category/list-category.component";
+import {NgxPaginationModule} from "ngx-pagination";
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {ProductByCategoryComponent} from "./component/product/product-by-category/product-by-category.component";
+import { DeleteComponent } from './component/product/delete/delete.component';
+import { ListProductComponent } from './component/my-shop/list-product/list-product.component';
+import { EditProductComponent } from './component/my-shop/edit-product/edit-product.component';
+
 import {CreateProductComponent} from "./component/product/create-product/create-product.component";
 import { CreateCommentComponent } from './component/comment/create-comment/create-comment.component';
 import { ListCommentComponent } from './component/comment/list-comment/list-comment.component';
@@ -41,18 +45,25 @@ import { ListCommentComponent } from './component/comment/list-comment/list-comm
     CreateProductComponent,
     EditComponent,
     ListCategoryComponent,
+    ProductByCategoryComponent,
+    DeleteComponent,
+    ListProductComponent,
+    EditProductComponent
+    ListCategoryComponent,
     CreateCommentComponent,
     ListCommentComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+        ReactiveFormsModule,
+        AngularFireStorageModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+        FormsModule
+    ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptor, multi: true

@@ -50,6 +50,7 @@ export class RegisterComponent implements OnInit {
       <string>this.registerForm.value.password,
       <string>this.registerForm.value.confirmPassword).pipe(first()).subscribe(data => {
       alert("done")
+      console.log(data)
       this.router.navigate(["/login"])
     }, error => {
       console.log(error)

@@ -4,6 +4,7 @@ import {ProductService} from "../../../service/product.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Product} from "../../../model/product";
 import {CommentService} from "../../../service/comment.service";
+import {ImageService} from "../../../service/image.service";
 
 @Component({
   selector: 'app-detail-product',
@@ -11,20 +12,22 @@ import {CommentService} from "../../../service/comment.service";
   styleUrls: ['./detail-product.component.css']
 })
 export class DetailProductComponent implements OnInit {
+  obj: any;
 
   commentForm: FormGroup = new FormGroup({
     id: new FormControl(''),
     description: new FormControl('')
 
   })
-  obj: any = [];
   id: any
+  userId = localStorage.getItem("ID")
   listProduct: Product[] = []
   listComment: any;
 
 
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
+              private imageService: ImageService,
               private commentService: CommentService,
               private router: Router) {
   }
@@ -70,6 +73,27 @@ export class DetailProductComponent implements OnInit {
       console.log(data)
     }, error => {
 
+    })
+    this.getProduct();
+  }
+
+  getProduct() {
+    this.productService.findById(this.id).subscribe((data) => {
+        this.imageService.findAllByProductId(data.id).subscribe((x)=> {
+          console.log(x)
+          this.obj = ({
+            id: data.id,
+            name:data.name,
+            description: data.description,
+            price: data.price,
+            quantity: data.quantity,
+            category: data.category,
+            user: data.user,
+            image: x
+          })
+        })
+    }, error => {
+      console.log(error);
     })
   }
 
