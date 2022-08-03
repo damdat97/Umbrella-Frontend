@@ -15,7 +15,7 @@ export class ProductService {
   constructor(private httpClient: HttpClient) {
   }
   getAll(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(API_URL + '/products');
+    return this.httpClient.get<Product[]>(API_URL + '/products/?_sort=id&_order=desc');
   }
   findById(id: any): Observable<Product> {
     return this.httpClient.get<Product>(API_URL + '/products/' + id)
@@ -36,7 +36,10 @@ export class ProductService {
   save(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(API_URL + '/products', product);
   }
-  searchByAll( name:any,category_id:any,from:any,to:any):Observable<Product[]> {
-    return this.httpClient.get<Product[]>(API_URL + '/products/find?name='+name+'&category_id'+category_id+'&from='+from+'&to='+to );
+  searchByAll( name:any,description:any,from:any,to:any):Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find?name='+name+'&description='+description+'&from='+from+'&to='+to );
+  }
+  sortProductsByPrice(id:any):Observable<Product[]>{
+    return this.httpClient.get<Product[]>(API_URL + '/products/sort-products-by-price/'+id);
   }
 }

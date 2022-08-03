@@ -9,5 +9,5 @@ export interface Product {
   quantity: string,
   category: Category,
   user: User,
-  image: any
+  image: any;
 }

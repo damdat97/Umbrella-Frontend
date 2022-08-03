@@ -15,8 +15,6 @@ import {PageEvent} from "@angular/material/paginator";
 export class ListComponent implements OnInit {
   products: Product[] | any;
 
-  p: number = 1;
-  total: number = 0;
 
   // @ts-ignore
   loading:boolean;
@@ -25,12 +23,7 @@ export class ListComponent implements OnInit {
   cartProducts: any[] = [];
   image: any;
   userId = localStorage.getItem("ID")
-  product: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    category_id:new FormControl(''),
-    from:new FormControl(''),
-    to: new FormControl('')
-  })
+
 
   constructor(private productService: ProductService,
               private imageService: ImageService) {
@@ -75,17 +68,7 @@ export class ListComponent implements OnInit {
   }
 
 
-  searchByAll() {
-    this.productService.searchByAll( this.product.value.name, this.product.value.category_id,this.product.value.from, this.product.value.to).subscribe((data) => {
-      console.log(data)
-      this.products = data;
-    }, error => {
-      console.log(error)
-    })
-  }
 
-  pageChangeEvent(event: number) {
-    this.p = event;
-    this.getAllProduct();
-  }
+
+
 }

@@ -12,6 +12,7 @@ export class DetailProductComponent implements OnInit {
   obj: any;
   id: any
   userId = localStorage.getItem("ID")
+  image: any;
 
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
@@ -49,5 +50,6 @@ export class DetailProductComponent implements OnInit {
       console.log(error);
     })
   }
+
 
 }
