@@ -38,6 +38,8 @@ export class DetailProductComponent implements OnInit {
         this.obj = data;
       });
     });
+    this.comment();
+    console.log(this.listComment)
   }
 
 
@@ -54,6 +56,7 @@ export class DetailProductComponent implements OnInit {
     console.log(this.obj)
     this.commentService.save(this.obj).subscribe((data) => {
         console.log(data)
+      this.commentForm.reset();
       }, error => {
         alert("Loi");
         console.log(error)
@@ -64,6 +67,7 @@ export class DetailProductComponent implements OnInit {
   comment() {
     this.commentService.getAllComment().subscribe((data) => {
       this.listComment = data;
+      console.log(data)
     }, error => {
 
     })

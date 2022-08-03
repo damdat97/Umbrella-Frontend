@@ -53,6 +53,30 @@
       <div class="clearfix"></div>
     </div>
   </div>
+
+
+  <div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+      <div class="d-flex flex-column col-md-8" *ngFor="let item of listComment">
+        <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
+          <div
+            class="commented-section mt-2">
+            <div class="d-flex flex-row align-items-center commented-user">
+              <h5 class="mr-2">{{item.user.name}}</h5></div>
+            <div class="comment-text-sm"><span>{{item.description}}</span></div>
+            <div
+              class="reply-section">
+              <div class="d-flex flex-row align-items-center voting-icons"><i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center row">
       <div class="d-flex flex-column col-md-8">
@@ -70,5 +94,4 @@
     </div>
   </div>
 </div>
-<app-list-comment></app-list-comment>
 <app-footer></app-footer>
