@@ -26,9 +26,8 @@
         <h3>Category</h3>
           <ul class="info" >
             <li><i class="fa fa-arrow-right" aria-hidden="true"></i>
-              <a [routerLink]="['/product-by-category']" (click)="getAllProduct()">Tất Cả Sản Phẩm</a>
             <li *ngFor="let category of categories"><i class="fa fa-arrow-right" aria-hidden="true"></i>
-              <a [routerLink]="['/product-by-category',category.id]" (click)="searchCategory(category.id)">{{category.name}}</a>
+              <a [routerLink]="['/products-by-categories',category.id]" (click)="searchCategory(category.id)">{{category.name}}</a>
             </li>
           </ul>
       </div>

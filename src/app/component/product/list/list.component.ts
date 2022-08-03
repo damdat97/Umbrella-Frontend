@@ -56,4 +56,14 @@ export class ListComponent implements OnInit {
       localStorage.setItem("cart", JSON.stringify(this.cartProducts))
     }
   }
+  deleteProduct(id: any) {
+    if (confirm('Are you sure you want to delete?')) {
+      this.productService.delete(id).subscribe(() => {
+        alert("Ok");
+        this.getAllProduct()
+      }, e => {
+        console.log(e);
+      });
+    }
+  }
 }

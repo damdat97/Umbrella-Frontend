@@ -21,7 +21,8 @@ export class ProductByCategoryComponent implements OnInit {
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private imageService: ImageService,
-              private categoryService: CategoryService) { }
+              private categoryService: CategoryService) {
+  }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param) => {
@@ -29,19 +30,27 @@ export class ProductByCategoryComponent implements OnInit {
       this.findById(id);
     })
   }
+
   searchCategory(id: any) {
     this.image = []
     this.productService.findProductByCategories(id).subscribe((data) => {
       this.productByCate = data
       console.log("1", data)
-      for (let i =0; i<data.length; i++) {
-        this.imageService.findAllByProductId(data[i].id).subscribe((image)=> {
+      for (let i = 0; i < data.length; i++) {
+        this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
           this.productByCate[i].image = image;
           console.log(this.productByCate)
         })
       }
-        })
-      }
+    })
+  }
+
+  sortProductByQuantity(id: any) {
+    this.productService.sortProductByQuantity(id).subscribe((data) => {
+      this.productByCate = data
+      console.log(data)
+    })
+  }
 
   findById(id: any) {
     this.categoryService.findById(id).subscribe((data) => {
@@ -49,5 +58,29 @@ export class ProductByCategoryComponent implements OnInit {
       this.searchCategory(id)
     })
   }
-
+  getAllProduct() {
+    this.image = []
+    this.productService.getAll().subscribe((data) => {
+      this.productByCate = data
+      console.log("1", data)
+      for (let i = 0; i < data.length; i++) {
+        this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
+          this.productByCate[i].image = image;
+          console.log(this.productByCate)
+        })
+      }
+    }, error => {
+      console.log(error);
+    })
+  }
+  deleteProduct(id: any) {
+    if (confirm('Are you sure you want to delete?')) {
+      this.productService.delete(id).subscribe(() => {
+        alert("Ok");
+        this.getAllProduct()
+      }, e => {
+        console.log(e);
+      });
+    }
+  }
 }

@@ -22,6 +22,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {CreateProductComponent} from "./component/product/create-product/create-product.component";
 import {ProductByCategoryComponent} from "./component/product/product-by-category/product-by-category.component";
+import { DeleteComponent } from './component/product/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {ProductByCategoryComponent} from "./component/product/product-by-categor
     CreateProductComponent,
     EditComponent,
     ListCategoryComponent,
-    ProductByCategoryComponent
+    ProductByCategoryComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
