@@ -17,6 +17,7 @@ export class FooterComponent implements OnInit {
               private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.getAllCategory()
     this.categoryService.getAll().subscribe((data) => {
       // console.log(data);
       this.categories=data;
@@ -30,6 +31,12 @@ export class FooterComponent implements OnInit {
       this.products = data;
       console.log(data);
     });
+  }
+  getAllCategory(){
+    this.categoryService.getAll().subscribe((data) => {
+      console.log(data);
+      this.categories=data;
+    })
   }
   getAllProduct() {
     this.productService.getAll().subscribe(data => {

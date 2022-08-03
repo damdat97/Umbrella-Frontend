@@ -70,6 +70,8 @@
                             <br>
                           </div>
                           <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
+                          <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]">Sửa</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" (click)="deleteProduct(product.id)">Xóa</button>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit"
                                     [routerLink]="['/edit-product',product.id]">Sửa
                             </button>

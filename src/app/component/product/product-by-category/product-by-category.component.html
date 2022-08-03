@@ -56,7 +56,6 @@
         <div class="products-right-grids">
           <div class="sorting">
             <select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-              <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Default sorting</option>
               <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Số Lượng</option>
               <option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Giá</option>
             </select>
@@ -92,6 +91,8 @@
                     </div>
                     <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
                       <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]">Sửa</button>
+                      <button class="btn btn-primary"  (click)="deleteProduct(product.id)">Xóa</button>
+
                       <br>
                     </div>
                   </div>
