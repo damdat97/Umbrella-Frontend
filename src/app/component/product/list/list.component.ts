@@ -5,6 +5,7 @@ import {ImageService} from "../../../service/image.service";
 import {Category} from "../../../model/category";
 import {User} from "../../../model/user";
 import {FormControl, FormGroup} from "@angular/forms";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-list',
@@ -18,7 +19,8 @@ export class ListComponent implements OnInit {
 userId= localStorage.getItem("ID")
 
   constructor(private productService: ProductService,
-              private imageService: ImageService) {
+              private imageService: ImageService,
+              private toast: NgToastService) {
   }
 
   ngOnInit(): void {
@@ -43,9 +45,9 @@ userId= localStorage.getItem("ID")
   }
 
   deleteProduct(id: any) {
-    if (confirm('Are you sure you want to delete?')) {
+    if (confirm('Bạn có muốn xóa sản phẩm này không ?')) {
       this.productService.delete(id).subscribe(() => {
-        alert("Ok");
+        this.toast.success({detail: "Thành Công", summary: 'Xóa thành công!', duration: 3000})
         this.getAllProduct()
       }, e => {
         console.log(e);

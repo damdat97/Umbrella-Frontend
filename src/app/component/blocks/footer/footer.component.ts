@@ -12,6 +12,7 @@ import {Category} from "../../../model/category";
 export class FooterComponent implements OnInit {
   categories: Category[] = [];
   id = localStorage.getItem("ID")
+  isLogin = false
 
   constructor(private authenticationService: AuthenticationService,
               private categoryService: CategoryService,
@@ -19,6 +20,7 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLogin = localStorage.getItem("USERNAME") == null ? false : true;
     this.getAllCategory()
     this.categoryService.getAll().subscribe((data) => {
       // console.log(data);

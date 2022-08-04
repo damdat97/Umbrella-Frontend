@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {first} from "rxjs";
 import {AuthenticationService} from "../../../service/authentication.service";
 import {Router} from "@angular/router";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-register',
@@ -38,7 +39,8 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get("phone")
   }
 
-  constructor(private authenticationService : AuthenticationService, private router : Router) { }
+  constructor(private authenticationService : AuthenticationService, private router : Router,private toast: NgToastService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -49,7 +51,8 @@ export class RegisterComponent implements OnInit {
       <string>this.registerForm.value.username,
       <string>this.registerForm.value.password,
       <string>this.registerForm.value.confirmPassword).pipe(first()).subscribe(data => {
-      alert("done")
+      this.toast.success({detail:"Thành Công",summary:'Đăng ký thành công!',duration:3000})
+
       console.log(data)
       this.router.navigate(["/login"])
     }, error => {

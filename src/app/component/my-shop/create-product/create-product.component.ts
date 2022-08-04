@@ -7,6 +7,7 @@ import {ImageService} from "../../../service/image.service";
 import {CategoryService} from "../../../service/category.service";
 import {Category} from "../../../model/category";
 import {finalize} from "rxjs";
+import {NgToastComponent, NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-create-product',
@@ -27,7 +28,8 @@ export class CreateProductComponent implements OnInit {
               private productService: ProductService,
               private storage: AngularFireStorage,
               private imageService: ImageService,
-              private categoryService: CategoryService) {
+              private categoryService: CategoryService,
+              private toast: NgToastService) {
   }
 
   product: any;
@@ -77,14 +79,14 @@ export class CreateProductComponent implements OnInit {
       }
       this.productForm.reset()
       this.image = []
-      alert("Thành Công")
+      this.toast.success({detail: "Thành Công", summary: 'Thêm sản phẩm thành công!', duration: 3000})
       // @ts-ignore
       $('#exampleModalCreateProduct').modal('hide');
       this.productForm.reset()
       this.router.navigate(["/my-shop",this.product.user.id]);
       console.log(this.image)
     }, error => {
-      alert("Lỗi")
+      this.toast.warning({detail: "Lỗi", summary: 'Không thêm được sản phẩm!', duration: 3000})
       console.log(error)
     })
   }

@@ -2,18 +2,16 @@
   <div class="container" style="width: 90%">
     <div class="w3_footer_grids">
       <div class="col-md-3 w3_footer_grid">
-        <h3>Contact</h3>
+        <h3>Liên Hệ</h3>
 
         <ul class="address">
-          <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span>
+          <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Số 23, Lô TT01, Ngõ 2 Hàm Nghi, Mỹ Đình <span>Hà Nội</span>
           </li>
-          <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a>
-          </li>
-          <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+          <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+08434567890</li>
         </ul>
       </div>
       <div class="col-md-3 w3_footer_grid">
-        <h3>Information</h3>
+        <h3>Thông Tin</h3>
         <ul class="info">
           <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">About Us</a></li>
           <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">Contact Us</a></li>
@@ -23,7 +21,7 @@
         </ul>
       </div>
       <div class="col-md-3 w3_footer_grid">
-        <h3>Category</h3>
+        <h3>Danh Mục Sản Phẩm</h3>
           <ul class="info" >
             <li *ngFor="let category of categories"><i class="fa fa-arrow-right" aria-hidden="true"></i>
               <a [routerLink]="['/products-by-categories',category.id]" (click)="searchCategory(category.id)">{{category.name}}</a>
@@ -31,13 +29,16 @@
           </ul>
       </div>
       <div class="col-md-3 w3_footer_grid">
-        <h3>Profile</h3>
-        <ul class="info">
+        <h3>Trang Cá Nhân</h3>
+        <ul class="info" *ngIf="isLogin">
           <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a [routerLink]="['/my-shop',id]">Cửa hàng của tôi</a></li>
           <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="checkout.html">My Cart</a></li>
+        </ul>
+        <ul class="info" *ngIf="!isLogin">
           <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a routerLink="/login">Đăng nhập</a></li>
           <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a routerLink="/register">Đăng ký</a></li>
         </ul>
+
       </div>
       <div class="clearfix"></div>
     </div>
@@ -46,7 +47,7 @@
   <div class="footer-copy">
 
     <div class="container">
-      <p>© 2017 Super Market. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+      <p>© 2022 Umbrella. Nơi mọi thứ bạn có, chúng tôi không có! | Design by <a [routerLink]="['/']">Umbrella</a></p>
     </div>
   </div>
 

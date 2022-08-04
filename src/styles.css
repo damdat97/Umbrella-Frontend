@@ -271,11 +271,11 @@ RIGHT SIDEBAR TOGGLE SECTION
   color: #ffffff;
 }
 .button-edit {
-  background-color: #ffffff;
+  background-color: dodgerblue;
   border: 1px solid black;
   border-radius: 8px;
   box-sizing: border-box;
-  color: #222222;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
@@ -295,11 +295,11 @@ RIGHT SIDEBAR TOGGLE SECTION
   width: auto;
 }
 .button-delete {
-  background-color: #ffffff;
+  background-color: red;
   border: 1px solid black;
   border-radius: 8px;
   box-sizing: border-box;
-  color: #222222;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
@@ -449,8 +449,8 @@ RIGHT SIDEBAR TOGGLE SECTION
   transform: translateY(0);
 }
 .button-search {
-  background-color: #FFFFFF;
-  border: 1px solid #222222;
+  background-color: rgba(224, 224, 224, 0.7);
+  border: 1px solid black;
   border-radius: 8px;
   box-sizing: border-box;
   color: #222222;
@@ -470,7 +470,7 @@ RIGHT SIDEBAR TOGGLE SECTION
   transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
   user-select: none;
   -webkit-user-select: none;
-  width: auto;
+  width: 90%;
 }
 .button-search:hover {
   color: #fff;

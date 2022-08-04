@@ -29,6 +29,7 @@ import { EditProductComponent } from './component/my-shop/edit-product/edit-prod
 import { CreateCommentComponent } from './component/comment/create-comment/create-comment.component';
 import { ListCommentComponent } from './component/comment/list-comment/list-comment.component';
 import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
+import {NgToastModule} from "ng-angular-popup";
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,9 @@ import {CreateProductComponent} from "./component/my-shop/create-product/create-
         ReactiveFormsModule,
         AngularFireStorageModule,
         AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
-        FormsModule
+        FormsModule,
+      NgToastModule
+
     ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

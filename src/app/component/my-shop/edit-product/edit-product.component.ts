@@ -4,6 +4,7 @@ import {Category} from "../../../model/category";
 import {ProductService} from "../../../service/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CategoryService} from "../../../service/category.service";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-edit-product',
@@ -26,7 +27,8 @@ export class EditProductComponent implements OnInit {
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private categoriesService: CategoryService,
-              private router: Router) {
+              private router: Router,
+              private toast: NgToastService) {
   }
 
   ngOnInit(): void {
@@ -72,13 +74,13 @@ export class EditProductComponent implements OnInit {
     }
     console.log(this.obj)
     this.productService.updateProduct(this.editProductMyShopForm.value.id, this.obj).subscribe(() => {
-      alert("Thành Công")
+      this.toast.success({detail: "Thành Công", summary: 'Sửa thành công!', duration: 3000})
       // @ts-ignore
       $('#exampleModalEditProductMyShop').modal('hide');
       this.editProductMyShopForm.reset()
       this.router.navigate(["/my-shop",this.obj.user.id])
     }, error => {
-      alert("Lỗi")
+      this.toast.warning({detail: "Lỗi!", summary: 'Nhập sai, không thể sửa !', duration: 3000})
       console.log(error)
     })
   }

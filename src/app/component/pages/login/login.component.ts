@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
 import {first} from "rxjs";
 import {AuthenticationService} from "../../../service/authentication.service";
+import {NgToastService} from "ng-angular-popup";
 
 
 @Component({
@@ -16,8 +17,10 @@ export class LoginComponent implements OnInit {
     password: new FormControl(),
   })
 
-  constructor(private activatedRoute : ActivatedRoute, private router : Router,
-              private authenticationService : AuthenticationService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,
+              private authenticationService: AuthenticationService,
+              private toast: NgToastService) {
+  }
 
   ngOnInit(): void {
   }
@@ -32,16 +35,19 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('NAME', data.name);
       console.log(data)
       if (data.roles[0].authority == "ROLE_USER") {
-        alert("Dang nhap thanh cong")
+        this.toast.success({detail: "Thành Công", summary: 'Đăng nhập thành công!', duration: 3000})
+
         this.router.navigate(['']);
       }
       if (data.roles[0].authority == "ROLE_ADMIN") {
-        alert("Dang nhap thanh cong")
+        this.toast.success({detail: "Thành Công", summary: 'Đăng nhập thành công!', duration: 3000})
+
         this.router.navigate(['/admin']);
       }
     }, error => {
       console.log(error)
-      alert("Sai tài khoản hoặc mật khẩu!")
+      this.toast.error({detail: "Lỗi", summary: 'Sai tài khoản hoặc mật khẩu!', duration: 3000})
+      this.router.navigate(['/login']);
     })
   }
 }

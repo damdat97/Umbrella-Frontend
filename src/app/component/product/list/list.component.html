@@ -1,24 +1,23 @@
 <div class="top-brands">
-  <div class="container" style="background: whitesmoke">
+  <div class="container" style="background: whitesmoke;width: 90%">
     <h2>Danh Sách Sản Phẩm</h2>
     <div class="grid_3 grid_5" >
       <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-        <div id="myTabContent" class="tab-content" style="border:1px solid #fe9126;background-color: whitesmoke ">
+        <div id="myTabContent" class="tab-content" style="border:2px solid #fe9126;background-color: white">
           <div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
 
-            <div class="agile_top_brands_grids">
-              <div class="col-md-4 top_brand_left"  *ngFor="let product of products, index as i">
-                <div class="hover14 column" style="border:1px solid whitesmoke">
+            <div class="agile_top_brands_grids" style="margin-top: 10px" >
+              <div class="col-md-3 top_brand_left" *ngFor="let product of products, index as i">
+                <div class="hover14 column" style="border:1px solid grey">
                   <div class="agile_top_brand_left_grid">
-                    <div class="agile_top_brand_left_grid1">
                       <figure>
                         <div class="snipcart-item block">
                           <div class="snipcart-thumb">
                             <img
                               src="{{product.image[0].image}}"
                               style="width: 100%; height: 350px"/>
-                            <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
-                            <h4>{{product.price}} $</h4>
+                            <p><a href="#" [routerLink]="['/product-detail',product.id]" style="font-size: 22px; margin-top: 12px">{{product.name}}</a></p>
+                            <h4 style="font-size: 22px; margin-top: 5px; text-align: center"> {{product.price}} $</h4>
                           </div>
                           <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
                               <button class="btn button-edit button-shop"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thêm Vào Giỏ Hàng</button>
@@ -26,12 +25,11 @@
                           </div>
                           <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
                           <button type="button"  class="btn button-edit button-ed" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]" style="margin-right: 25px;width: 90px"> <i class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Sửa</button>
-                            <button class="btn button-delete" data-toggle="modal" data-target="#exampleModalEdit" (click)="deleteProduct(product.id)"><i class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa</button>
+                            <button class="btn button-delete"  (click)="deleteProduct(product.id)"><i class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa</button>
                             <br>
                           </div>
                         </div>
                       </figure>
-                    </div>
                   </div>
                 </div>
                 <br>
