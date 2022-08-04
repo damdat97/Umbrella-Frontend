@@ -93,6 +93,7 @@
                         {{category.name}}
                       </option><br>
                     </select>
+                    <br>
                     <label style="margin-left: 20%">Ảnh :</label>
 
                     <input type="file" placeholder="Chọn ảnh" id="file"
@@ -101,7 +102,7 @@
                            (change)="showPreview($event)"
                            formControlName="image"
                            autocomplete="off" class="custom-file-input" id="inputGroupFile01" style="margin-left: 20%">
-                    <div *ngFor="let img of images" style="width: 50%; margin: 1%; float: left; height:100%; overflow: hidden">
+                    <div *ngFor="let img of images" style=" width: 60%; height: 250px;margin-left: 270px;margin-top: 20px">
                       <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="border:1px solid white; height:100%; width:50%"
                            src="{{img}}"
                            alt="">
