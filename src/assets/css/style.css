@@ -387,10 +387,15 @@ ul.multi-column-dropdown h6 {
 .product_list_header {
     float: right;
 }
-.snipcart-details {
+.snipcart-details1 {
     text-align: center;
 	margin: 1.5em auto 1em;
-    width:77%;
+    width:20%;
+}
+.snipcart-details {
+  text-align: center;
+  margin: 1.5em auto 1em;
+  width:77%;
 }
 .btn-danger.my-cart-btn:focus {
     outline: none;
@@ -408,6 +413,7 @@ ul.multi-column-dropdown h6 {
     padding: .5em 0;
     outline: none;
 }
+
 .agile_top_brand_left_grid:hover .snipcart-details input.button,.snipcart-details input.button:hover{
     background: #fe9126;
 }

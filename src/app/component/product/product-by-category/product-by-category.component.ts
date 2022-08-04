@@ -21,18 +21,19 @@ export class ProductByCategoryComponent implements OnInit {
   p: number = 1;
   total: number = 0;
 
-  filterStatus='Default-sorting';
+  filterStatus = 'Default-sorting';
   product: FormGroup = new FormGroup({
     name: new FormControl(''),
-    description:new FormControl(''),
-    from:new FormControl(''),
+    description: new FormControl(''),
+    from: new FormControl(''),
     to: new FormControl('')
   })
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private imageService: ImageService,
-              private categoryService: CategoryService) { }
+              private categoryService: CategoryService) {
+  }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param) => {
@@ -61,17 +62,18 @@ export class ProductByCategoryComponent implements OnInit {
       this.searchCategory(id)
     })
   }
+
   pageChangeEvent(event: number) {
     this.p = event;
   }
 
   searchByAll() {
     this.image = []
-    this.productService.searchByAll( this.product.value.name, this.product.value.description,this.product.value.from, this.product.value.to).subscribe((data1) => {
+    this.productService.searchByAll(this.product.value.name, this.product.value.description, this.product.value.from, this.product.value.to).subscribe((data1) => {
       console.log(data1)
       this.productByCate = data1;
-      for (let i =0; i<data1.length; i++) {
-        this.imageService.findAllByProductId(data1[i].id).subscribe((image)=> {
+      for (let i = 0; i < data1.length; i++) {
+        this.imageService.findAllByProductId(data1[i].id).subscribe((image) => {
           this.productByCate[i].image = image;
           console.log(this.productByCate)
         })
@@ -80,12 +82,13 @@ export class ProductByCategoryComponent implements OnInit {
       console.log(error)
     })
   }
-  sortByAll(event:any) {
-    if (event==0){
+
+  sortByAll(event: any) {
+    if (event == 0) {
       return
     }
-    if (event==1){
-      return  this.productByCate=this.productByCate.sort((obj1:any, obj2:any) => {
+    if (event == 1) {
+      return this.productByCate = this.productByCate.sort((obj1: any, obj2: any) => {
         if (obj1.quantity > obj2.quantity) {
           return 1;
         }
@@ -97,9 +100,9 @@ export class ProductByCategoryComponent implements OnInit {
         return 0;
       });
     }
-    if (event==2){
+    if (event == 2) {
 
-      this.productByCate=this.productByCate.sort((obj1:any, obj2:any) => {
+      this.productByCate = this.productByCate.sort((obj1: any, obj2: any) => {
         if (obj1.price > obj2.price) {
           return 1;
         }
@@ -128,6 +131,7 @@ export class ProductByCategoryComponent implements OnInit {
       console.log(error);
     })
   }
+
   deleteProduct(id: any) {
     if (confirm('Are you sure you want to delete?')) {
       this.productService.delete(id).subscribe(() => {

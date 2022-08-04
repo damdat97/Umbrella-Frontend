@@ -5,6 +5,7 @@ import {ImageService} from "../../../service/image.service";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Product} from "../../../model/product";
 import {CommentService} from "../../../service/comment.service";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-detail-product',
@@ -36,7 +37,8 @@ export class DetailProductComponent implements OnInit {
               private productService: ProductService,
               private imageService: ImageService,
               private commentService: CommentService,
-              private router: Router) {
+              private router: Router,
+              private toast: NgToastService) {
   }
 
   ngOnInit(): void {
@@ -101,6 +103,15 @@ export class DetailProductComponent implements OnInit {
       console.log(error);
     })
   }
-
+  deleteProduct(id: any) {
+    if (confirm('Bạn có muốn xóa sản phẩm này không ?')) {
+      this.productService.delete(id).subscribe(() => {
+        this.toast.success({detail: "Thành Công", summary: 'Xóa thành công!', duration: 3000})
+        this.router.navigate(["/"])
+      }, e => {
+        console.log(e);
+      });
+    }
+  }
 
 }
