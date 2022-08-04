@@ -1,9 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../../service/product.service";
-import {FormControl, FormGroup} from "@angular/forms";
-import {Product} from "../../../model/product";
-import {CommentService} from "../../../service/comment.service";
 import {ImageService} from "../../../service/image.service";
 
 @Component({
@@ -42,6 +39,7 @@ export class DetailProductComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param) => {
       this.id = param.get('id');
+      console.log(param);
       this.productService.findById(this.id).subscribe((data) => {
         this.imageService.findAllByProductId(this.id).subscribe((image) => {
           this.obj = data
@@ -100,5 +98,6 @@ export class DetailProductComponent implements OnInit {
       console.log(error);
     })
   }
+
 
 }
