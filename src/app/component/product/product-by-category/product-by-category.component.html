@@ -1,7 +1,7 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 <div class="breadcrumbs">
-  <div class="container">
+  <div class="container" style="width: 80%">
     <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
       <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
       <li class="active">Household</li>
@@ -12,45 +12,87 @@
 <!---728x90--->
 <!--- household --->
 <div class="products">
-  <div class="container">
-    <div class="col-md-4 products-left">
-      <div class="categories">
-        <h2>Categories</h2>
+  <div class="container" style="width: 80%">
+    <div class="col-md-3 products-left">
+      <!--        <div class="left-side">-->
+      <!--          <h3 class="agileits-sear-head">Discount</h3>-->
+      <!--          <ul>-->
+      <!--            <li>-->
+      <!--              <input type="checkbox" class="checked">-->
+      <!--              <span class="span">5% or More</span>-->
+      <!--            </li>-->
+      <!--            <li>-->
+      <!--              <input type="checkbox" class="checked">-->
+      <!--              <span class="span">10% or More</span>-->
+      <!--            </li>-->
+      <!--            <li>-->
+      <!--              <input type="checkbox" class="checked">-->
+      <!--              <span class="span">20% or More</span>-->
+      <!--            </li>-->
+      <!--            <li>-->
+      <!--              <input type="checkbox" class="checked">-->
+      <!--              <span class="span">30% or More</span>-->
+      <!--            </li>-->
+      <!--            <li>-->
+      <!--              <input type="checkbox" class="checked">-->
+      <!--              <span class="span">50% or More</span>-->
+      <!--            </li>-->
+      <!--            <li>-->
+      <!--              <input type="checkbox" class="checked">-->
+      <!--              <span class="span">60% or More</span>-->
+      <!--            </li>-->
+      <!--          </ul>-->
+      <!--        </div>-->
+      <div class="categories" style="border:1px solid #fe9126 ">
+        <br>
+        <br>
+        <h3 style="font-size: 25px; text-align: center">Tìm Kiếm</h3>
         <ul class="cate">
-          <li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>Grocery & Staples</a></li>
-          <ul>
-            <li>
-              <form [formGroup]="product" (ngSubmit)="searchByAll()">
-                <p>tìm theo tên</p>
-                <input type="text" name="" formControlName="name" placeholder="Search for a Product...">
-                <p>tìm theo mô tả sản phẩm</p>
-                <input type="text" name="" formControlName="description" placeholder="Search for a Product...">
-                <p>tìm từ giá ...</p>
-                <input type="number" name="" formControlName="from" placeholder="giá từ...">
-                <p>tìm đến giá</p>
-                <input type="number" name="" formControlName="to" placeholder="đến khoảng...">
-                <button type="submit" class="btn btn-default search">
-                  <i class="fa fa-search" aria-hidden="true"> </i>
-                </button>
-              </form>
-            </li>
-          </ul>
+          <div class="search-hotel">
+
+            <form action="#" [formGroup]="product" (ngSubmit)="searchByAll()" style="margin-left: 10px">
+              <h4 class="agileits-sear-head"><i class="fa-brands fa-product-hunt" style="margin-right: 5px"></i>Tìm Kiếm
+                Theo Tên</h4>
+              <br>
+              <input type="search" placeholder="Nhập tên sản phẩm" formControlName="name" name="search" required="">
+              <br>
+              <br>
+              <h4 class="agileits-sear-head"><i class="fa-solid fa-pen" style="margin-right: 5px"></i>Tìm Kiếm Theo Mô
+                Tả</h4>
+              <br>
+              <input type="search" placeholder="Nhập mô tả sản phẩm" formControlName="description" name="search"
+                     required="">
+              <br>
+              <br>
+              <h4 class="agileits-sear-head"><i class="fa-solid fa-magnifying-glass-dollar"
+                                                style="margin-right: 5px"></i>Tìm Kiếm Theo Giá</h4>
+              <br>
+              <input type="search" formControlName="from" placeholder="Nhập giá từ ..." name="search" required="">
+              <br>
+              <br>
+              <input type="search" formControlName="to" placeholder="đến khoảng..." name="search" required="">
+              <br>
+              <br>
+              <button style="" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+          <br>
+          <!-- price range -->
         </ul>
       </div>
     </div>
-    <div class="col-md-8 products-right">
+    <div class="col-md-9 products-right">
       <div class="products-right-grid">
         <div class="products-right-grids">
-          <div class="sorting">
-            <select #sort (change)="sortByAll(sort.value)" >
-              <option value="0"><i class="fa fa-arrow-right" aria-hidden="true"></i>Default sorting</option>
+          <div class="sorting" style="margin-left: 300px">
+            <select #sort (change)="sortByAll(sort.value)" style="border:1px solid #fe9126; width: 220px;height: 40px ">
+              <option value="0"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Mặc Định</option>
               <option value="1"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Số Lượng</option>
               <option value="2"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Giá</option>
-
             </select>
           </div>
 
-          <div class="clearfix"> </div>
+          <div class="clearfix"></div>
 
           <div class="w3l_search">
 
@@ -60,46 +102,52 @@
         </div>
       </div>
       <div class="agile_top_brands_grids">
-<!--        <div class="hover14 column" *ngIf="filterStatus=='Default-sorting'||(filterStatus=='Sắp Xếp Theo Giá'&& sortByPrice())"></div>-->
-        <div class="col-md-4 top_brand_left" *ngFor="let product of productByCate|paginate: { itemsPerPage: 2, currentPage: p, totalItems: total }, index as i">
-<!--          <div class="hover14 column" *ngIf="filterStatus==='Default-sorting'||(filterStatus==='Sắp Xếp Theo Giá'&& sortByPrice())">-->
-            <div class="agile_top_brand_left_grid">
-              <div class="agile_top_brand_left_grid1">
-                <figure>
-                  <div class="snipcart-item block">
-                    <div class="snipcart-thumb">
-                      <a href="single.html"><img
-                        src="{{product.image[0].image}}" style = "border:1px solid white; height:150px; width:300px"
-                      class="img-responsive"/></a>
-                      <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
-                      <h4>{{product.price}} $</h4>
+        <!--        <div class="hover14 column" *ngIf="filterStatus=='Default-sorting'||(filterStatus=='Sắp Xếp Theo Giá'&& sortByPrice())"></div>-->
+        <div class="col-md-4 top_brand_left" style="width: 350px;height: auto;margin-bottom: 20px"
+             *ngFor="let product of productByCate|paginate: { itemsPerPage: 6, currentPage: p, totalItems: total }, index as i">
+          <div class="hover14 column" style="border:1px solid #fe9126 ">
+            <div>
+              <div class="agile_top_brand_left_grid">
+                <div class="agile_top_brand_left_grid1">
+                  <figure>
+                    <div class="snipcart-item block">
+                      <div class="snipcart-thumb">
+                        <a href="single.html"><img
+                          src="{{product.image[0].image}}" style="border:1px solid white; height:250px; width:80%"
+                          class="img-responsive"/></a>
+                        <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
+                        <h4>{{product.price}} $</h4>
+                      </div>
+                      <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
+                        <input type="submit" name="submit" value="Thêm vào giỏ hàng" class="button-shop"/>
+                        <br>
+                      </div>
+                      <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
+                        <button class="btn button-edit" data-toggle="modal" data-target="#exampleModalEdit"
+                                [routerLink]="['/edit-product',product.id]" style="margin-right: 10px;width: 90px"><i
+                          class="fa-solid fa-pen-to-square" style="margin-right:5px"></i>Sửa
+                        </button>
+                        <button class="btn button-delete" (click)="deleteProduct(product.id)" style="width: 90px"><i
+                          class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa
+                        </button>
+                      </div>
                     </div>
-                    <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
-                      <input type="submit" name="submit" value="Thêm vào giỏ hàng"  class="button"/>
-                      <br>
-                    </div>
-                    <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
-                      <button class="btn button-edit" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]" style="margin-right: 5px;width: 60px"><i class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Sửa</button>
-                      <button class="btn button-delete"  (click)="deleteProduct(product.id)" style="width: 60px"><i class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa</button>
+                  </figure>
+                </div>
 
-                      <br>
-                    </div>
-                  </div>
-                </figure>
               </div>
             </div>
           </div>
-<!--        </div>-->
-        <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"></div>
       </div>
-
       <nav class="numbering">
         <ul class="pagination paging">
           <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
         </ul>
       </nav>
     </div>
-    <div class="clearfix"> </div>
+    <div class="clearfix"></div>
   </div>
 </div>
 <app-footer></app-footer>

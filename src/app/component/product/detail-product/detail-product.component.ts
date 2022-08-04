@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../../service/product.service";
 import {ImageService} from "../../../service/image.service";
+import {FormControl, FormGroup} from "@angular/forms";
+import {Product} from "../../../model/product";
+import {CommentService} from "../../../service/comment.service";
 
 @Component({
   selector: 'app-detail-product',

@@ -1,0 +1,65 @@
+.side-bar {
+  background-color: #F9F9F9;
+  padding: 25px 15px;
+}
+.left-side{
+  margin-top: 18px;
+}
+h3.agileits-sear-head {
+  margin-bottom: 16px;
+  font-size: 18px;
+}ul.dropdown-menu6 ,ul.dropdown-menu5{
+   margin:0;
+   position:relative;
+ }
+ul.dropdown-menu6 li {
+  list-style:none;
+}
+ul.dropdown-menu6 li p{
+  width:100%;
+}.left-side ul li {
+   display: inline-block;
+   width: 100%;
+   margin-bottom: 6px;
+ }.left-side ul li span {
+    font-size: 13px;
+    color: #000;
+    letter-spacing: 1px;
+    margin-left: 3px;
+    vertical-align: top;
+  }
+.left-side{
+     margin-top: 18px;
+   }
+h3.agileits-sear-head {
+  color: #FF5722;
+  margin-bottom: 20px;
+  font-size: 21px;
+}
+.search-hotel{
+  padding: 15px 0;
+  border-bottom: 1px solid #e5e3db;
+}
+.search-hotel input[type="search"] {
+  background:#fff;
+  border: 1px solid #fe9126;
+  width: 81%;
+  outline: none;
+  padding: 11px 10px 10px 10px;
+  font-size: 13px;
+  color: #c4c4c4;
+}
+.search-hotel form button[type="submit"]{
+  background: no-repeat 13px 11px #fe9126;
+  width: 44px;
+  height: 39px;
+  border: none;
+  padding:0;
+  margin-top: 0;
+}
+.search-hotel input[type="search"] {
+  width: 78%;
+}
+.search-hotel form input[type="submit"] {
+  width: 40px;
+}

@@ -99,16 +99,16 @@
                            #userPhoto
                            multiple
                            (change)="showPreview($event)"
-                           name="image"
+                           formControlName="image"
                            autocomplete="off" class="custom-file-input" id="inputGroupFile01" style="margin-left: 20%">
-                    <div *ngFor="let img of images" style="width: 30%; margin: 1%; float: left; height: 250px; overflow: hidden">
-                      <img class="img-fluid px-3 px-sm-4 mt-3 mb-4"
+                    <div *ngFor="let img of images" style="width: 50%; margin: 1%; float: left; height:100%; overflow: hidden">
+                      <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="border:1px solid white; height:100%; width:50%"
                            src="{{img}}"
                            alt="">
                     </div>
                   </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" style="margin-right: 375px">Thêm</button>
+            <button type="submit" class="btn button-edit" style="margin-right: 375px">Thêm</button>
           </div>
         </form>
 

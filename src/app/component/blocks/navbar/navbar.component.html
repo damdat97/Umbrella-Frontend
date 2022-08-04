@@ -1,5 +1,5 @@
 <div class="navigation-agileits">
-  <div class="container">
+  <div class="container" style="width: 80%">
     <nav class="navbar navbar-default">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header nav_2">
@@ -12,10 +12,10 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
         <ul class="nav navbar-nav">
-          <li class="active columns-3"><a routerLink="/" class="act"><i class="fa-solid fa-house" style="margin-right: 5px"></i>Home</a></li>
+          <li class="active columns-3"><a routerLink="/" class="act"><i class="fa-solid fa-house" style="margin-right: 5px;font-size: large"></i>Home</a></li>
 
           <li class="active" *ngFor="let category of categories">
-            <a href="#" [routerLink]="['/products-by-categories',category.id]"  class="act" (click)="searchCategory(category.id)" >{{category.name}}</a></li>
+            <a style="font-size: large" href="#" [routerLink]="['/products-by-categories',category.id]"  class="act" (click)="searchCategory(category.id)" >{{category.name}}</a></li>
         </ul>
       </div>
     </nav>

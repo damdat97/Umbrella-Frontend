@@ -30,7 +30,6 @@ export class CreateProductComponent implements OnInit {
               private categoryService: CategoryService) {
   }
 
-  selectedImag: any;
   product: any;
   listCategory: Category[] = []
   idProductImage: any;
