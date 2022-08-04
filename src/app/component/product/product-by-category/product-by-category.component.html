@@ -71,7 +71,7 @@
           <div class="clearfix"> </div>
         </div>
       </div>
-      <div class="agile_top_brands_grids">
+      <div class="agile_top_brands_grids" style=" width: 1000px;height: 1500px">
         <div class="col-md-4 top_brand_left" *ngFor="let product of productByCate, index as i">
           <div class="hover14 column">
             <div class="agile_top_brand_left_grid">
@@ -80,7 +80,7 @@
                   <div class="snipcart-item block">
                     <div class="snipcart-thumb">
                       <a href="single.html"><img
-                        src="{{product.image[0].image}}"
+                        src="{{product.image[0].image}}" style = "border:1px solid white; height:150px; width:300px"
                       class="img-responsive"/></a>
                       <p><a href="#" [routerLink]="['/product-detail',product.id]">{{product.name}}</a></p>
                       <h4>{{product.price}} $</h4>
@@ -90,8 +90,8 @@
                       <br>
                     </div>
                     <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
-                      <button class="btn button-edit button-ed" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]" style="margin-right: 5px;width: 60px"><i class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Sửa</button>
-                      <button class="btn button-cl button-ed"  (click)="deleteProduct(product.id)" style="width: 60px"><i class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa</button>
+                      <button class="btn button-edit" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]" style="margin-right: 5px;width: 60px"><i class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Sửa</button>
+                      <button class="btn button-delete"  (click)="deleteProduct(product.id)" style="width: 60px"><i class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa</button>
 
                       <br>
                     </div>

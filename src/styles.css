@@ -150,7 +150,7 @@ RIGHT SIDEBAR TOGGLE SECTION
 
 .dropbtn {
   background-color: #fe9126;
-  color: white;
+  color: black;
   padding: 16px;
   font-size: 16px;
   border-radius: 10px;
@@ -188,6 +188,7 @@ RIGHT SIDEBAR TOGGLE SECTION
 
 .dropdown:hover .dropbtn {
   background-color: black;
+  color: white;
 }
 
 
@@ -236,24 +237,128 @@ RIGHT SIDEBAR TOGGLE SECTION
 }
 
 .button-cl {
-  color: white;
-  background-color: red;
+  background-color: #fe9126;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
 }
+
 
 .button-ed:hover {
   background-color: #fe9126;
-}
-
-.button-edit {
   color: white;
-  background-color: dodgerblue;
+}
+.button-edit:hover {
+  background-color: white;
+  color: black;
+}
+.button-edit {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+.button-delete {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+.button-delete:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid #ffffff;
 }
 
 .button-add {
   color: white;
-  background-color: dodgerblue;
+  background-color: #fe9126;
 }
 
+.button-shop {
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+.button-shop:hover {
+  color: #fff;
+  background-color: #fe9126;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
 /* CSS */
 .button-23 {
   background-color: #FFFFFF;
@@ -343,5 +448,6 @@ RIGHT SIDEBAR TOGGLE SECTION
   box-shadow: none;
   transform: translateY(0);
 }
+
 
 /* You can add global styles to this file, and also import other style files */
