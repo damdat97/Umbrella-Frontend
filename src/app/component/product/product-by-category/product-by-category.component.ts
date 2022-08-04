@@ -112,18 +112,6 @@ export class ProductByCategoryComponent implements OnInit {
     }
 
 
-    //   this.productService.sortProductsByPrice(this.id).subscribe((data) => {
-    //     this.productByCate=data
-    //     console.log(data)
-    //     for (let i =0; i<data.length; i++) {
-    //       this.imageService.findAllByProductId(data[i].id).subscribe((image)=> {
-    //         this.productByCate[i].image = image;
-    //         console.log(this.productByCate)
-    //       })
-    //     }
-    //   }, error => {
-    //     console.log(error);
-    //   })
-    // }
+
   }
 }
