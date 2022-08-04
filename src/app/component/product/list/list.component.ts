@@ -14,8 +14,8 @@ import {NgToastService} from "ng-angular-popup";
 })
 export class ListComponent implements OnInit {
   products: Product[] | any;
-  cartProducts: any[] = [];
-  image: any;
+  p: number = 1;
+  total: number = 0;  image: any;
 userId= localStorage.getItem("ID")
 
   constructor(private productService: ProductService,
@@ -25,6 +25,10 @@ userId= localStorage.getItem("ID")
 
   ngOnInit(): void {
     this.getAllProduct()
+  }
+
+  pageChangeEvent(event: number) {
+    this.p = event;
   }
 
   getAllProduct() {

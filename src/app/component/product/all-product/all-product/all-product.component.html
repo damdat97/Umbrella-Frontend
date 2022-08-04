@@ -70,7 +70,7 @@
       </div>
       <div class="agile_top_brands_grids">
         <div class="col-md-4 top_brand_left" style="width: 350px;height: auto;margin-bottom: 30px"
-             *ngFor="let product of productByCate|paginate: { itemsPerPage: 3, currentPage: p, totalItems: total }, index as i">
+             *ngFor="let product of listProduct|paginate: { itemsPerPage: 3, currentPage: p, totalItems: total }, index as i">
           <div class="hover14 column" style="border:1px solid grey">
             <div>
               <div class="agile_top_brand_left_grid">

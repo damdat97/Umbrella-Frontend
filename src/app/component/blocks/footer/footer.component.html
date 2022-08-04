@@ -23,6 +23,9 @@
       <div class="col-md-3 w3_footer_grid">
         <h3>Danh Mục Sản Phẩm</h3>
           <ul class="info" >
+            <li ><i class="fa fa-arrow-right" aria-hidden="true"></i>
+              <a [routerLink]="['/all-products']">Tất Cả Sản Phẩm</a>
+            </li>
             <li *ngFor="let category of categories"><i class="fa fa-arrow-right" aria-hidden="true"></i>
               <a [routerLink]="['/products-by-categories',category.id]" (click)="searchCategory(category.id)">{{category.name}}</a>
             </li>

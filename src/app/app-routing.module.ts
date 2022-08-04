@@ -9,6 +9,7 @@ import {ProductByCategoryComponent} from "./component/product/product-by-categor
 import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
 import {ListProductComponent} from "./component/my-shop/list-product/list-product.component";
 import {EditProductComponent} from "./component/my-shop/edit-product/edit-product.component";
+import {AllProductComponent} from "./component/product/all-product/all-product/all-product.component";
 
 const routes: Routes = [
   {
@@ -45,7 +46,11 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterComponent
-  },];
+  },
+  {
+    path: "all-products",
+    component:AllProductComponent
+  }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -20,8 +20,6 @@ export class ProductByCategoryComponent implements OnInit {
   userId = localStorage.getItem("ID")
   p: number = 1;
   total: number = 0;
-
-  filterStatus = 'Default-sorting';
   product: FormGroup = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
@@ -85,7 +83,17 @@ export class ProductByCategoryComponent implements OnInit {
 
   sortByAll(event: any) {
     if (event == 0) {
-      return
+      return this.productByCate= this.productByCate.sort((obj1: any, obj2: any) => {
+        if (obj1.name > obj2.name) {
+          return 1;
+        }
+
+        if (obj1.name < obj2.name) {
+          return -1;
+        }
+
+        return 0;
+      });
     }
     if (event == 1) {
       return this.productByCate = this.productByCate.sort((obj1: any, obj2: any) => {

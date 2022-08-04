@@ -1,66 +1,4 @@
 
-<!--<app-header></app-header>-->
-<!--<app-navbar></app-navbar>-->
-<!--<br>-->
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col-8">-->
-<!--      <h5 style="text-align: center">Thêm sản phẩm </h5> <br>-->
-
-<!--      <form [formGroup]="productForm" (ngSubmit)="add()" style="margin-left: 0% ; border: groove 3px; ">-->
-<!--        <div class="row">-->
-<!--          <label style="margin-left: 20%">Tên sản phẩm:</label><br>-->
-<!--          <input type="text" placeholder="Tên sản phẩm" formControlName="name"-->
-<!--                 style="width: 500px; height: 35px;margin-left: 20%"> <br>-->
-<!--          <br>-->
-<!--          <label style="margin-left: 20%">Nội dung :</label><br>-->
-<!--          <input type="text" placeholder="Nội dung" formControlName="description"-->
-<!--                 style="width: 500px; height: 35px ;margin-left: 20%"> <br>-->
-<!--          <br>-->
-<!--          <label style="margin-left: 20%">Gía sản phẩm:</label><br>-->
-<!--          <input type="text" placeholder="Gía sản phẩm" formControlName="price"-->
-<!--                 style="width: 500px; height: 35px;margin-left: 20%"><br>-->
-<!--          <br>-->
-<!--          <label style="margin-left: 20%">Số lượng sản phẩm:</label><br>-->
-<!--          <input type="text" placeholder="Số lượng sản phẩm" formControlName="quantity"-->
-<!--                 style="width: 500px; height: 35px ;margin-left: 20%"><br>-->
-<!--          <br>-->
-<!--          <label style="margin-left: 20%">Danh mục :</label><br>-->
-<!--          <select formControlName="categoryId" style="margin-left: 20%">-->
-<!--            <option *ngFor="let categories of listCategory" value="{{categories.id}}">-->
-<!--              {{categories.name}}-->
-<!--            </option>-->
-<!--          </select><br>-->
-<!--          <br>-->
-<!--          <label style="margin-left: 20%">Ảnh :</label>-->
-
-
-<!--          <input type="file" placeholder="Chọn ảnh" id="file"-->
-<!--                 #userPhoto-->
-<!--                 multiple-->
-<!--                 (change)="showPreview($event)"-->
-<!--                 name="image"-->
-<!--                 autocomplete="off" class="custom-file-input" id="inputGroupFile01" style="margin-left: 20%">-->
-<!--          <div *ngFor="let img of images" style="width: 30%; margin: 1%; float: left; height: 250px; overflow: hidden">-->
-<!--            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4"-->
-<!--                 src="{{img}}"-->
-<!--                 alt="">-->
-<!--          </div>-->
-<!--          <br>-->
-<!--          <button type="submit" style="margin-left: 10%">Thêm</button>-->
-<!--          <br>-->
-<!--        </div>-->
-<!--      </form>-->
-
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-<!--<br>-->
-<!--<br>-->
-<!--<br>-->
-<!--<app-footer></app-footer>-->
-<!-- Button trigger modal -->
-
 <!-- Modal -->
 <app-list-product></app-list-product>
 <div class="modal fade" id="exampleModalCreateProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -112,9 +50,7 @@
             <button type="submit" class="btn button-edit" style="margin-right: 375px">Thêm</button>
           </div>
         </form>
-
       </div>
-
     </div>
   </div>
 </div>

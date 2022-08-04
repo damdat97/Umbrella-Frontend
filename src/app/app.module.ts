@@ -30,6 +30,7 @@ import { CreateCommentComponent } from './component/comment/create-comment/creat
 import { ListCommentComponent } from './component/comment/list-comment/list-comment.component';
 import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
 import {NgToastModule} from "ng-angular-popup";
+import { AllProductComponent } from './component/product/all-product/all-product/all-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import {NgToastModule} from "ng-angular-popup";
     EditProductComponent,
     CreateProductComponent,
     CreateCommentComponent,
-    ListCommentComponent
+    ListCommentComponent,
+    AllProductComponent
   ],
     imports: [
         BrowserModule,
