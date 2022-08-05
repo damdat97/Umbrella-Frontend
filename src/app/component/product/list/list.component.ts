@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
   products: Product[] | any;
   p: number = 1;
   total: number = 0;  image: any;
-userId= localStorage.getItem("ID")
+  userId= localStorage.getItem("ID")
 
   constructor(private productService: ProductService,
               private imageService: ImageService,
@@ -33,19 +33,31 @@ userId= localStorage.getItem("ID")
 
   getAllProduct() {
     this.image = []
-    this.productService.getAll().subscribe((data) => {
-      this.products = data
-      console.log("1", data)
-      for (let i = 0; i < data.length; i++) {
-        this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
-          this.products[i].image = image;
-          console.log(this.products)
-        })
-      }
+    if(this.userId == localStorage.getItem("ID")){
+      this.productService.findAllProductByUserIdNot(this.userId).subscribe((data) => {
+        this.products = data
+        console.log("1", data)
+        for (let i = 0; i < data.length; i++) {
+          this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
+            this.products[i].image = image;
+            console.log(this.products)
+          })
+        }
 
-    }, error => {
-      console.log(error);
-    })
+      })
+    }
+    if(this.userId != localStorage.getItem("ID") ||this.userId == null) {
+      this.productService.getAll().subscribe((data) => {
+        this.products = data
+        console.log("1", data)
+        for (let i = 0; i < data.length; i++) {
+          this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
+            this.products[i].image = image;
+            console.log(this.products)
+          })
+        }
+      })
+    }
   }
 
   deleteProduct(id: any) {
