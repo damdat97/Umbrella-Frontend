@@ -1,0 +1,25 @@
+.skdslider.slide-desc {
+  left: 0;
+  padding: 20px;
+  position: absolute;
+  bottom: 28%;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.skdslider ul.slides li img {
+  width: 100%;
+  border: 0;
+}
+img {
+  vertical-align: middle;
+}
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+.skdslider ul.slides {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

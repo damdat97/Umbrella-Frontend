@@ -31,6 +31,7 @@ import { ListCommentComponent } from './component/comment/list-comment/list-comm
 import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
 import {NgToastModule} from "ng-angular-popup";
 import { AllProductComponent } from './component/product/all-product/all-product/all-product.component';
+import { ImageComponent } from './component/blocks/image/image.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { AllProductComponent } from './component/product/all-product/all-product
     CreateProductComponent,
     CreateCommentComponent,
     ListCommentComponent,
-    AllProductComponent
+    AllProductComponent,
+    ImageComponent
   ],
     imports: [
         BrowserModule,
