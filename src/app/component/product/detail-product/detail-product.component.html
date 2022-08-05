@@ -1,17 +1,10 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 
-<div class="breadcrumbs">
-  <div class="container" style="width: 80%">
-    <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-      <li><a [routerLink]="['/']"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang Chủ</a></li>
-<!--      <li class="active"></li>-->
-    </ol>
-  </div>
-</div>
 <!-- //breadcrumbs -->
 <!---728x90--->
-
+<br>
+<br>
 <div class="products">
   <div class="container" style="width: 80%">
     <div class="agileinfo_single">
@@ -23,17 +16,17 @@
       </div>
       <div class="col-md-9 agileinfo_single_right">
 
-        <h2>Tên sản phẩm : {{obj.name}}</h2>
+        <h2>{{obj.name}}</h2>
         <div class="w3agile_description">
-          <h4>Mô tả sản phẩm :</h4>
-          <p>{{obj.description}}</p>
+          <h4 style="margin-bottom: 6px"><i class="fa-solid fa-newspaper" style="margin-right: 5px"></i>Mô tả sản phẩm :</h4>
+          <i>{{obj.description}}</i>
         </div>
         <div class="snipcart-item block">
           <div class="snipcart-thumb agileinfo_single_right_snipcart">
-            <h4 class="m-sing">Giá :{{obj.price}} $</h4>
+            <h3 class="m-sing" style="color: #fe9126"><i class="fa-solid fa-money-bill-1-wave" style="margin-right: 5px"></i>Giá: {{obj.price}} $</h3>
           </div>
           <div class="snipcart-details1 top_brand_home_details" *ngIf="userId != obj.user.id" style="margin-right: 1500px">
-            <button type="submit" class="button-shop" name="submit"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thêm vào giỏ hàng
+            <button type="submit" class="button-shop" name="submit" style="height: 48px; width: 211px;"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thêm vào giỏ hàng
             </button>
             <br>
           </div>

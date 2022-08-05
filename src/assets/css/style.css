@@ -541,7 +541,6 @@ div#myTabContent {
 }
 .nav-tabs>li>a:hover, .nav>li>a:focus {
 	text-decoration: none;
-	background: #fe9126;
 	color: #FFF;
 	border:  0px solid transparent;
 }
