@@ -17,7 +17,6 @@ import {ListComponent} from "./component/product/list/list.component";
 import {DetailProductComponent} from "./component/product/detail-product/detail-product.component";
 import {EditComponent} from "./component/product/edit/edit.component";
 import {ListCategoryComponent} from "./component/category/list-category/list-category.component";
-import {NgxPaginationModule} from "ngx-pagination";
 import {environment} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
@@ -31,6 +30,7 @@ import { ListCommentComponent } from './component/comment/list-comment/list-comm
 import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
 import {NgToastModule} from "ng-angular-popup";
 import { AllProductComponent } from './component/product/all-product/all-product/all-product.component';
+import {NgxPaginationModule} from "ngx-pagination";
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,8 +58,8 @@ import { AllProductComponent } from './component/product/all-product/all-product
         AppRoutingModule,
         HttpClientModule,
         ReactiveFormsModule,
-        NgxPaginationModule,
         ReactiveFormsModule,
+      NgxPaginationModule,
         AngularFireStorageModule,
         AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
         FormsModule,
