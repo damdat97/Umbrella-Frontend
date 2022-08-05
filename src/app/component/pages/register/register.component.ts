@@ -13,10 +13,10 @@ import {NgToastService} from "ng-angular-popup";
 export class RegisterComponent implements OnInit {
   registerForm = new FormGroup({
     name: new FormControl("", [Validators.required]),
-    phone: new FormControl("", [Validators.required,Validators.pattern("(03|05|07|08|09)+([0-9]{8})")]),
-    username: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
-    password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
-    confirmPassword: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
+    phone: new FormControl("", [Validators.required, Validators.pattern("(03|05|07|08|09)+([0-9]{8})")]),
+    username: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(32)]),
+    password: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(32)]),
+    confirmPassword: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(32)]),
   })
 
   get name() {
@@ -56,6 +56,10 @@ export class RegisterComponent implements OnInit {
       console.log(data)
       this.router.navigate(["/login"])
     }, error => {
+      if (error.error == "Tên người dùng đã tồn tại") {
+        // @ts-ignore
+        document.getElementById("check-username").style.display = "block"
+      }
       console.log(error)
     })
   }
