@@ -48,4 +48,8 @@ export class ProductService {
   findProductByUserId(id:any):Observable<Product[]>{
     return this.httpClient.get<Product[]>(API_URL + '/products/find-my-shop/' + id)
   }
+
+  findAllProductByUserIdNot(id: any): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-user-id-not/' + id)
+  };
 }

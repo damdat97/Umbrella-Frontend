@@ -1,6 +1,4 @@
-
 <div class="top-brands">
-
   <div class="container" style="background: whitesmoke;width: 90%">
     <h2>Danh Sách Sản Phẩm</h2>
     <div class="grid_3 grid_5">
@@ -8,9 +6,9 @@
         <div id="myTabContent" class="tab-content" style="border:2px solid #fe9126;background-color: white">
           <div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
 
-            <div class="agile_top_brands_grids" style="margin-top: 10px">
+            <div class="agile_top_brands_grids" style="margin-top: 10px" >
               <div class="col-md-3 top_brand_left"
-                   *ngFor="let product of products|paginate: { itemsPerPage: 8, currentPage: p, totalItems: total }, index as i">
+                   *ngFor="let product of products|paginate: { itemsPerPage: 8, currentPage: p, totalItems: total }, index as i" >
                 <div class="hover14 column">
                   <div class="agile_top_brand_left_grid" style="width: 357px;height: 468px">
                     <figure>
@@ -23,20 +21,10 @@
                                 style="font-size: 22px; margin-top: 12px">{{product.name}}</a></p>
                           <h4 style="font-size: 22px; margin-top: 5px; text-align: center"> {{product.price}} $</h4>
                         </div>
-                        <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
-                          <button class="btn button-edit button-shop"><i class="fa-solid fa-basket-shopping" style="margin-right: px"></i>Thêm
+                        <div class="snipcart-details top_brand_home_details" >
+                          <button class="btn button-edit button-shop"><i class="fa-solid fa-basket-shopping"
+                                                                         style="margin-right: 5px"></i>Thêm
                             Vào Giỏ Hàng
-                          </button>
-                          <br>
-                        </div>
-                        <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
-                          <button type="button" class="btn button-edit button-ed" data-toggle="modal"
-                                  data-target="#exampleModalEdit" [routerLink]="['/edit-product',product.id]"
-                                  style="margin-right: 25px;width: 90px"><i class="fa-solid fa-pen-to-square"
-                                                                            style="margin-right: 5px"></i>Sửa
-                          </button>
-                          <button class="btn button-delete" (click)="deleteProduct(product.id)"><i
-                            class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa
                           </button>
                           <br>
                         </div>
