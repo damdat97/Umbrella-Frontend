@@ -1,33 +1,48 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 
-<div class="register-area">
+<div class="breadcrumbs">
   <div class="container">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="box-for overflow">
-        <div class="col-md-12 col-xs-12 login-blocks">
-          <h2>Đăng nhập: </h2>
-          <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
-            <div class="form-group">
-              <label for="email">Tên đăng nhập</label>
-              <input type="text" class="form-control" id="email" formControlName="username">
-            </div>
-            <div class="form-group">
-              <label for="password">Mật khẩu</label>
-              <input type="password" class="form-control" id="password" formControlName="password">
-            </div>
-            <div class="text-center">
-              <button type="submit" class="btn btn-default btn-login"> Đăng nhập</button>
-              <button class="btn btn-default btn-login" routerLink="/register"> Đăng ký</button>
-            </div>
-          </form>
-          <br>
+    <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+      <li><a [routerLink]="['/']"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
+      <li class="active">Đăng nhập</li>
+    </ol>
+  </div>
+</div>
+<div class="login">
+  <div class="container">
+    <h2>Đăng nhập</h2>
+    <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <label for="email">Tên đăng nhập</label>
+        <input type="text" class="form-control" id="email" formControlName="username">
+        <div *ngIf="!loginForm.controls.username?.valid && (loginForm.controls.username?.dirty || loginForm.controls.username?.touched)">
+          <div *ngIf="loginForm.controls.username?.errors?.['required']">
+            <div style="color: red; float: left ">Tên tài khoản không được bỏ trống</div>
+          </div>
+          <div *ngIf="loginForm.controls.username?.errors?.['pattern']">
+            <div  style="color: red; float: left ">Tên tài khoản sai định dạng</div>
+          </div>
         </div>
-      </div>
+        <br>
+        <div class="form-group">
+          <label for="password">Mật khẩu</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+            <div style="color: red" *ngIf="password?.errors?.['required']">
+              <div> Mật khẩu không được bỏ trống</div>
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Đăng nhập">
+      </form>
     </div>
-    <div class="col-md-3"></div>
+    <h4>Dành cho người mới</h4>
+    <p><a routerLink="/register">Đăng kí tại đây</a> hoặc trở lại <a routerLink="/">Trang chủ<span
+      class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
   </div>
 </div>
 
 <app-footer></app-footer>
+
+

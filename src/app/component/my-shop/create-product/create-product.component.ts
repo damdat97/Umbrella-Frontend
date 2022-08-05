@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ProductService} from "../../../service/product.service";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
@@ -16,13 +16,31 @@ import {NgToastComponent, NgToastService} from "ng-angular-popup";
 })
 export class CreateProductComponent implements OnInit {
   productForm: FormGroup = new FormGroup({
-    name: new FormControl(),
-    categoryId: new FormControl(),
-    description: new FormControl(),
-    price: new FormControl(),
-    quantity: new FormControl(),
-    image: new FormControl(),
+    name: new FormControl("", [Validators.required]),
+    categoryId: new FormControl("", [Validators.required]),
+    description: new FormControl("", [Validators.required]),
+    price: new FormControl("", [Validators.required]),
+    quantity: new FormControl("", [Validators.required]),
+    image: new FormControl("", [Validators.required]),
   })
+
+  get name() {
+    return this.productForm.get('name');
+  }
+  get categoryId() {
+    return this.productForm.get('categoryId');
+  }
+
+  get description() {
+    return this.productForm.get('description');
+  }
+  get price() {
+    return this.productForm.get('price');
+  }
+
+  get quantity() {
+    return this.productForm.get('quantity');
+  }
 
   constructor(private router: Router,
               private productService: ProductService,
