@@ -95,7 +95,7 @@ export class AllProductComponent implements OnInit {
 
   sortByAll(event: any) {
     if (event == 0) {
-      return this.listProduct= this.listProduct.sort((obj1: any, obj2: any) => {
+      return this.listProduct = this.listProduct.sort((obj1: any, obj2: any) => {
         if (obj1.name > obj2.name) {
           return 1;
         }
