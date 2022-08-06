@@ -272,7 +272,7 @@ RIGHT SIDEBAR TOGGLE SECTION
 }
 .button-edit {
   background-color: dodgerblue;
-  border: 1px solid black;
+  border: 1px solid;
   border-radius: 8px;
   box-sizing: border-box;
   color: #ffffff;
@@ -296,7 +296,7 @@ RIGHT SIDEBAR TOGGLE SECTION
 }
 .button-delete {
   background-color: red;
-  border: 1px solid black;
+  border: 1px solid ;
   border-radius: 8px;
   box-sizing: border-box;
   color: #ffffff;
@@ -321,7 +321,7 @@ RIGHT SIDEBAR TOGGLE SECTION
 .button-delete:hover {
   background-color: #fe9126;
   color: #ffffff;
-  border: 1px solid black;
+  border: 1px solid;
 }
 
 .button-add {
@@ -330,8 +330,8 @@ RIGHT SIDEBAR TOGGLE SECTION
 }
 
 .button-shop {
-  background-color: #FFFFFF;
-  border: 1px solid #222222;
+  background-color: white;
+  border: 1px solid white;
   border-radius: 8px;
   box-sizing: border-box;
   color: #222222;
@@ -339,7 +339,7 @@ RIGHT SIDEBAR TOGGLE SECTION
   display: inline-block;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: bold;
   line-height: 20px;
   margin: 0;
   outline: none;
@@ -355,9 +355,8 @@ RIGHT SIDEBAR TOGGLE SECTION
 
 }
 .button-shop:hover {
-  color: #fff;
-  background-color: #fe9126;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  background-color: white;
+  color: #fe9126;
   transform: translateY(-2px);
 }
 /* CSS */
@@ -479,6 +478,29 @@ RIGHT SIDEBAR TOGGLE SECTION
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
-
+.button-23 {
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
 
 /* You can add global styles to this file, and also import other style files */
