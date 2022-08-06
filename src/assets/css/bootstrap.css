@@ -1470,10 +1470,10 @@ img {
   padding: 0;
   display: block;
   max-width: 100%;
-  width: 354px;
+  width: 343px;
   height: 303px;
   border-top-left-radius: 10px;
-  border-top-right-radius: 10px
+  border-top-right-radius: 10px;
 }
 .img-responsive-category {
   padding: 0;
