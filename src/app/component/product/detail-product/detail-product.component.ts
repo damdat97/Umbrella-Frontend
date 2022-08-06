@@ -78,7 +78,8 @@ export class DetailProductComponent implements OnInit {
   }
 
   comment() {
-    this.commentService.getAllComment().subscribe((data) => {
+    this.commentService.findCommentByProductId(this.id).subscribe((data) => {
+      console.log(this.id)
       console.log(data)
       this.listComment = data;
     }, error => {
