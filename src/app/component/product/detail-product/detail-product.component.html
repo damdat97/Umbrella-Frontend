@@ -9,91 +9,95 @@
   <div class="container" style="width: 80%">
     <div class="agileinfo_single">
 
-      <div class="col-md-3 agileinfo_single_left" style=" background-color: white">
-        <img
-          src="{{obj.image[0].image}}" style="width: 100%; height: 313px"
-          class="img-responsive"/>
-      </div>
-      <div class="col-md-9 agileinfo_single_right">
-        <div class="snipcart-thumb agileinfo_single_right_snipcart">
-        <p style="font-size: 30px; margin-bottom: 5px"><b>{{obj.name}}</b></p>
-          <h3 class="m-sing" style="color: #fe9126"><i class="fa-solid fa-money-bill-1-wave"
-                                                       style="margin-right: 5px"></i>Giá: {{obj.price}} $</h3>
-        </div>
-        <div class="w3agile_description">
-          <h4 style="margin-bottom: 6px"><i class="fa-solid fa-newspaper" style="margin-right: 5px"></i>Mô tả sản phẩm :
-          </h4>
-          <i>{{obj.description}}</i>
-        </div>
-        <div class="snipcart-item block">
+      <div class="col-md-5" style=" background-color: white">
+        <div class="row"><img
+          src="{{obj.image[0].image}}" style="width: 100%; height:auto;border-radius: 15px "
+          class="img-responsive"/></div>
+        <div class="row">
+          <div class="snipcart-item block">
 
-          <div class="snipcart-details1 top_brand_home_details" *ngIf="userId != obj.user.id"
-               style="margin-right: 1500px">
-            <button type="submit" class="button-shop" name="submit" style="height: 48px; width: 211px;"><i
-              class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thêm vào giỏ hàng
-            </button>
+            <div class="snipcart-details1 top_brand_home_details" *ngIf="userId != obj.user.id"
+                 style="margin-left: 150px;margin-top: 70px">
+              <button type="submit" class="button-shop" name="submit"
+                      style="font-size: 24px;height: 48px; width: 331px;"><i
+                class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thêm vào giỏ hàng
+              </button>
+              <br>
+            </div>
+            <div class="snipcart-details1 top_brand_home_details" *ngIf="userId == obj.user.id"
+                 style="margin-right: 1500px">
+              <button type="button" class="btn button-edit button-ed" data-toggle="modal"
+                      data-target="#exampleModalEdit"
+                      [routerLink]="['/edit-product',obj.id]" style="margin-right: 10px;width: 90px"><i
+                class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Sửa
+              </button>
+              <button class="btn button-delete" (click)="deleteProduct(obj.id)"><i class="fa-solid fa-trash-can"
+                                                                                   style="margin-right: 5px"></i>Xóa
+              </button>
+            </div>
             <br>
           </div>
-          <div class="snipcart-details1 top_brand_home_details" *ngIf="userId == obj.user.id"
-               style="margin-right: 1500px">
-            <button type="button" class="btn button-edit button-ed" data-toggle="modal" data-target="#exampleModalEdit"
-                    [routerLink]="['/edit-product',obj.id]" style="margin-right: 10px;width: 90px"><i
-              class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Sửa
-            </button>
-            <button class="btn button-delete" (click)="deleteProduct(obj.id)"><i class="fa-solid fa-trash-can"
-                                                                                 style="margin-right: 5px"></i>Xóa
-            </button>
-          </div>
-          <br>
         </div>
       </div>
-      <div class="clearfix"></div>
     </div>
-  </div>
-  <br>
-  <br>
-  <div class="container mt-5 mb-5">
-    <div class="d-flex justify-content-center row">
-      <div>
-        <div class="d-flex flex-column col-md-8" style="margin-left: 24%" *ngFor="let item of listComment">
-          <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
-            <div
-              class="commented-section mt-2">
-              <div class="d-flex flex-row align-items-center commented-user">
-                <h5 class="mr-2">{{item.user.name}}</h5></div>
-              <div class="comment-text-sm"><span>{{item.description}}</span></div>
-              <div
-                class="reply-section">
-                <div class="d-flex flex-row align-items-center voting-icons"><i
-                  class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
-                  <br>
+
+    <div class="col-md-7 agileinfo_single_right">
+      <div class="snipcart-thumb agileinfo_single_right_snipcart">
+        <p style="font-size: 30px; margin-bottom: 10px"><b>{{obj.name}}</b></p>
+        <h2 class="m-sing" style="color: #fe9126"><i class="fa-solid fa-money-bill-1-wave"
+                                                     style="margin-right: 5px"></i>Giá: {{obj.price}} $</h2>
+      </div>
+      <div class="w3agile_description" style="border: 2px solid whitesmoke;border-radius: 13px;background-color: rgba(224,224,224,0.7);height:auto">
+        <h4 style="margin-bottom: 6px;"><i class="fa-solid fa-newspaper" style="margin-right: 5px"></i>Mô tả sản phẩm :
+        </h4>
+        <i>{{obj.description}}</i>
+      </div>
+      <div style="margin-top: 180px">
+        <div class="container mt-5 mb-5">
+          <div class="d-flex justify-content-center row">
+            <div>
+              <div class="d-flex flex-column col-md-8"  *ngFor="let item of listComment">
+                <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
+                  <div
+                    class="commented-section mt-2">
+                    <div class="d-flex flex-row align-items-center commented-user">
+                      <h5 class="mr-2">{{item.user.name}}</h5></div>
+                    <div class="comment-text-sm"><span>{{item.description}}</span></div>
+                    <div
+                      class="reply-section">
+                      <div class="d-flex flex-row align-items-center voting-icons"><i
+                        class="fa fa-sort-up fa-2x mt-3 hit-voting"></i>
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container mt-5 mb-5">
+          <div class="d-flex justify-content-center row">
+            <div class="d-flex flex-column col-md-8">
+              <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
+              </div>
+              <div class="coment-bottom bg-white p-2 px-4">
+                <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+                  <form [formGroup]="commentForm" (ngSubmit)="submit()">
+                    <input type="text" class="form-control mr-3" placeholder="Thêm bình luận" formControlName="description"
+                           style="margin-bottom: 10px">
+                    <button class="btn btn-primary" type="submit">Bình luận</button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="clearfix"></div>
     </div>
   </div>
 
-
-  <div class="container mt-5 mb-5">
-    <div class="d-flex justify-content-center row">
-      <div class="d-flex flex-column col-md-8" style="margin-left: 24%">
-        <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
-        </div>
-        <div class="coment-bottom bg-white p-2 px-4">
-          <div class="d-flex flex-row add-comment-section mt-4 mb-4">
-            <form [formGroup]="commentForm" (ngSubmit)="submit()">
-              <input type="text" class="form-control mr-3" placeholder="Thêm bình luận" formControlName="description"
-                     style="margin-bottom: 10px">
-              <button class="btn btn-primary" type="submit">Bình luận</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <app-footer></app-footer>
