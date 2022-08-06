@@ -28,9 +28,11 @@ import { EditProductComponent } from './component/my-shop/edit-product/edit-prod
 import { CreateCommentComponent } from './component/comment/create-comment/create-comment.component';
 import { ListCommentComponent } from './component/comment/list-comment/list-comment.component';
 import {CreateProductComponent} from "./component/my-shop/create-product/create-product.component";
-import {NgToastModule} from "ng-angular-popup";
 import { AllProductComponent } from './component/product/all-product/all-product/all-product.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import {NgToastModule} from "ng-angular-popup";
+import { ShopCartComponent } from './component/shop-cart/shop-cart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,9 @@ import {NgxPaginationModule} from "ngx-pagination";
     CreateProductComponent,
     CreateCommentComponent,
     ListCommentComponent,
-    AllProductComponent
+    AllProductComponent,
+    ShopCartComponent
+
   ],
     imports: [
         BrowserModule,

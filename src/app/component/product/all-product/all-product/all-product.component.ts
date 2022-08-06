@@ -4,6 +4,8 @@ import {ProductService} from "../../../../service/product.service";
 import {ImageService} from "../../../../service/image.service";
 import {NgToastService} from "ng-angular-popup";
 import {FormControl, FormGroup} from "@angular/forms";
+import {CartItem} from "../../../../model/CartItem";
+import {ShoppingCartService} from "../../../../service/shopping-cart.service";
 
 @Component({
   selector: 'app-all-product',
@@ -26,7 +28,8 @@ export class AllProductComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private imageService: ImageService,
-              private toast: NgToastService) {
+              private toast: NgToastService,
+              private shoppingCartService: ShoppingCartService) {
   }
 
   ngOnInit(): void {
@@ -135,4 +138,17 @@ export class AllProductComponent implements OnInit {
       });
     }
   }
+
+
+  addToShoppingCart(product: Product){
+
+    // @ts-ignore
+    const cartItem: CartItem = {
+      product: product,
+      quantity: "1",
+    }
+    console.log(cartItem);
+    this.shoppingCartService.save(cartItem).subscribe(() => {});
+  }
+
 }

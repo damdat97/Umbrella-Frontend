@@ -20,6 +20,8 @@ export class ProductByCategoryComponent implements OnInit {
   userId = localStorage.getItem("ID")
   p: number = 1;
   total: number = 0;
+
+
   product: FormGroup = new FormGroup({
     name: new FormControl(''),
     description: new FormControl(''),
@@ -81,7 +83,7 @@ export class ProductByCategoryComponent implements OnInit {
 
   searchByAll() {
     this.image = []
-    this.productService.searchByAll(this.product.value.name, this.product.value.description, this.product.value.from, this.product.value.to).subscribe((data1) => {
+    this.productService.searchByAll( this.product.value.name, this.product.value.description,this.product.value.from, this.product.value.to).subscribe((data1) => {
       console.log(data1)
       this.productByCate = data1;
       for (let i = 0; i < data1.length; i++) {
@@ -153,7 +155,6 @@ export class ProductByCategoryComponent implements OnInit {
       console.log(error);
     })
   }
-
   deleteProduct(id: any) {
     if (confirm('Are you sure you want to delete?')) {
       this.productService.delete(id).subscribe(() => {

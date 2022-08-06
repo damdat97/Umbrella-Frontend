@@ -10,6 +10,8 @@ import {CreateProductComponent} from "./component/my-shop/create-product/create-
 import {ListProductComponent} from "./component/my-shop/list-product/list-product.component";
 import {EditProductComponent} from "./component/my-shop/edit-product/edit-product.component";
 import {AllProductComponent} from "./component/product/all-product/all-product/all-product.component";
+import {ShopCartComponent} from "./component/shop-cart/shop-cart.component";
+
 
 const routes: Routes = [
   {
@@ -19,6 +21,10 @@ const routes: Routes = [
   {
     path:'product-detail/:id',
     component:DetailProductComponent
+  },
+  {
+    path:'shop-cart',
+    component:ShopCartComponent
   },
   {
     path:'my-shop/:id',

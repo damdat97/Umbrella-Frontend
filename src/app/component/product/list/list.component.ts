@@ -6,6 +6,8 @@ import {Category} from "../../../model/category";
 import {User} from "../../../model/user";
 import {FormControl, FormGroup} from "@angular/forms";
 import {NgToastService} from "ng-angular-popup";
+import {CartItem} from "../../../model/CartItem";
+import {ShoppingCartService} from "../../../service/shopping-cart.service";
 
 @Component({
   selector: 'app-list',
@@ -20,7 +22,8 @@ export class ListComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private imageService: ImageService,
-              private toast: NgToastService) {
+              private toast: NgToastService,
+              private shoppingCartService: ShoppingCartService) {
   }
 
   ngOnInit(): void {
@@ -69,5 +72,15 @@ export class ListComponent implements OnInit {
         console.log(e);
       });
     }
+  }
+  addToShoppingCart(product: Product){
+
+    // @ts-ignore
+    const cartItem: CartItem = {
+      product: product,
+      quantity: "1",
+    }
+    console.log(cartItem);
+    this.shoppingCartService.save(cartItem).subscribe(() => {});
   }
 }
