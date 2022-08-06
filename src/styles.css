@@ -539,4 +539,16 @@ RIGHT SIDEBAR TOGGLE SECTION
   word-break: break-word;
 }
 
+.show-product-category {
+  font-size: 18px;
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 30px;
+  width: 290px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: nowrap;
+}
+
 /* You can add global styles to this file, and also import other style files */
