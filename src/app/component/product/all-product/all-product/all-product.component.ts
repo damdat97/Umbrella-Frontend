@@ -39,19 +39,31 @@ export class AllProductComponent implements OnInit {
 
   getAllProducts() {
     this.listImage = []
-    this.productService.getAll().subscribe((data) => {
-      this.listProduct = data
-      console.log("1", data)
-      for (let i = 0; i < data.length; i++) {
-        this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
-          this.listProduct[i].image = image;
-          console.log(this.listProduct)
-        })
-      }
+    if(this.userId == localStorage.getItem("ID")){
+      this.productService.findAllProductByUserIdNot(this.userId).subscribe((data) => {
+        this.listProduct = data
+        console.log("1", data)
+        for (let i = 0; i < data.length; i++) {
+          this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
+            this.listProduct[i].image = image;
+            console.log(this.listProduct)
+          })
+        }
 
-    }, error => {
-      console.log(error);
-    })
+      })
+    }
+    if(this.userId != localStorage.getItem("ID") ||this.userId == null) {
+      this.productService.getAll().subscribe((data) => {
+        this.listProduct = data
+        console.log("1", data)
+        for (let i = 0; i < data.length; i++) {
+          this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
+            this.listProduct[i].image = image;
+            console.log(this.listProduct)
+          })
+        }
+      })
+    }
   }
 
   deleteProduct(id: any) {
