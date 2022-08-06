@@ -42,16 +42,30 @@ export class ProductByCategoryComponent implements OnInit {
 
   searchCategory(id: any) {
     this.image = []
-    this.productService.findProductByCategories(id).subscribe((data) => {
-      this.productByCate = data
-      console.log("1", data)
-      for (let i = 0; i < data.length; i++) {
-        this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
-          this.productByCate[i].image = image;
-          console.log(this.productByCate)
-        })
-      }
-    })
+    if (this.userId == localStorage.getItem("ID")) {
+      this.productService.findAllProductByCategoryAndUserIdNot(id, this.userId).subscribe((data) => {
+        this.productByCate = data
+        console.log("1", data)
+        for (let i = 0; i < data.length; i++) {
+          this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
+            this.productByCate[i].image = image;
+            console.log(this.productByCate)
+          })
+        }
+      })
+    }
+    if (this.userId != localStorage.getItem("ID") || this.userId == null) {
+      this.productService.findProductByCategories(id).subscribe((data) => {
+        this.productByCate = data
+        console.log("1", data)
+        for (let i = 0; i < data.length; i++) {
+          this.imageService.findAllByProductId(data[i].id).subscribe((image) => {
+            this.productByCate[i].image = image;
+            console.log(this.productByCate)
+          })
+        }
+      })
+    }
   }
 
   findById(id: any) {
