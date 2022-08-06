@@ -15,7 +15,7 @@
 
   <div class="container" style="width: 80%">
     <div class="col-md-3 products-left">
-      <div class="categories" style="border:1px solid #fe9126 ">
+      <div class="categories" style="border:3px solid #fe9126 ">
         <br>
         <br>
         <h3 style="font-size: 25px; text-align: center">Tìm Kiếm</h3>
@@ -54,7 +54,7 @@
         </ul>
       </div>
     </div>
-    <div class="col-md-9 products-right" style="margin-bottom: 100px; border:1px solid #fe9126">
+    <div class="col-md-9 products-right" style="margin-bottom: 100px; border:3px solid #fe9126">
       <div class="products-right-grid" style="margin-top: 20px; margin-left: 415px">
         <div class="products-right-grids">
           <div class="sorting">
@@ -69,36 +69,25 @@
         </div>
       </div>
       <div class="agile_top_brands_grids">
-        <div class="col-md-4 top_brand_left" style="width: 350px;height: auto;margin-bottom: 30px"
-             *ngFor="let product of listProduct|paginate: { itemsPerPage: 3, currentPage: p, totalItems: total }, index as i">
-          <div class="hover14 column" style="border:1px solid grey">
+        <div class="col-md-3 top_brand_left" style="width: 250px;height: auto;margin-bottom: 30px;border-radius: 10px"
+             *ngFor="let product of listProduct|paginate: { itemsPerPage: 8, currentPage: p, totalItems: total }, index as i">
+          <div class="hover14 column" style="width: 240px;height: 380px;border: 3px solid grey;border-radius: 13px">
             <div>
-              <div class="agile_top_brand_left_grid">
+              <div class="agile_top_brand_left_grid" style="border-top-left-radius: 12px;border-top-right-radius: 12px;padding: 0">
                 <figure>
                   <div class="snipcart-item block">
                     <div class="snipcart-thumb">
-                      <a [routerLink]="['/product-detail',product.id]"><img
-                        src="{{product.image[0].image}}" style="width: 100%; height: 313px"
+                      <a [routerLink]="['/product-detail',product.id]" ><img
+                        src="{{product.image[0].image}}"
                         class="img-responsive"/></a>
                       <p><a href="#" [routerLink]="['/product-detail',product.id]"
-                            style="font-size: 22px; margin-top: 12px">{{product.name}}</a></p>
+                            class="show-product">{{product.name}}</a></p>
                       <h4 style="font-size: 22px; margin-top: 5px; text-align: center">{{product.price}} $</h4>
                     </div>
                     <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
-                      <button class="btn button-shop" style="font-size: 16px;height: 48px; width: 211px"><i class="fa-solid fa-basket-shopping"
-                                                                                                        style="margin-right: 5px;"></i>Thêm
-                        Vào Giỏ Hàng
-                      </button>
-                      <br>
-                    </div>
-                    <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
-                      <button class="btn button-edit" data-toggle="modal" data-target="#exampleModalEdit"
-                              [routerLink]="['/edit-product',product.id]" style="margin-right: 10px;width: 90px"><i
-                        class="fa-solid fa-pen-to-square" style="margin-right:5px"></i>Sửa
-                      </button>
-                      <button class="btn button-delete" (click)="deleteProduct(product.id)" style="width: 90px"><i
-                        class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa
-                      </button>
+                      <button class="btn button-shop" style="font-size: 14px;margin-right: 20px">
+                        <i class="fa-solid fa-basket-shopping" style="margin-right: 5px">
+                        </i>Thêm Vào Giỏ Hàng</button>
                     </div>
                   </div>
                 </figure>

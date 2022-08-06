@@ -266,10 +266,12 @@ RIGHT SIDEBAR TOGGLE SECTION
   background-color: #fe9126;
   color: white;
 }
+
 .button-edit:hover {
   background-color: #fe9126;
   color: #ffffff;
 }
+
 .button-edit {
   background-color: dodgerblue;
   border: 1px solid;
@@ -294,9 +296,10 @@ RIGHT SIDEBAR TOGGLE SECTION
   -webkit-user-select: none;
   width: auto;
 }
+
 .button-delete {
   background-color: red;
-  border: 1px solid ;
+  border: 1px solid;
   border-radius: 8px;
   box-sizing: border-box;
   color: #ffffff;
@@ -318,6 +321,7 @@ RIGHT SIDEBAR TOGGLE SECTION
   -webkit-user-select: none;
   width: auto;
 }
+
 .button-delete:hover {
   background-color: #fe9126;
   color: #ffffff;
@@ -341,9 +345,9 @@ RIGHT SIDEBAR TOGGLE SECTION
   font-size: 16px;
   font-weight: bold;
   line-height: 20px;
-  margin: 0;
+  margin: -10px;
   outline: none;
-  padding: 13px 23px;
+  padding: 11px 21px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -354,11 +358,13 @@ RIGHT SIDEBAR TOGGLE SECTION
   width: auto;
 
 }
+
 .button-shop:hover {
   background-color: white;
   color: #fe9126;
   transform: translateY(-2px);
 }
+
 /* CSS */
 .button-23 {
   background-color: #FFFFFF;
@@ -448,6 +454,7 @@ RIGHT SIDEBAR TOGGLE SECTION
   box-shadow: none;
   transform: translateY(0);
 }
+
 .button-search {
   background-color: rgba(224, 224, 224, 0.7);
   border: 1px solid black;
@@ -460,7 +467,7 @@ RIGHT SIDEBAR TOGGLE SECTION
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
-  margin: 0;
+  margin: 3px;
   outline: none;
   padding: 13px 23px;
   position: relative;
@@ -472,12 +479,14 @@ RIGHT SIDEBAR TOGGLE SECTION
   -webkit-user-select: none;
   width: 90%;
 }
+
 .button-search:hover {
   color: #fff;
   background-color: #fe9126;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
+
 .button-23 {
   background-color: #FFFFFF;
   border: 1px solid #222222;
@@ -501,6 +510,33 @@ RIGHT SIDEBAR TOGGLE SECTION
   user-select: none;
   -webkit-user-select: none;
   width: auto;
+}
+
+/*name*/
+.show-product {
+  font-size: 17px;
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 50px;
+  width: 200px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  text-align: center;
+
+}
+
+.show-product-home {
+  font-size: 22px;
+  margin-left: 10px;
+  margin-top: 15px;
+  height: 30px;
+  width: 335px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
 }
 
 /* You can add global styles to this file, and also import other style files */
