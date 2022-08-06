@@ -78,7 +78,7 @@ export class EditComponent implements OnInit {
       // @ts-ignore
       $('#exampleModalEdit').modal('hide');
       this.editForm.reset()
-      this.router.navigate(["/"])
+      this.router.navigate(["/product-detail", this.editForm.value.id])
     }, error => {
       this.toast.warning({detail: "Lỗi!", summary: 'Nhập sai, không thẻ sửa!', duration: 3000})
       console.log(error)
