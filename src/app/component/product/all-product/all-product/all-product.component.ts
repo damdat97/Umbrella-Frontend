@@ -135,4 +135,6 @@ export class AllProductComponent implements OnInit {
       });
     }
   }
+
+
 }
