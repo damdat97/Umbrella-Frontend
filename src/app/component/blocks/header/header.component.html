@@ -13,26 +13,20 @@
     </div>
 
     <ul class="main-nav nav navbar-nav navbar-right">
-<!--      <div class="dropdown" *ngIf="isLogin">-->
-<!--        <button class="dropbtn"><i class="fa-solid fa-check-double" style="margin-right: 10px"></i>{{username}}-->
-<!--        </button>-->
-<!--        <div class="dropdown-content" style="left: auto">-->
-<!--          <a [routerLink]="['/my-shop', id]">Cửa hàng của tôi<i class="fa-solid fa-shop" style="margin-left: 10px"></i></a>-->
-<!--          <a href="" (click)="logOut()">Đăng xuất<i class="fa-solid fa-arrow-right-from-bracket"-->
-<!--                                                    style="margin-left: 10px"></i></a>-->
-<!--        </div>-->
-<!--      </div>-->
       <li class="dropdown" *ngIf="isLogin">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 20px;color: #fe9126">{{username}} <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 20px;color: #fe9126">{{username}}
+          <b class="caret"></b></a>
         <ul class="dropdown-menu multi-column columns-3" style="right: auto;">
           <div class="row">
             <div class="multi-gd-img">
-              <ul class="multi-column-dropdown" >
-                <a [routerLink]="['/my-shop', id]" style="color: black;font-size: 15px">Cửa hàng của tôi<i class="fa-solid fa-shop" style="margin-left: 10px;"></i></a>
+              <ul class="multi-column-dropdown">
+                <a [routerLink]="['/my-shop', id]" style="color: black;font-size: 15px">Cửa hàng của tôi<i
+                  class="fa-solid fa-shop" style="margin-left: 10px;"></i></a>
                 <br>
                 <br>
-                <a href="" (click)="logOut()" style="color: black;font-size: 15px">Đăng xuất<i class="fa-solid fa-arrow-right-from-bracket"
-                                                          style="margin-left: 10px"></i></a>
+                <a href="" (click)="logOut()" style="color: black;font-size: 15px">Đăng xuất<i
+                  class="fa-solid fa-arrow-right-from-bracket"
+                  style="margin-left: 10px"></i></a>
               </ul>
             </div>
 
@@ -53,7 +47,7 @@
   </div>
 </div>
 
-<div class="logo_products" >
+<div class="logo_products">
   <div class="container" style="width: 80%">
     <div class="w3ls_logo_products_left1">
 
@@ -61,16 +55,15 @@
     <div class="w3ls_logo_products_left">
       <h1><a routerLink="/">umbrella</a></h1>
     </div>
-    <!--    <div class="w3l_search">-->
-    <!--      <form action="#" method="post">-->
-    <!--        <input type="search" name="Search" placeholder="Search for a Product..." required="">-->
-    <!--        <button type="submit" class="btn btn-default search" aria-label="Left Align">-->
-    <!--          <i class="fa fa-search" aria-hidden="true"> </i>-->
-    <!--        </button>-->
-    <!--        <div class="clearfix"></div>-->
-    <!--      </form>-->
-    <!--    </div>-->
-
+    <div class="w3l_search">
+      <form [formGroup]="searchName" (submit)="search()">
+        <input type="search" formControlName="name" placeholder="Nhập tên sản phẩm cần tìm...">
+        <button type="submit" class="btn btn-default search" aria-label="Left Align">
+          <i class="fa fa-search" aria-hidden="true"> </i>
+        </button>
+        <div class="clearfix"></div>
+      </form>
+    </div>
     <div class="clearfix"></div>
   </div>
 </div>

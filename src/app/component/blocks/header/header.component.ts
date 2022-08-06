@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthenticationService} from "../../../service/authentication.service";
 import {ProductService} from "../../../service/product.service";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,14 @@ export class HeaderComponent implements OnInit {
   username: any;
   id: any
   products: any
+
+  @Input()
+  searchName: FormGroup = new FormGroup({
+    name: new FormControl('')
+  })
+
+  @Output()
+  public searchEvent = new EventEmitter();
 
   constructor(private authenticationService: AuthenticationService,
               private productService: ProductService) {
@@ -25,9 +34,8 @@ export class HeaderComponent implements OnInit {
   }
 
   findProductByUserId(id: any) {
-    this.productService.findProductByUserId(id).subscribe((data)=>{
-      this.products=data;
-
+    this.productService.findProductByUserId(id).subscribe((data) => {
+      this.products = data;
     })
   }
 
@@ -36,4 +44,7 @@ export class HeaderComponent implements OnInit {
     this.isLogin = false;
   }
 
+  search() {
+    this.searchEvent.emit(this.searchName.value.name)
+  }
 }

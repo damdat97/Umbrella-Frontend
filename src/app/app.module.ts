@@ -13,7 +13,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {JwtInterceptor} from "./helper/jwt-interceptor";
 import {ErrorInterceptor} from "./helper/error-interceptor";
 import {HeaderComponent} from "./component/blocks/header/header.component";
-import {ListComponent} from "./component/product/list/list.component";
 import {DetailProductComponent} from "./component/product/detail-product/detail-product.component";
 import {EditComponent} from "./component/product/edit/edit.component";
 import {ListCategoryComponent} from "./component/category/list-category/list-category.component";
@@ -32,6 +31,7 @@ import {CreateProductComponent} from "./component/my-shop/create-product/create-
 import {NgToastModule} from "ng-angular-popup";
 import { AllProductComponent } from './component/product/all-product/all-product/all-product.component';
 import { ImageComponent } from './component/blocks/image/image.component';
+import {ListComponent} from "./component/product/list/list.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +41,6 @@ import { ImageComponent } from './component/blocks/image/image.component';
     FooterComponent,
     NavbarComponent,
     HeaderComponent,
-    ListComponent,
     DetailProductComponent,
     EditComponent,
     ListCategoryComponent,
@@ -53,7 +52,8 @@ import { ImageComponent } from './component/blocks/image/image.component';
     CreateCommentComponent,
     ListCommentComponent,
     AllProductComponent,
-    ImageComponent
+    ImageComponent,
+    ListComponent
   ],
     imports: [
         BrowserModule,
