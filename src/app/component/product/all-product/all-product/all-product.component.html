@@ -91,15 +91,6 @@
                       </button>
                       <br>
                     </div>
-                    <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
-                      <button class="btn button-edit" data-toggle="modal" data-target="#exampleModalEdit"
-                              [routerLink]="['/edit-product',product.id]" style="margin-right: 10px;width: 90px"><i
-                        class="fa-solid fa-pen-to-square" style="margin-right:5px"></i>Sửa
-                      </button>
-                      <button class="btn button-delete" (click)="deleteProduct(product.id)" style="width: 90px"><i
-                        class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa
-                      </button>
-                    </div>
                   </div>
                 </figure>
               </div>
