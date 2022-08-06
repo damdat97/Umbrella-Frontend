@@ -24,5 +24,6 @@
 }
 .button-add:hover {
   color: #fe9126;
+  background-color: #ffffff;
   transform: translateY(-2px);
 }

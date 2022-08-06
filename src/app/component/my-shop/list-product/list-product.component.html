@@ -12,8 +12,8 @@
     </div>
 
 
-    <div class="checkout-right">
-      <table class="timetable_sub">
+    <div class="checkout-right" style="">
+      <table class="timetable_sub" style="">
         <thead>
         <tr>
           <th style="font-size: large">STT</th>
@@ -24,24 +24,24 @@
           <th style="font-size: large">Chức Năng</th>
         </tr>
         </thead>
-        <tr class="rem1" *ngFor="let product of products,index as i">
-          <td class="invert">{{i + 1}}</td>
-          <td class="invert-image"><a [routerLink]="['/product-detail', product.id]">
+        <tr class="rem1"  *ngFor="let product of products,index as i">
+          <td  class="invert">{{i + 1}}</td>
+          <td style="" class="invert-image"><a [routerLink]="['/product-detail', product.id]">
             <img
               src="{{product.image[0].image}}" style="border:1px solid white; height:100px;width:40%"
               /></a>
           </td>
           <td class="invert">
             <div class="quantity">
-              <div class="quantity-select">
-                <div style="font-size: medium">{{product.quantity}}</div>
+              <div  class="quantity-select">
+                <div  style="font-size: medium;">{{product.quantity}}</div>
 
               </div>
             </div>
           </td>
-          <td class="invert" style="font-size: medium">{{product.name}}</td>
+          <td  class="invert" style="font-size: medium">{{product.name}}</td>
 
-          <td class="invert" style="font-size: medium">{{product.price}}</td>
+          <td  class="invert" style="font-size: medium">{{product.price}}</td>
           <td class="invert">
             <div class="rem">
               <button type="button" class="btn button-edit" style="margin-right: 15px; width: 90px;font-size: small"
