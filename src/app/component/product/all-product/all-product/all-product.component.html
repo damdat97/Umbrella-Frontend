@@ -9,7 +9,7 @@
 <div class="products">
   <div class="container" style="width: 80%">
     <div class="col-md-3 products-left">
-      <div class="categories" style="border:3px solid #fe9126;border-radius: 13px ">
+      <div class="categories" style="border:1px solid #fe9126;border-radius: 5px ">
         <br>
         <br>
         <h3 style="font-size: 25px; text-align: center">Tìm Kiếm</h3>
@@ -20,14 +20,14 @@
               <h4 class="agileits-sear-head"><i class="fa-brands fa-product-hunt" style="margin-right: 5px"></i>Tìm Kiếm
                 Theo Tên</h4>
               <br>
-              <input style="border-radius: 10px;border: 2px solid #fe9126" type="search" placeholder="Nhập tên sản phẩm"
+              <input style="border-radius: 5px;border: 1px solid #fe9126" type="search" placeholder="Nhập tên sản phẩm"
                      formControlName="name" name="search" required="">
               <br>
               <br>
               <h4 class="agileits-sear-head"><i class="fa-solid fa-pen" style="margin-right: 5px"></i>Tìm Kiếm Theo Mô
                 Tả</h4>
               <br>
-              <input style="border-radius: 10px;border: 2px solid #fe9126" type="search"
+              <input style="border-radius: 5px;border: 1px solid #fe9126" type="search"
                      placeholder="Nhập mô tả sản phẩm" formControlName="description" name="search"
                      required="">
               <br>
@@ -35,11 +35,11 @@
               <h4 class="agileits-sear-head"><i class="fa-solid fa-magnifying-glass-dollar"
                                                 style="margin-right: 5px"></i>Tìm Kiếm Theo Giá</h4>
               <br>
-              <input style="border-radius: 10px;border: 2px solid #fe9126" type="search" formControlName="from"
+              <input style="border-radius: 5px;border: 1px solid #fe9126" type="search" formControlName="from"
                      placeholder="Nhập giá từ ..." name="search" required="">
               <br>
               <br>
-              <input style="border-radius: 10px;border: 2px solid #fe9126" type="search" formControlName="to"
+              <input style="border-radius: 5px;border: 1px solid #fe9126" type="search" formControlName="to"
                      placeholder="đến khoảng..." name="search" required="">
               <br>
               <br>
@@ -52,12 +52,12 @@
         </ul>
       </div>
     </div>
-    <div class="col-md-9 products-right" style="margin-bottom: 100px; border:3px solid #fe9126;border-radius: 13px">
+    <div class="col-md-9 products-right" style="margin-bottom: 100px; border:1px solid #fe9126;border-radius: 5px">
       <div class="products-right-grid" style="margin-top: 20px; margin-left: 320px">
         <div class="products-right-grids">
           <div class="sorting">
             <select #sort (change)="sortByAll(sort.value)"
-                    style="width: 78% ;height: 50%;border-radius: 10px;border: 2px solid grey">
+                    style="width: 78% ;height: 50%;border-radius: 5px;border: 1px solid grey">
               <option value="1"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Số Lượng</option>
               <option value="0"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Tên</option>
               <option value="2"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Giá</option>
@@ -68,12 +68,12 @@
         </div>
       </div>
       <div class="agile_top_brands_grids">
-        <div class="col-md-3 top_brand_left" style="width: 250px;height: auto;margin-bottom: 30px;border-radius: 10px"
+        <div class="col-md-3 top_brand_left" style="width: 250px;height: auto;margin-bottom: 30px;border-radius: 5px"
              *ngFor="let product of listProduct|paginate: { itemsPerPage: 8, currentPage: p, totalItems: total }, index as i">
-          <div class="hover14 column" style="width: 240px;height: 380px;border: 3px solid grey;border-radius: 13px">
+          <div class="hover14 column" style="width: 240px;height: 380px;border: 1px solid grey;border-radius: 5px">
             <div>
               <div class="agile_top_brand_left_grid"
-                   style="border-top-left-radius: 12px;border-top-right-radius: 12px;padding: 0">
+                   style="border-top-left-radius: 5px;border-top-right-radius: 5px;padding: 0">
                 <figure>
                   <div class="snipcart-item block">
                     <div class="snipcart-thumb">
