@@ -1,56 +1,61 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
-<div class="container">
+<br>
+<br>
+<br>
+<div class="checkout">
+  <div class="container">
+    <h2>Your shopping cart contains: <span>{{countProduct}} sản phẩm</span></h2>
+    <div class="checkout-right">
+      <table class="timetable_sub">
+        <thead>
+        <tr>
+          <th>SL No.</th>
+          <th>Product</th>
+          <th>Quality</th>
+          <th>Product Name</th>
 
-  <section id="cart">
-    <article class="product">
-      <header>
-        <a class="remove">
-          <img src="http://www.astudio.si/preview/blockedwp/wp-content/uploads/2012/08/1.jpg" alt="">
-          <button type="button" (click)="delete()"><h3>Remove product</h3></button>
-        </a>
-      </header>
+          <th>Price</th>
+          <th>Remove</th>
+        </tr>
+        </thead>
+        <tr class="rem1" *ngFor="let cart of carts; index as i">
+          <td class="invert">{{i+1}}</td>
+          <td class="invert-image"><img src="{{cart.product.image[0].image}}" alt="" class="img-responsive" /></td>
+          <td class="invert">
+            <div class="quantity">
+              <div class="quantity-select">
+                <div class="entry value-minus">&nbsp;</div>
+                <div class="entry value"><span>{{cart.quantity}} $</span></div>
+                <div class="entry value-plus active">&nbsp;</div>
+              </div>
+            </div>
+          </td>
+          <td class="invert">{{cart.product.name}}</td>
 
-      <div class="content">
-
-        <h1>Lorem ipsum</h1>
-
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad omnis provident laborum dolore in atque.
-
+          <td class="invert">{{cart.product.price}} $</td>
+          <td class="invert">
+            <div class="rem">
+              <div class="close1"> </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!---728x90--->
+    <div class="checkout-left">
+      <div class="checkout-left-basket">
+        <h4>Continue to basket</h4>
+        <ul >
+          <li *ngFor="let cart of carts; index as i">{{cart.product.name}} <i>-</i> <span >{{cart.product.price*cart.quantity}} $</span></li>
+          <li>Total <i>-</i> <span >{{totalMoney}}</span></li>
+        </ul>
       </div>
-
-      <footer class="content">
-        <button class="qt-minus" (click)="upCountPr()"><span class="qt-minus">+</span></button>
-        <span class="qt">2</span>
-        <button class="qt-plus" (click)="downCountPr()"><span class="qt-plus">-</span></button>
-
-        <h2 class="full-price">
-          29.98€
-        </h2>
-
-        <h2 class="price">
-          14.99€
-        </h2>
-      </footer>
-    </article>
-
-  </section>
-
-</div>
-
-<footer id="site-footer">
-  <div class="container clearfix">
-
-    <div class="left">
-      <h2 class="subtotal">Subtotal: <span>163.96</span>€</h2>
-      <h3 class="tax">Taxes (5%): <span>8.2</span>€</h3>
-      <h3 class="shipping">Shipping: <span>5.00</span>€</h3>
+      <div class="checkout-right-basket" >
+        <a href="/">Continue Shopping</a>
+      </div>
+      <div class="clearfix"> </div>
     </div>
-
-    <div class="right">
-      <h1 class="total">Total: <span>177.16</span>€</h1>
-      <button (click)="checkOut()" class="btn">Checkout</button>
-    </div>
-
   </div>
-</footer>
+</div>
+<app-footer></app-footer>

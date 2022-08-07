@@ -17,8 +17,9 @@ import {ShoppingCartService} from "../../../service/shopping-cart.service";
 export class ListComponent implements OnInit {
   products: Product[] | any;
   p: number = 1;
-  total: number = 0;  image: any;
-  userId= localStorage.getItem("ID")
+  total: number = 0;
+  image: any;
+  userId = localStorage.getItem("ID")
 
   constructor(private productService: ProductService,
               private imageService: ImageService,
@@ -36,7 +37,7 @@ export class ListComponent implements OnInit {
 
   getAllProduct() {
     this.image = []
-    if(this.userId == localStorage.getItem("ID")){
+    if (this.userId == localStorage.getItem("ID")) {
       this.productService.findAllProductByUserIdNot(this.userId).subscribe((data) => {
         this.products = data
         console.log("1", data)
@@ -49,7 +50,7 @@ export class ListComponent implements OnInit {
 
       })
     }
-    if(this.userId != localStorage.getItem("ID") ||this.userId == null) {
+    if (this.userId != localStorage.getItem("ID") || this.userId == null) {
       this.productService.getAll().subscribe((data) => {
         this.products = data
         console.log("1", data)
@@ -73,12 +74,57 @@ export class ListComponent implements OnInit {
       });
     }
   }
+
+  sortByAll(event: any) {
+    if (event == 0) {
+      return this.products = this.products.sort((obj1: any, obj2: any) => {
+        if (obj1.name > obj2.name) {
+          return 1;
+        }
+
+        if (obj1.name < obj2.name) {
+          return -1;
+        }
+
+        return 0;
+      });
+    }
+    if (event == 1) {
+      return this.products = this.products.sort((obj1: any, obj2: any) => {
+        if (obj1.quantity > obj2.quantity) {
+          return 1;
+        }
+
+        if (obj1.quantity < obj2.quantity) {
+          return -1;
+        }
+
+        return 0;
+      });
+    }
+    if (event == 2) {
+
+      this.products = this.products.sort((obj1: any, obj2: any) => {
+        if (obj1.price > obj2.price) {
+          return 1;
+        }
+
+        if (obj1.price < obj2.price) {
+          return -1;
+        }
+
+        return 0;
+      });
+    }
+  }
+
+
   addToShoppingCart(product: Product){
 
     // @ts-ignore
     const cartItem: CartItem = {
       product: product,
-      quantity: "1",
+      quantity: 1,
     }
     console.log(cartItem);
     this.shoppingCartService.save(cartItem).subscribe(() => {});

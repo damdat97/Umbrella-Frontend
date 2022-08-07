@@ -5,15 +5,15 @@
 
   <div class="container" style="width: 80%">
     <div style="margin-bottom: 50px">
-      <button class="button-23 button-ed" role="button" data-toggle="modal" data-target="#exampleModalCreateProduct"
+      <button class="button-add" role="button" data-toggle="modal" data-target="#exampleModalCreateProduct"
               [routerLink]="['/create-product/']"><i class="fa-solid fa-plus" style="margin-right: 5px"></i> Thêm sản
         phẩm
       </button>
     </div>
 
 
-    <div class="checkout-right">
-      <table class="timetable_sub">
+    <div class="checkout-right" style="">
+      <table class="timetable_sub" style="">
         <thead>
         <tr>
           <th style="font-size: large">STT</th>
@@ -24,32 +24,32 @@
           <th style="font-size: large">Chức Năng</th>
         </tr>
         </thead>
-        <tr class="rem1" *ngFor="let product of products,index as i">
-          <td class="invert">{{i + 1}}</td>
-          <td class="invert-image"><a [routerLink]="['/product-detail', product.id]">
+        <tr class="rem1"  *ngFor="let product of products,index as i">
+          <td  class="invert">{{i + 1}}</td>
+          <td style="" class="invert-image"><a [routerLink]="['/product-detail', product.id]">
             <img
               src="{{product.image[0].image}}" style="border:1px solid white; height:100px;width:40%"
               /></a>
           </td>
           <td class="invert">
             <div class="quantity">
-              <div class="quantity-select">
-                <div style="font-size: medium">{{product.quantity}}</div>
+              <div  class="quantity-select">
+                <div  style="font-size: medium;">{{product.quantity}}</div>
 
               </div>
             </div>
           </td>
-          <td class="invert" style="font-size: medium">{{product.name}}</td>
+          <td  class="invert" style="font-size: medium">{{product.name}}</td>
 
-          <td class="invert" style="font-size: medium">{{product.price}}</td>
+          <td  class="invert" style="font-size: medium">{{product.price}}</td>
           <td class="invert">
             <div class="rem">
-              <button type="button" class="btn button-edit button-ed" style="margin-right: 15px; width: 80px;font-size: small"
+              <button type="button" class="btn button-edit" style="margin-right: 15px; width: 90px;font-size: small"
                       data-toggle="modal" data-target="#exampleModalEditProductMyShop"
                       [routerLink]="['/edit-product-my-shop',product.id]"><i class="fa-solid fa-pen-to-square"
                                                                              style="margin-right: 5px"></i> Sửa
               </button>
-              <button class="btn button-delete" (click)="deleteProduct(product.id)" style="font-size: small;width: 80px"><i class="fa-solid fa-trash-can"
+              <button class="btn button-delete" (click)="deleteProduct(product.id)" style="font-size: small;width: 90px"><i class="fa-solid fa-trash-can"
                                                                                        style="margin-right: 5px"></i>Xóa
               </button>
             </div>

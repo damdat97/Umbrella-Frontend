@@ -38,13 +38,13 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('ACCESS_TOKEN', data.accessToken);
       localStorage.setItem('ROLE', data.roles[0].authority);
       localStorage.setItem('USERNAME', data.username);
-      localStorage.setItem('ID', data.id);
       localStorage.setItem('NAME', data.name);
+      localStorage.setItem('ID', data.id);
       console.log(data)
       if (data.roles[0].authority == "ROLE_USER") {
         this.toast.success({detail: "Thành Công", summary: 'Đăng nhập thành công!', duration: 3000})
+        this.router.navigate(['/']);
 
-        this.router.navigate(['']);
       }
       if (data.roles[0].authority == "ROLE_ADMIN") {
         this.toast.success({detail: "Thành Công", summary: 'Đăng nhập thành công!', duration: 3000})
@@ -58,4 +58,5 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/login']);
     })
   }
+
 }

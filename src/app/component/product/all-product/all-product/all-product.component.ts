@@ -98,7 +98,7 @@ export class AllProductComponent implements OnInit {
 
   sortByAll(event: any) {
     if (event == 0) {
-      return this.listProduct= this.listProduct.sort((obj1: any, obj2: any) => {
+      return this.listProduct = this.listProduct.sort((obj1: any, obj2: any) => {
         if (obj1.name > obj2.name) {
           return 1;
         }
@@ -140,15 +140,17 @@ export class AllProductComponent implements OnInit {
   }
 
 
-  addToShoppingCart(product: Product){
+  // addToShoppingCart(product: Product){
+  //
+  //   // @ts-ignore
+  //   const cartItem: CartItem = {
+  //     product: product,
+  //     quantity: 1,
+  //   }
+  //   console.log(cartItem);
+  //   this.shoppingCartService.save(cartItem).subscribe(() => {});
+  // }
 
-    // @ts-ignore
-    const cartItem: CartItem = {
-      product: product,
-      quantity: "1",
-    }
-    console.log(cartItem);
-    this.shoppingCartService.save(cartItem).subscribe(() => {});
-  }
+
 
 }

@@ -541,7 +541,6 @@ div#myTabContent {
 }
 .nav-tabs>li>a:hover, .nav>li>a:focus {
 	text-decoration: none;
-	background: #fe9126;
 	color: #FFF;
 	border:  0px solid transparent;
 }
@@ -555,7 +554,7 @@ div#myTabContent {
 }
 .grid_3.grid_5 {
     margin-top: 5em;
-	border: 1px solid #BEBEBE;
+	border: 0px solid #BEBEBE;
 }
 .grid_3.grid_5 h5 {
     font-size: 20px;

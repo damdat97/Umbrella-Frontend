@@ -58,8 +58,5 @@ export class CreateCommentComponent implements OnInit {
         console.log(error)
       }
     )
-
-
   }
-
 }

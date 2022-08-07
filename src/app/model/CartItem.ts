@@ -3,7 +3,7 @@ import {User} from "./user";
 
 export interface CartItem{
   id: string,
-  quantity:string,
+  quantity: number,
   date:string,
   product:Product,
   user: User,

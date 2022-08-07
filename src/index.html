@@ -5,7 +5,7 @@
   <title>Umbrella</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/font-awesome.css" rel="stylesheet">
@@ -13,13 +13,14 @@
   <link href="assets/css/skdslider.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/font-awesome.css">
   <link href='https://css.gg/shopping-bag.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
 </head>
 
 <body>
 <app-root></app-root>
-
 <script src="assets/js/jquery-1.11.1.min.js"></script>
 <script src="assets/js/move-top.js"></script>
 <script src="assets/js/easing.js"></script>
@@ -46,15 +47,21 @@
 <script>
   $(document).ready(function($) {
     $(".scroll").click(function(event){
+  $(document).ready(function ($) {
+    $(".scroll").click(function (event) {
       event.preventDefault();
-      $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+      $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
     });
   });
 </script>
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-98H8KRKT85'></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
   gtag('js', new Date());
 
   gtag('config', 'G-98H8KRKT85');
@@ -62,34 +69,34 @@
 <script src="assets/js/move-top.js"></script>
 <script src="assets/js/easing.js"></script>
 <script>
-  $(document).ready(function($) {
-    $(".scroll").click(function(event){
+  $(document).ready(function ($) {
+    $(".scroll").click(function (event) {
       event.preventDefault();
-      $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+      $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
     });
   });
 </script>
 <script src="assets/js/skdslider.min.js"></script>
 <script src="assets/m.servedby-buysellads.com/monetization.js"></script>
 <script>
-  (function(){
-    if(typeof _bsa !== 'undefined' && _bsa) {
+  (function () {
+    if (typeof _bsa !== 'undefined' && _bsa) {
       // format, zoneKey, segment:value, options
       _bsa.init('flexbar', 'CKYI627U', 'placement:w3layoutscom');
     }
   })();
 </script>
 <script>
-  (function(){
-    if(typeof _bsa !== 'undefined' && _bsa) {
+  (function () {
+    if (typeof _bsa !== 'undefined' && _bsa) {
       // format, zoneKey, segment:value, options
       _bsa.init('fancybar', 'CKYDL2JN', 'placement:demo');
     }
   })();
 </script>
 <script>
-  (function(){
-    if(typeof _bsa !== 'undefined' && _bsa) {
+  (function () {
+    if (typeof _bsa !== 'undefined' && _bsa) {
       // format, zoneKey, segment:value, options
       _bsa.init('stickybox', 'CKYI653J', 'placement:w3layoutscom');
     }
@@ -98,17 +105,28 @@
 <script async src='https://www.googletagmanager.com/gtag/js?id=G-98H8KRKT85'></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
   gtag('js', new Date());
 
   gtag('config', 'G-98H8KRKT85');
 </script>
 <script src="assets/js/skdslider.min.js"></script>
 <script>
-  $(document).ready(function(){
-    $('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+  $(document).ready(function () {
+    $('#demo1').skdslider({
+      'delay': 5000,
+      'animationSpeed': 2000,
+      'showNextPrev': true,
+      'showPlayButton': true,
+      'autoSlide': true,
+      'animationType': 'fading'
+    });
 
-    $('#responsive').change(function(){
+    $('#responsive').change(function () {
       $('#responsive_wrapper').width($(this).val());
     });
 
@@ -116,8 +134,8 @@
 </script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script>
-  $(document).ready(function() {
-    $().UItoTop({ easingType: 'easeOutQuart' });
+  $(document).ready(function () {
+    $().UItoTop({easingType: 'easeOutQuart'});
   });
 </script>
 <script src="assets/js/minicart.min.js"></script>

@@ -1,13 +1,8 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
-<div class="breadcrumbs">
-  <div class="container" style="width: 80%">
-    <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-      <li><a [routerLink]="['/']"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang Chủ</a></li>
-      <li class="active"></li>
-    </ol>
-  </div>
-</div>
+<br>
+<br>
+<br>
 <!-- //breadcrumbs -->
 <!---728x90--->
 <!--- household --->
@@ -15,7 +10,7 @@
 
   <div class="container" style="width: 80%">
     <div class="col-md-3 products-left">
-      <div class="categories" style="border:1px solid #fe9126 ">
+      <div class="categories" style="border:3px solid #fe9126;border-radius: 13px ">
         <br>
         <br>
         <h3 style="font-size: 25px; text-align: center">Tìm Kiếm</h3>
@@ -26,23 +21,23 @@
               <h4 class="agileits-sear-head"><i class="fa-brands fa-product-hunt" style="margin-right: 5px"></i>Tìm Kiếm
                 Theo Tên</h4>
               <br>
-              <input type="search" placeholder="Nhập tên sản phẩm" formControlName="name" name="search" required="">
+              <input style="border-radius: 10px;border: 2px solid #fe9126" type="search" placeholder="Nhập tên sản phẩm" formControlName="name" name="search" required="">
               <br>
               <br>
               <h4 class="agileits-sear-head"><i class="fa-solid fa-pen" style="margin-right: 5px"></i>Tìm Kiếm Theo Mô
                 Tả</h4>
               <br>
-              <input type="search" placeholder="Nhập mô tả sản phẩm" formControlName="description" name="search"
+              <input style="border-radius: 10px;border: 2px solid #fe9126" type="search" placeholder="Nhập mô tả sản phẩm" formControlName="description" name="search"
                      required="">
               <br>
               <br>
               <h4 class="agileits-sear-head"><i class="fa-solid fa-magnifying-glass-dollar"
                                                 style="margin-right: 5px"></i>Tìm Kiếm Theo Giá</h4>
               <br>
-              <input type="search" formControlName="from" placeholder="Nhập giá từ ..." name="search" required="">
+              <input style="border-radius: 10px;border: 2px solid #fe9126" type="search" formControlName="from" placeholder="Nhập giá từ ..." name="search" required="">
               <br>
               <br>
-              <input type="search" formControlName="to" placeholder="đến khoảng..." name="search" required="">
+              <input style="border-radius: 10px;border: 2px solid #fe9126" type="search" formControlName="to" placeholder="đến khoảng..." name="search" required="">
               <br>
               <br>
               <button style="" type="submit" class="button-search">Tìm Kiếm<i class="fa-solid fa-magnifying-glass"
@@ -54,11 +49,11 @@
         </ul>
       </div>
     </div>
-    <div class="col-md-9 products-right" style="margin-bottom: 100px; border:1px solid #fe9126">
-      <div class="products-right-grid" style="margin-top: 20px; margin-left: 415px">
+    <div class="col-md-9 products-right" style="margin-bottom: 100px; border:3px solid #fe9126;border-radius: 13px">
+      <div class="products-right-grid" style="margin-top: 20px; margin-left: 485px">
         <div class="products-right-grids">
           <div class="sorting">
-            <select #sort (change)="sortByAll(sort.value)" style="width: 200px;height: 30px">
+            <select #sort (change)="sortByAll(sort.value)" style="width: 87%;height: 25%;border-radius: 10px;border: 2px solid grey">
               <option value="0"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Tên</option>
               <option value="1"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Số Lượng</option>
               <option value="2"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Giá</option>
@@ -69,33 +64,25 @@
         </div>
       </div>
       <div class="agile_top_brands_grids">
-        <div class="col-md-4 top_brand_left" style="width: 350px;height: auto;margin-bottom: 30px"
-             *ngFor="let product of productByCate|paginate: { itemsPerPage: 3, currentPage: p, totalItems: total }, index as i">
-          <div class="hover14 column" style="border:1px solid grey">
+        <div class="col-md-3 top_brand_left" style="width: 250px;height: auto;margin-bottom: 30px;border-radius: 10px;margin-left: 0.7%"
+             *ngFor="let product of productByCate|paginate: { itemsPerPage: 8, currentPage: p, totalItems: total }, index as i">
+          <div class="hover14 column" style="width: 240px;height: 380px;border: 3px solid grey;border-radius: 13px">
             <div>
-              <div class="agile_top_brand_left_grid">
+              <div class="agile_top_brand_left_grid" style="border-top-left-radius: 12px;border-top-right-radius: 12px;padding: 0">
                 <figure>
                   <div class="snipcart-item block">
                     <div class="snipcart-thumb">
-                      <a [routerLink]="['/product-detail',product.id]"><img
-                        src="{{product.image[0].image}}" style="width: 100%; height: 313px"
+                      <a [routerLink]="['/product-detail',product.id]" ><img
+                        src="{{product.image[0].image}}"
                         class="img-responsive"/></a>
                       <p><a href="#" [routerLink]="['/product-detail',product.id]"
-                            style="font-size: 22px; margin-top: 12px">{{product.name}}</a></p>
+                            class="show-product">{{product.name}}</a></p>
                       <h4 style="font-size: 22px; margin-top: 5px; text-align: center">{{product.price}} $</h4>
                     </div>
                     <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
-                      <input type="submit" name="submit" value="Thêm vào giỏ hàng" class="button-shop"/>
-                      <br>
-                    </div>
-                    <div class="snipcart-details top_brand_home_details" *ngIf="userId == product.user.id">
-                      <button class="btn button-edit" data-toggle="modal" data-target="#exampleModalEdit"
-                              [routerLink]="['/edit-product',product.id]" style="margin-right: 10px;width: 90px"><i
-                        class="fa-solid fa-pen-to-square" style="margin-right:5px"></i>Sửa
-                      </button>
-                      <button class="btn button-delete" (click)="deleteProduct(product.id)" style="width: 90px"><i
-                        class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa
-                      </button>
+                      <button class="btn button-shop" style="font-size: 14px;margin-right: 20px">
+                        <i class="fa-solid fa-basket-shopping" style="margin-right: 5px">
+                        </i>Thêm Vào Giỏ Hàng</button>
                     </div>
                   </div>
                 </figure>
