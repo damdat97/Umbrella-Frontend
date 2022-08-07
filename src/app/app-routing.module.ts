@@ -12,6 +12,7 @@ import {EditProductComponent} from "./component/my-shop/edit-product/edit-produc
 import {AllProductComponent} from "./component/product/all-product/all-product/all-product.component";
 import {ShopCartComponent} from "./component/shop-cart/shop-cart.component";
 
+import * as events from "events";
 
 const routes: Routes = [
   {
@@ -59,7 +60,7 @@ const routes: Routes = [
   }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration:'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

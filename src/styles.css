@@ -467,7 +467,7 @@ RIGHT SIDEBAR TOGGLE SECTION
   font-size: 16px;
   font-weight: 600;
   line-height: 20px;
-  margin: 3px;
+  margin: 0;
   outline: none;
   padding: 13px 23px;
   position: relative;
@@ -518,7 +518,7 @@ RIGHT SIDEBAR TOGGLE SECTION
   margin-left: 10px;
   margin-top: 10px;
   height: 50px;
-  width: 200px;
+  width: 229px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -528,17 +528,27 @@ RIGHT SIDEBAR TOGGLE SECTION
 }
 
 .show-product-home {
-  font-size: 22px;
+  font-size: 14px;
   margin-left: 10px;
   margin-top: 15px;
   height: 30px;
-  width: 335px;
+  width: 220px;
   white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
-  word-break: break-word;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
-
+.show-product-home1 {
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 15px;
+  height: 30px;
+  width: 230px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
 .show-product-category {
   font-size: 18px;
   margin-left: 10px;
@@ -550,5 +560,8 @@ RIGHT SIDEBAR TOGGLE SECTION
   word-wrap: break-word;
   white-space: nowrap;
 }
-
+.comment {
+  white-space: nowrap;
+  word-break: break-all;
+}
 /* You can add global styles to this file, and also import other style files */

@@ -2,17 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Product} from "../model/product";
-import {User} from "../model/user";
 const API_URL = environment.apiUrl+"/comments";
-
-interface Comment {
-
-  id: string,
-  product : Product,
-  owner: User,
-  description: string,
-}
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +26,7 @@ export class CommentService {
     return this.httpClient.get<Comment>(`${API_URL}/comments/${id}`)
   }
 
+  findCommentByProductId(id: any): Observable<Comment[]> {
+    return this.httpClient.get<Comment[]>(`${API_URL}/find-comment-by-product-id/${id}`)
+  }
 }
