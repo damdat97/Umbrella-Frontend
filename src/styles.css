@@ -534,9 +534,9 @@ RIGHT SIDEBAR TOGGLE SECTION
   height: 30px;
   width: 220px;
   white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
-  word-break: break-word;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 .show-product-category {
