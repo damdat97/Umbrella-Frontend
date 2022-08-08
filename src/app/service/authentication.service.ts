@@ -31,12 +31,8 @@ export class AuthenticationService {
       }));
   }
 
-  register(name: string, phone: string, username: string, password: string, confirmPassword: string) {
-    return this.httpClient.post<any>(API_URL + '/register', {name, phone,username, password, confirmPassword})
-      .pipe(map(user => {localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
-        return user;
-      }));
+  register(user: User): Observable<User> {
+    return this.httpClient.post<User>(API_URL + '/register', user);
   }
 
   logout() {
@@ -46,6 +42,8 @@ export class AuthenticationService {
     localStorage.removeItem('ACCESS_TOKEN');
     localStorage.removeItem('ID');
     localStorage.removeItem('NAME');
+    localStorage.removeItem('PHONE');
+    localStorage.removeItem('EMAIL');
   }
 
   findAllCustomersExpectUser(id: any): Observable<User> {
