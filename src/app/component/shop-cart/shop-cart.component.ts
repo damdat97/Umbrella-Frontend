@@ -92,16 +92,21 @@ export class ShopCartComponent implements OnInit {
     this.carts[i].quantity++;
     this.cartService.updateCarItem(this.carts[i].id ,this.carts[i]).subscribe(data =>{
       if(data){
-        this.toast.success({detail: "Thành Công", summary: 'Giảm Thành Công!', duration: 3000})
+        // this.toast.success({detail: "Thành Công", summary: 'Tăng Thành Công!', duration: 3000})
         this.getAllCart();
       }else {
-        this.toast.success({detail: "Thất bại", summary: 'Giảm thất bại!', duration: 3000})
+        this.toast.success({detail: "Thất bại", summary: 'Tăng thất bại!', duration: 3000})
       }
     });
   }
 
   // gọi api để giảm sản phẩm *** vd: const param: {cartItemId: ..., Count:... }
   downCountPr(i: any) {
+    console.log(i);
+  if((this.carts[i].quantity-1)<0){
+
+    return
+  }
     this.carts[i].quantity--;
     this.cartService.updateCarItem(this.carts[i].id ,this.carts[i]).subscribe(res =>{
       if(res){
