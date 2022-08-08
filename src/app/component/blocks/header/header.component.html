@@ -14,18 +14,18 @@
 
     <ul class="main-nav nav navbar-nav navbar-right">
       <li class="dropdown" *ngIf="isLogin">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 20px;color: #fe9126">{{username}}
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 20px;color: #fe9126">{{name}}
           <b class="caret"></b></a>
-        <ul class="dropdown-menu multi-column columns-3" style="right: auto;">
+        <ul class="dropdown-menu multi-column columns-3" style="left:auto;width:225px">
           <div class="row">
             <div class="multi-gd-img">
               <ul class="multi-column-dropdown">
                 <a [routerLink]="['/my-shop', id]" style="color: black;font-size: 15px">Cửa hàng của tôi<i
                   class="fa-solid fa-shop" style="margin-left: 10px;"></i></a>
-                <br>
+                <hr>
                 <a [routerLink]="['/all-customers']" style="color: black;font-size: 15px">Danh sách khách hàng<i
-                  class="fa-solid fa-shop" style="margin-left: 10px;"></i></a>
-                <br>
+                  class="fa-solid fa-user-pen" style="margin-left: 10px"></i></a>
+                <hr>
                 <a href="" (click)="logOut()" style="color: black;font-size: 15px">Đăng xuất<i
                   class="fa-solid fa-arrow-right-from-bracket"
                   style="margin-left: 10px"></i></a>
@@ -37,15 +37,12 @@
       </li>
     </ul>
 
-    <div class="product_list_header">
-      <form action="#" method="post" class="last">
+    <div class="product_list_header" style="margin-top: 8px">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="display" value="1">
-        <a [routerLink]="['/shop-cart']" class="w3view-cart"><i class="fa fa-cart-arrow-down"
-                                                                            aria-hidden="true"></i></a>
-      </form>
+        <a  [routerLink]="['/shop-cart']" class="w3view-cart"><i class="fa fa-cart-arrow-down"
+                                                                aria-hidden="true"></i></a>
     </div>
-    <div class="clearfix"></div>
   </div>
 </div>
 
@@ -59,7 +56,8 @@
     </div>
     <div class="w3l_search">
       <form [formGroup]="searchName" (submit)="search()">
-        <input type="search" formControlName="name" placeholder="Nhập tên sản phẩm cần tìm..." style="border-radius: 5px">
+        <input type="search" formControlName="name" placeholder="Nhập tên sản phẩm cần tìm..."
+               style="border-radius: 5px">
         <button style="margin-right: 15px" type="submit" class="btn btn-default search" aria-label="Left Align">
           <i class="fa fa-search" aria-hidden="true"></i>
         </button>

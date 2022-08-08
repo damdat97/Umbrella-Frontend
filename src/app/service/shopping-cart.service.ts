@@ -11,8 +11,8 @@ const API_URL=environment.apiUrl;
 export class ShoppingCartService {
 
   constructor(private httpClient: HttpClient) { }
-  getAllCart(): Observable<CartItem[]> {
-    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts');
+  getAllCart(id: any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-all-carts-by-userId/' +id);
   }
   save(cart: CartItem): Observable<CartItem> {
     return this.httpClient.post<CartItem>(API_URL + '/shopping_carts',cart);
@@ -21,9 +21,11 @@ export class ShoppingCartService {
     return this.httpClient.get<CartItem>(API_URL + '/shopping_carts/' + id)
   }
   remover(id: any): Observable<CartItem> {
-    return this.httpClient.delete<CartItem>(API_URL + '/shopping_carts/' + id);
+    return this.httpClient.delete<CartItem>(API_URL + '/shopping_carts/cart/' + id);
   }
   updateCarItem(id: string, cartItem: CartItem): Observable<CartItem> {
-    return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/' + id, cartItem);
+    return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/cart/' + id, cartItem);
   }
+
+
 }

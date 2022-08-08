@@ -11,6 +11,8 @@ export class ListProductComponent implements OnInit {
   products: any[] = [];
   id = localStorage.getItem("ID")
   image: any;
+  p: number = 1;
+  total: number = 0;
 
   constructor(private productService: ProductService,
               private imageService: ImageService) {
@@ -47,4 +49,7 @@ export class ListProductComponent implements OnInit {
     }
   }
 
+  pageChangeEvent(event: number) {
+    this.p = event;
+  }
 }

@@ -10,7 +10,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class HeaderComponent implements OnInit {
   isLogin = false;
-  username: any;
+  name: any;
   id: any
   products: any
 
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLogin = localStorage.getItem("USERNAME") == null ? false : true;
-    this.username = localStorage.getItem("USERNAME")
+    this.name = localStorage.getItem("NAME")
     this.id = localStorage.getItem("ID")
     this.findProductByUserId(this.id)
   }
