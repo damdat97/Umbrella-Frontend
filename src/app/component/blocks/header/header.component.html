@@ -16,16 +16,15 @@
       <li class="dropdown" *ngIf="isLogin">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size: 20px;color: #fe9126">{{username}}
           <b class="caret"></b></a>
-        <ul class="dropdown-menu multi-column columns-3" style="right: auto;">
+        <ul class="dropdown-menu multi-column columns-3" style="left:auto;width:225px">
           <div class="row">
             <div class="multi-gd-img">
               <ul class="multi-column-dropdown">
                 <a [routerLink]="['/my-shop', id]" style="color: black;font-size: 15px">Cửa hàng của tôi<i
                   class="fa-solid fa-shop" style="margin-left: 10px;"></i></a>
-                <br>
-                <a [routerLink]="['/all-customers']" style="color: black;font-size: 15px">Danh sách khách hàng<i
-                  class="fa-solid fa-shop" style="margin-left: 10px;"></i></a>
-                <br>
+                <hr>
+                <a [routerLink]="['/all-customers']" style="color: black;font-size: 15px">Danh sách khách hàng<i class="fa-solid fa-user-pen" style="margin-left: 10px"></i></a>
+                <hr>
                 <a href="" (click)="logOut()" style="color: black;font-size: 15px">Đăng xuất<i
                   class="fa-solid fa-arrow-right-from-bracket"
                   style="margin-left: 10px"></i></a>
