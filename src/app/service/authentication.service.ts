@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {BehaviorSubject, map, Observable} from "rxjs";
 import {UserToken} from "../model/user-token";
 import {HttpClient} from "@angular/common/http";
+import {User} from "../model/user";
 
 const API_URL = environment.apiUrl;
 
@@ -45,5 +46,13 @@ export class AuthenticationService {
     localStorage.removeItem('ACCESS_TOKEN');
     localStorage.removeItem('ID');
     localStorage.removeItem('NAME');
+  }
+
+  findAllCustomersExpectUser(id: any): Observable<User> {
+    return this.httpClient.get<User>(API_URL + '/users/find-all-customers-expect-user/' + id);
+  }
+
+  findUserById(id: any): Observable<User> {
+    return this.httpClient.get<User>(API_URL + '/users/' + id);
   }
 }
