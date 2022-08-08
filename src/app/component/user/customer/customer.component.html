@@ -33,7 +33,7 @@
           <th style="font-size: large">Số điện thoại</th>
         </tr>
         </thead>
-        <tr class="rem1" *ngFor="let item of users,index as i">
+        <tr class="rem1" *ngFor="let item of users|paginate: { itemsPerPage: 12, currentPage: p, totalItems: total },index as i">
           <td class="invert">{{i + 1}}</td>
           <td><a [routerLink]="['/customer-shop', item.id]">
             <div style="font-size: medium;">{{item.name}}</div>
@@ -49,6 +49,11 @@
           </td>
         </tr>
       </table>
+      <nav class="numbering">
+        <ul class="pagination paging">
+          <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

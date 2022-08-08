@@ -14,6 +14,8 @@ export class CustomerComponent implements OnInit {
   phoneSearch: FormGroup = new FormGroup({
     phone: new FormControl('')
   })
+  p: number = 1;
+  total: number = 0;
 
   constructor(private authentication: AuthenticationService) {
   }
@@ -64,5 +66,9 @@ export class CustomerComponent implements OnInit {
         return 0;
       });
     }
+  }
+
+  pageChangeEvent(event: number) {
+    this.p = event;
   }
 }
