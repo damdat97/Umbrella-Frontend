@@ -11,8 +11,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class CustomerComponent implements OnInit {
   users: User[] | any
   userId = localStorage.getItem("ID")
-  nameSearch: FormGroup = new FormGroup({
-    name: new FormControl('')
+  phoneSearch: FormGroup = new FormGroup({
+    phone: new FormControl('')
   })
 
   constructor(private authentication: AuthenticationService) {
@@ -24,6 +24,14 @@ export class CustomerComponent implements OnInit {
 
   getAllCustomersExpectUser() {
     this.authentication.findAllCustomersExpectUser(this.userId).subscribe((data) => {
+      this.users = data
+      console.log(this.users)
+    })
+  }
+
+
+  searchPhone() {
+    this.authentication.findCustomerByPhone(this.phoneSearch.value.phone, this.userId).subscribe((data) => {
       this.users = data
       console.log(this.users)
     })
