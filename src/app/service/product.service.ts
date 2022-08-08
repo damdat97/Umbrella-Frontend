@@ -56,4 +56,8 @@ export class ProductService {
   findAllProductByCategoryAndUserIdNot(categoryId: any, userId: any): Observable<Product[]> {
     return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-category-and-user-id-not/' + categoryId + '/' + userId)
   }
+
+  findProductsByCustomerId(customerId: any, userId: any): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-customer-id/' + customerId +'/' + userId)
+  }
 }
