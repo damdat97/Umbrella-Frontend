@@ -1,0 +1,37 @@
+<div class="newproducts-w3agile">
+  <div class="container">
+    <h3>Sản phẩm mới</h3>
+    <div class="agile_top_brands_grids">
+      <div class="col-md-3 top_brand_left-1" *ngFor="let item of products">
+        <div class="hover14 column">
+          <div class="agile_top_brand_left_grid">
+            <div class="agile_top_brand_left_grid_pos">
+              <img src="images/offer.png" alt=" " class="img-responsive">
+            </div>
+            <div class="agile_top_brand_left_grid1">
+              <figure>
+                <div class="snipcart-item block">
+                  <div class="snipcart-thumb">
+                    <a [routerLink]="['/product-detail', item.id]"><img title=" " alt=" " src="{{item.image[0].image}}"></a>
+                    <p>{{item.name}}</p>
+                    <h4>{{item.price}} $</h4>
+                  </div>
+                  <div class="snipcart-details top_brand_home_details" >
+                    <button class="btn button-edit button-shop" (click)="addToShoppingCart(item)" style="margin-right: 55px;font-size: 14px;height: 48px; width: 200px"><i class="fa-solid fa-basket-shopping"
+                                                                                                                                                                              style="margin-right: 5px;"></i>Thêm
+                      Vào Giỏ Hàng
+                    </button>
+                    <br>
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+

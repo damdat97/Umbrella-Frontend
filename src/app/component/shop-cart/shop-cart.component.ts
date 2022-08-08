@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../service/product.service";
 import {ShoppingCartService} from "../../service/shopping-cart.service";
 import {CartItem} from "../../model/CartItem";
 import {ImageService} from "../../service/image.service";
+import {FormControl, FormGroup} from "@angular/forms";
+import {ActivatedRoute} from "@angular/router";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-shop-cart',
@@ -15,11 +18,27 @@ export class ShopCartComponent implements OnInit {
  carts: CartItem[] | any;
  userId = localStorage.getItem("ID")
   constructor(private productService: ProductService ,
+  carts: CartItem[] | any;
+  id: any
+  editCartForm: FormGroup = new FormGroup({
+    id: new FormControl(0),
+    quantity: new FormControl('')
+  })
+
+  constructor(private productService: ProductService,
               private cartService: ShoppingCartService,
-              private imageService: ImageService) { }
+              private imageService: ImageService,
+              private activatedRoute: ActivatedRoute,
+              private toast: NgToastService) {
+  }
 
   ngOnInit(): void {
     this.getAllCart();
+
+    this.activatedRoute.paramMap.subscribe((param) => {
+      const id = param.get('id');
+      this.findById(id);
+    })
   }
 getAllCart(){
   this.cartService.getAllCart(this.userId).subscribe((data) => {
@@ -41,20 +60,39 @@ getAllCart(){
   delete(){
     alert("xóa")
   }
-  upCountPr(){
-    alert("tăng sản phẩm");
+
+  findById(id: any) {
+    this.cartService.findById(id).subscribe((data) => {
+      console.log(data);
+      this.editCartForm = new FormGroup({
+        id: new FormControl(data.id),
+        quantity: new FormControl(data.quantity)
+      })
+    })
   }
+
+  upCountPr(i:any) {
+    this.carts[i].quantity++
+    this.totalMoney = this.total(this.carts);
+    this.toast.success({detail: "Thành Công", summary: 'Tăng thành công!', duration: 3000})
+
+  }
+
   // gọi api để giảm sản phẩm *** vd: const param: {cartItemId: ..., Count:... }
-  downCountPr(){
-    alert("giảm sản phẩm");
+  downCountPr(i: any) {
+    this.carts[i].quantity--;
+    this.totalMoney = this.total(this.carts);
+    this.toast.success({detail: "Thành Công", summary: 'Giảm Thành Công!', duration: 3000})
+
   }
   // gọi api để thực hiện thanh toán.
-  checkOut(){
+  checkOut() {
     alert("đã thanh toán giỏ hàng");
   }
-  private total(carts: CartItem[]){
-    var result = 0;
-    for(let i = 0; i <  carts.length; i++){
+
+  private total(carts: CartItem[]) {
+    let result = 0;
+    for (let i = 0; i < carts.length; i++) {
       result += (carts[i].quantity * carts[i].product.price);
     }
     return result;
