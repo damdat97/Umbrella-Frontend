@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   get username() {
     return this.loginForm.get('username');
   }
+
   get password() {
     return this.loginForm.get('password');
   }
@@ -43,8 +44,8 @@ export class LoginComponent implements OnInit {
       console.log(data)
       if (data.roles[0].authority == "ROLE_USER") {
         this.toast.success({detail: "Thành Công", summary: 'Đăng nhập thành công!', duration: 3000})
-        this.router.navigate(['/']);
-
+        // this.router.navigate(['/']);
+        window.location.href = "/"
       }
       if (data.roles[0].authority == "ROLE_ADMIN") {
         this.toast.success({detail: "Thành Công", summary: 'Đăng nhập thành công!', duration: 3000})

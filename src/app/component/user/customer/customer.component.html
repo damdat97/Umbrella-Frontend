@@ -2,14 +2,19 @@
 <app-navbar></app-navbar>
 
 <div class="checkout">
-
   <div class="container" style="width: 80%">
-    <div style="margin-bottom: 50px">
+    <div>
       <form [formGroup]="phoneSearch" (submit)="searchPhone()">
-        <input type="text" formControlName="phone" placeholder="Nhập số điện thoại khách hàng cần tìm">
-        <button type="submit">Tìm kiếm</button>
+        <input type="text" formControlName="phone" placeholder="Nhập số điện thoại khách hàng cần tìm" style="border-radius: 5px;border: 1px solid black;width: 230px;height: 34px">
+        <button type="submit" style="margin-left:5px; background-color: #fe9126;margin-bottom: 3px" class="btn search"> <i class="fa fa-search" aria-hidden="true" style="color: white"></i></button>
+        <select #sort (change)="sortByAll(sort.value)"
+                style="width: 18% ;height: 34px;border-radius: 5px;border: 1px solid black;margin-left: 920px">
+          <option value="1"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Số Điện Thoại</option>
+          <option value="0"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sắp Xếp Theo Tên</option>
+        </select>
       </form>
-    </div>
+      <br>
+     </div>
 
 
     <div style="">
@@ -21,7 +26,7 @@
           <th style="font-size: large">Số điện thoại</th>
         </tr>
         </thead>
-        <tr class="rem1" *ngFor="let item of users,index as i">
+        <tr class="rem1" *ngFor="let item of users|paginate: { itemsPerPage: 12, currentPage: p, totalItems: total },index as i">
           <td class="invert">{{i + 1}}</td>
           <td><a [routerLink]="['/customer-shop', item.id]">
             <div style="font-size: medium;">{{item.name}}</div>
@@ -37,6 +42,11 @@
           </td>
         </tr>
       </table>
+      <nav class="numbering">
+        <ul class="pagination paging">
+          <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

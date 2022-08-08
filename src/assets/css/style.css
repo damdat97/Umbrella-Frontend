@@ -366,8 +366,6 @@ ul.multi-column-dropdown h6 {
 /*-- cart --*/
 /*-- cart-box --*/
 .w3view-cart {
-  background: #3399cc;
-  border: none;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -o-border-radius: 50%;
@@ -377,10 +375,11 @@ ul.multi-column-dropdown h6 {
   height: 40px;
   text-align: center;
   outline: none;
+  margin-right:20px ;
 }
 
 .w3view-cart i.fa {
-  font-size: 24px;
+  font-size: 28px;
   color: #ffffff;
   vertical-align: middle;
 }
