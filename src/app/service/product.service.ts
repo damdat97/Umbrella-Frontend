@@ -20,8 +20,8 @@ export class ProductService {
   findById(id: any): Observable<Product> {
     return this.httpClient.get<Product>(API_URL + '/products/' + id)
   }
-  findNewProduct(): Observable<Product> {
-    return this.httpClient.get<Product>(API_URL + '/products/find-new-products')
+  findNewProduct(id: any): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-new-products/' + id)
   }
   delete(id: any): Observable<Product> {
     return this.httpClient.delete<Product>(API_URL + '/products/' + id);
