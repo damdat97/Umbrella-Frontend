@@ -5,13 +5,13 @@
 <!---728x90--->
 <br>
 <br>
-<div class="products">
+<div class="products" style="width: auto">
   <div class="container" style="width: 80%">
     <div class="agileinfo_single">
 
-      <div class="col-md-5" style=" background-color: white">
+      <div class="col-md-4" style=" background-color: white">
         <div class="row"><img
-          src="{{obj.image[0].image}}" style="width: 600px; height:auto;border-radius: 5px "
+          src="{{obj.image[0].image}}" style="width: 500px; height:auto;border-radius: 5px "
           class="img-responsive"/></div>
         <div class="row">
           <div class="snipcart-item block">
@@ -25,7 +25,7 @@
               <br>
             </div>
             <div class="snipcart-details1 top_brand_home_details" *ngIf="userId == obj.user.id"
-                 style="margin-right: 1500px">
+                 style="">
               <button type="button" class="btn button-edit button-ed" data-toggle="modal"
                       data-target="#exampleModalEdit"
                       [routerLink]="['/edit-product',obj.id]" style="margin-right: 10px;width: 90px"><i
@@ -40,65 +40,75 @@
         </div>
       </div>
     </div>
-    <div class="col-md-7 agileinfo_single_right">
+    <div class="col-md-8 agileinfo_single_right" style="">
       <div class="row">
         <div class="snipcart-thumb agileinfo_single_right_snipcart">
           <p style="font-size: 30px; margin-bottom: 10px"><b>{{obj.name}}</b></p>
           <h2 class="m-sing" style="color: #fe9126"><i class="fa-solid fa-money-bill-1-wave"
                                                        style="margin-right: 5px"></i>Giá: {{obj.price}} $</h2>
         </div>
-        <div class="w3agile_description" style="border: 1px solid whitesmoke;border-radius: 5px;height:auto">
-          <h4 style="margin-bottom: 6px;"><i class="fa-solid fa-newspaper" style="margin-right: 5px"></i>Mô tả sản phẩm :
+        <div class="w3agile_description" style="">
+          <h4 style="margin-bottom: 6px;"><i class="fa-solid fa-newspaper" style="margin-right: 5px"></i>Mô tả sản phẩm
+            :
           </h4>
           <i>{{obj.description}}</i>
         </div>
       </div>
       <hr>
-     <div class="row">
-       <div style="margin-top: 100px;border: 1px solid #fe9126; border-radius: 5px;width: 785px;">
-         <div class="container mt-6 mb-6" style="width: 775px">
-           <br>
-           <div class="d-flex justify-content-center row" >
-             <div>
-               <div class="d-flex flex-column col-md-8"  *ngFor="let item of listComment">
-                 <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
-                   <div
-                     class="commented-section mt-2">
-                     <hr>
-                     <div class="d-flex flex-row align-items-center commented-user" >
-                       <label class="mr-2" style="font-size: 24px"><i class="fa-solid fa-user" style="margin-right: 5px"></i>{{item.user.name}}</label></div>
-                     <div class="comment-text-sm"><span style=" word-wrap:break-word">{{item.description}}</span></div>
-                     <div
-                       class="reply-section">
+      <div class="row">
+        <div style="margin-top: 100px;border: 1px solid #ffffff; border-radius: 5px;width: 775px;">
+          <div class="container mt-6 mb-6" style="width: 775px">
+            <br>
+            <div class="d-flex justify-content-center row" style="width: 775px">
+              <div>
+                <div class="d-flex flex-column col-md-8" *ngFor="let item of listComment" style="margin-top: -30px">
+                  <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
+                    <div
+                      class="commented-section" style="width: 770px">
+                      <hr>
+                      <div class="d-flex flex-row align-items-center commented-user" style=" margin-top: -10px">
+                        <label class="mr-2">
+                          <i class="fa-solid fa-user"
+                                               style="margin-right: 5px;"></i>{{item.user.name}}
+                        </label></div>
+                      <div class="comment-text-sm"><span
+                        style=" word-wrap:break-word; margin-left: 10px"><i> {{item.description}} </i></span></div>
+                      <div
+                        class="reply-section">
 
-                     </div>
-                   </div>
-                   <br>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-         <div class="container mt-6 mb-6">
-           <div class="d-flex justify-content-center row">
-             <div class="d-flex flex-column col-md-8">
-               <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4" >
-               </div>
-               <div class="coment-bottom bg-white p-2 px-4">
-                 <div class="d-flex flex-row add-comment-section mt-4 mb-4">
-                   <form [formGroup]="commentForm" (ngSubmit)="submit()" style="width: 775px" >
-                     <textarea class="form-control" rows="5" formControlName="description" style="width: 775px;height: 80px;padding: 0;margin: -12px" placeholder="Thêm bình luận"></textarea>
+                      </div>
+                    </div>
+                    <br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container mt-6 mb-6">
+            <div class="d-flex justify-content-center row">
+              <div class="d-flex flex-column col-md-8">
+                <div class="d-flex flex-row align-items-center text-left comment-top p-2 bg-white border-bottom px-4">
+                </div>
+                <div class="coment-bottom bg-white p-2 px-4">
+                  <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+                    <form [formGroup]="commentForm" (ngSubmit)="submit()" style="width: 775px">
+                      <textarea class="form-control" rows="5" formControlName="description"
+                                style="width: 775px;height: 80px;padding: 10px;margin: -12px"
+                                placeholder="Thêm bình luận"></textarea>
 
-                     <button class="btn button-edit" type="submit" style="margin-bottom: 5px; margin-top: 15px"><i class="fa-solid fa-comment" style="margin-right: 5px"></i>Bình luận</button>
-                   </form>
+                      <button class="btn button-edit" type="submit"
+                              style="margin-bottom: 5px; margin-top: 15px; margin-left: -14px; background: #fe9126">Bình
+                        luận
+                      </button>
+                    </form>
 
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="clearfix"></div>
     </div>
   </div>
