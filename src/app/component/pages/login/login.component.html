@@ -15,7 +15,7 @@
     <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <label for="email">Tên đăng nhập</label>
-        <input type="text" class="form-control" id="email" formControlName="username">
+        <input type="text" class="form-control" id="email" formControlName="username" class="form-control" style="width: 417px;height: 42px;">
         <div *ngIf="!loginForm.controls.username?.valid && (loginForm.controls.username?.dirty || loginForm.controls.username?.touched)">
           <div *ngIf="loginForm.controls.username?.errors?.['required']">
             <div style="color: red; float: left ">Tên tài khoản không được bỏ trống</div>
@@ -27,14 +27,14 @@
         <br>
         <div class="form-group">
           <label for="password">Mật khẩu</label>
-          <input type="password" class="form-control" id="password" formControlName="password">
+          <input type="password" class="form-control" id="password" formControlName="password" class="form-control" style="width: 417px;height: 42px;">
           <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
             <div style="color: red" *ngIf="password?.errors?.['required']">
               <div> Mật khẩu không được bỏ trống</div>
             </div>
           </div>
         </div>
-        <input type="submit" value="Đăng nhập">
+        <input type="submit" value="Đăng nhập" class="form-control" style="width: 40%;height: 42px;position: relative;left: 30%;">
       </form>
     </div>
     <h4>Dành cho người mới</h4>

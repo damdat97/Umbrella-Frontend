@@ -36,6 +36,7 @@ import {ImageComponent} from './component/blocks/image/image.component';
 import {ListComponent} from "./component/product/list/list.component";
 import { CustomerComponent } from './component/user/customer/customer.component';
 import { CustomerShopComponent } from './component/user/customer-shop/customer-shop.component';
+import {IvyCarouselModule} from "angular-responsive-carousel";
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { CustomerShopComponent } from './component/user/customer-shop/customer-s
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
     FormsModule,
-    NgToastModule
+    NgToastModule,
+    IvyCarouselModule
 
   ],
   providers: [{
