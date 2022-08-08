@@ -110,6 +110,7 @@ export class DetailProductComponent implements OnInit {
       this.productService.delete(id).subscribe(() => {
         this.toast.success({detail: "Thành Công", summary: 'Xóa thành công!', duration: 3000})
         this.router.navigate(["/"])
+        window.location.href = "/"
       }, e => {
         console.log(e);
       });
