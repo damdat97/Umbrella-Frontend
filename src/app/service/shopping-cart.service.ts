@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../model/product";
-import {CartItem} from "../model/CartItem";
 import {environment} from "../../environments/environment";
+import {CartItem} from "../model/CartItem";
 const API_URL=environment.apiUrl;
 @Injectable({
   providedIn: 'root'
