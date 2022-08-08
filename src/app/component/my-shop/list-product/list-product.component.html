@@ -27,9 +27,9 @@
         <tr class="rem1"
             *ngFor="let product of products|paginate: { itemsPerPage: 12, currentPage: p, totalItems: total },index as i">
           <td class="invert">{{i + 1}}</td>
-          <td style="" class="invert-image"><a [routerLink]="['/product-detail', product.id]">
+          <td style="width: 200px" class="invert-image"><a [routerLink]="['/product-detail', product.id]">
             <img
-              src="{{product.image[0].image}}" style="border:1px solid white; height:100px;width:40%"
+              src="{{product.image[0].image}}" style="border:1px solid white; height:170px;width:200px;border-radius: 5px"
             /></a>
           </td>
           <td class="invert">
