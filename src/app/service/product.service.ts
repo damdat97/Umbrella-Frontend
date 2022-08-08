@@ -37,7 +37,7 @@ export class ProductService {
     return this.httpClient.post<Product>(API_URL + '/products', product);
   }
   searchByAll( name:any,description:any,from:any,to:any):Observable<Product[]> {
-    return this.httpClient.get<Product[]>(API_URL + '/products/find?name='+name+'&description='+description+'&from='+from+'&to='+to );
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-filter?name='+name+'&description='+description+'&from='+from+'&to='+to );
   }
   findProductByName(name: any): Observable<Product[]> {
     return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-name?name=' + name)
@@ -55,5 +55,9 @@ export class ProductService {
 
   findAllProductByCategoryAndUserIdNot(categoryId: any, userId: any): Observable<Product[]> {
     return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-category-and-user-id-not/' + categoryId + '/' + userId)
+  }
+
+  findProductsByCustomerId(customerId: any, userId: any): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-customer-id/' + customerId +'/' + userId)
   }
 }

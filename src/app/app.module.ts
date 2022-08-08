@@ -34,6 +34,8 @@ import {ShopCartComponent} from './component/shop-cart/shop-cart.component';
 
 import {ImageComponent} from './component/blocks/image/image.component';
 import {ListComponent} from "./component/product/list/list.component";
+import { CustomerComponent } from './component/user/customer/customer.component';
+import { CustomerShopComponent } from './component/user/customer-shop/customer-shop.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import {ListComponent} from "./component/product/list/list.component";
     AllProductComponent,
     ImageComponent,
     ListComponent,
-    ShopCartComponent
+    ShopCartComponent,
+    CustomerComponent,
+    CustomerShopComponent
 
   ],
   imports: [
