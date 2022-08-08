@@ -3,6 +3,9 @@ import {ProductService} from "../../service/product.service";
 import {ShoppingCartService} from "../../service/shopping-cart.service";
 import {CartItem} from "../../model/CartItem";
 import {ImageService} from "../../service/image.service";
+import {FormControl, FormGroup} from "@angular/forms";
+import {ActivatedRoute} from "@angular/router";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-shop-cart',
@@ -14,14 +17,25 @@ export class ShopCartComponent implements OnInit {
   totalMoney: number = 0;
   carts: CartItem[] | any;
   id: any
+  editCartForm: FormGroup = new FormGroup({
+    id: new FormControl(0),
+    quantity: new FormControl('')
+  })
 
   constructor(private productService: ProductService,
               private cartService: ShoppingCartService,
-              private imageService: ImageService) {
+              private imageService: ImageService,
+              private activatedRoute: ActivatedRoute,
+              private toast: NgToastService) {
   }
 
   ngOnInit(): void {
     this.getAllCart();
+
+    this.activatedRoute.paramMap.subscribe((param) => {
+      const id = param.get('id');
+      this.findById(id);
+    })
   }
 
   getAllCart() {
@@ -41,11 +55,11 @@ export class ShopCartComponent implements OnInit {
     })
   };
 
-  delete(id:any) {
+  delete(id: any) {
     if (confirm('Bạn có muốn xóa sản phẩm này không ?')) {
       this.cartService.remover(id).subscribe(() => {
         this.getAllCart();
-        alert("xóa thành công")
+        this.toast.success({detail: "Thành Công", summary: 'Xóa thành công!', duration: 3000})
       }, e => {
         console.log(e);
       });
@@ -53,13 +67,29 @@ export class ShopCartComponent implements OnInit {
 
   }
 
-  upCountPr() {
-    alert("tăng sản phẩm");
+  findById(id: any) {
+    this.cartService.findById(id).subscribe((data) => {
+      console.log(data);
+      this.editCartForm = new FormGroup({
+        id: new FormControl(data.id),
+        quantity: new FormControl(data.quantity)
+      })
+    })
+  }
+
+  upCountPr(i:any) {
+    this.carts[i].quantity++
+    this.totalMoney = this.total(this.carts);
+    this.toast.success({detail: "Thành Công", summary: 'Tăng thành công!', duration: 3000})
+
   }
 
   // gọi api để giảm sản phẩm *** vd: const param: {cartItemId: ..., Count:... }
-  downCountPr() {
-    alert("giảm sản phẩm");
+  downCountPr(i: any) {
+    this.carts[i].quantity--;
+    this.totalMoney = this.total(this.carts);
+    this.toast.success({detail: "Thành Công", summary: 'Giảm Thành Công!', duration: 3000})
+
   }
 
   // gọi api để thực hiện thanh toán.
@@ -68,7 +98,7 @@ export class ShopCartComponent implements OnInit {
   }
 
   private total(carts: CartItem[]) {
-    var result = 0;
+    let result = 0;
     for (let i = 0; i < carts.length; i++) {
       result += (carts[i].quantity * carts[i].product.price);
     }

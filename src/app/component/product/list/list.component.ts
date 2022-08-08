@@ -127,6 +127,6 @@ export class ListComponent implements OnInit {
     }
     console.log(cartItem);
     this.shoppingCartService.save(cartItem).subscribe(() => {})
-    alert("bạn đã thêm sản phẩm vào giỏ hàng");
+    this.toast.success({detail: "Thành Công", summary: 'Thêm vào giỏ hàng thành công!', duration: 3000})
   }
 }

@@ -24,6 +24,6 @@ export class ShoppingCartService {
     return this.httpClient.delete<CartItem>(API_URL + '/shopping_carts/cart/' + id);
   }
   updateCarItem(id: string, cartItem: CartItem): Observable<CartItem> {
-    return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/' + id, cartItem);
+    return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/cart/' + id, cartItem);
   }
 }
