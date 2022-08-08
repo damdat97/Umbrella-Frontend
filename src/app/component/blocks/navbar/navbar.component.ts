@@ -33,5 +33,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-
+  goHome() {
+    window.location.href = '/';
+  }
 }

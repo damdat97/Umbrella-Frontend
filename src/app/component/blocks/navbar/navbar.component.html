@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
         <ul class="nav navbar-nav">
           <li class="active columns-3">
-            <a routerLink="/" class="act" style="font-size: large"><i class="fa-solid fa-house" style="margin-right: 5px"></i>Trang Chủ</a></li>
+            <a (click)="goHome()" routerLink="/" class="act" style="font-size: large"><i class="fa-solid fa-house" style="margin-right: 5px"></i>Trang Chủ</a></li>
           <li class="active">
             <a style="font-size: large" [routerLink]="['/all-products']"  class="act" >Tất Cả Sản Phẩm</a></li>
 
