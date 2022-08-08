@@ -64,16 +64,7 @@ export class ListComponent implements OnInit {
     }
   }
 
-  deleteProduct(id: any) {
-    if (confirm('Bạn có muốn xóa sản phẩm này không ?')) {
-      this.productService.delete(id).subscribe(() => {
-        this.toast.success({detail: "Thành Công", summary: 'Xóa thành công!', duration: 3000})
-        this.getAllProduct()
-      }, e => {
-        console.log(e);
-      });
-    }
-  }
+
 
   sortByAll(event: any) {
     if (event == 0) {
