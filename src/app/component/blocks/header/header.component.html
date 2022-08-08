@@ -23,7 +23,8 @@
                 <a [routerLink]="['/my-shop', id]" style="color: black;font-size: 15px">Cửa hàng của tôi<i
                   class="fa-solid fa-shop" style="margin-left: 10px;"></i></a>
                 <hr>
-                <a [routerLink]="['/all-customers']" style="color: black;font-size: 15px">Danh sách khách hàng<i class="fa-solid fa-user-pen" style="margin-left: 10px"></i></a>
+                <a [routerLink]="['/all-customers']" style="color: black;font-size: 15px">Danh sách khách hàng<i
+                  class="fa-solid fa-user-pen" style="margin-left: 10px"></i></a>
                 <hr>
                 <a href="" (click)="logOut()" style="color: black;font-size: 15px">Đăng xuất<i
                   class="fa-solid fa-arrow-right-from-bracket"
@@ -40,8 +41,8 @@
       <form action="#" method="post" class="last">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="display" value="1">
-        <a [routerLink]="['/shop-cart']" class="w3view-cart"><i class="fa fa-cart-arrow-down"
-                                                                            aria-hidden="true"></i></a>
+        <a style="margin-top: 10px" [routerLink]="['/shop-cart']" class="w3view-cart"><i class="fa fa-cart-arrow-down"
+                                                                aria-hidden="true"></i></a>
       </form>
     </div>
     <div class="clearfix"></div>
@@ -58,7 +59,8 @@
     </div>
     <div class="w3l_search">
       <form [formGroup]="searchName" (submit)="search()">
-        <input type="search" formControlName="name" placeholder="Nhập tên sản phẩm cần tìm..." style="border-radius: 5px">
+        <input type="search" formControlName="name" placeholder="Nhập tên sản phẩm cần tìm..."
+               style="border-radius: 5px">
         <button style="margin-right: 15px" type="submit" class="btn btn-default search" aria-label="Left Align">
           <i class="fa fa-search" aria-hidden="true"></i>
         </button>
