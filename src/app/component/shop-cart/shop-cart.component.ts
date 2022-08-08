@@ -13,6 +13,7 @@ export class ShopCartComponent implements OnInit {
   countProduct: number = 0;
   totalMoney: number = 0;
  carts: CartItem[] | any;
+ userId = localStorage.getItem("ID")
   constructor(private productService: ProductService ,
               private cartService: ShoppingCartService,
               private imageService: ImageService) { }
@@ -21,7 +22,8 @@ export class ShopCartComponent implements OnInit {
     this.getAllCart();
   }
 getAllCart(){
-  this.cartService.getAllCart().subscribe((data) => {
+  this.cartService.getAllCart(this.userId).subscribe((data) => {
+    console.log(data)
     this.carts = data;
     this.countProduct = this.carts.length;
     this.totalMoney = this.total(this.carts);

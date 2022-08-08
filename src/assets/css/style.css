@@ -764,6 +764,7 @@ i.gray-star {
   -ms-transform: scale3d(1.1, 1.1, 1);
   -webkit-transform: scale3d(1.1, 1.1, 1);
   transform: scale3d(1.1, 1.1, 1);
+  border-radius: 5px;
 }
 
 .ban-text {
