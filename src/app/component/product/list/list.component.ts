@@ -120,13 +120,13 @@ export class ListComponent implements OnInit {
 
 
   addToShoppingCart(product: Product){
-
     // @ts-ignore
     const cartItem: CartItem = {
       product: product,
       quantity: 1,
     }
     console.log(cartItem);
-    this.shoppingCartService.save(cartItem).subscribe(() => {});
+    this.shoppingCartService.save(cartItem).subscribe(() => {})
+    alert("bạn đã thêm sản phẩm vào giỏ hàng");
   }
 }
