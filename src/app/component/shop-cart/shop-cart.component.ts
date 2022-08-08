@@ -17,8 +17,6 @@ export class ShopCartComponent implements OnInit {
   totalMoney: number = 0;
  carts: CartItem[] | any;
  userId = localStorage.getItem("ID")
-  constructor(private productService: ProductService ,
-  carts: CartItem[] | any;
   id: any
   editCartForm: FormGroup = new FormGroup({
     id: new FormControl(0),
@@ -57,7 +55,7 @@ getAllCart(){
     console.log(error);
   })
 };
-  delete(){
+  delete(id:any){
     alert("xóa")
   }
 
