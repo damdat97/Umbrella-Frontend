@@ -55,4 +55,8 @@ export class AuthenticationService {
   findUserById(id: any): Observable<User> {
     return this.httpClient.get<User>(API_URL + '/users/' + id);
   }
+
+  findCustomerByPhone(phone: any, id: any): Observable<User> {
+    return this.httpClient.get<User>(API_URL + '/users/find-customer-by-phone?phone=' + phone + '&id=' + id);
+  }
 }

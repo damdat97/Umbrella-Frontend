@@ -5,8 +5,9 @@
 
   <div class="container" style="width: 80%">
     <div style="margin-bottom: 50px">
-      <form action="">
-
+      <form [formGroup]="phoneSearch" (submit)="searchPhone()">
+        <input type="text" formControlName="phone" placeholder="Nhập số điện thoại khách hàng cần tìm">
+        <button type="submit">Tìm kiếm</button>
       </form>
     </div>
 
