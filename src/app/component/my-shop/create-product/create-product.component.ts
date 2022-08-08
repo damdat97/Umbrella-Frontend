@@ -137,6 +137,9 @@ export class CreateProductComponent implements OnInit {
     }
 
   }
+  deleteImg(i: any) {
+    this.images.splice(i, 1)
+  }
 
 
 }
