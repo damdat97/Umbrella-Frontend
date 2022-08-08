@@ -120,6 +120,7 @@ export class ListComponent implements OnInit {
 
 
   addToShoppingCart(product: Product){
+
     // @ts-ignore
     const cartItem: CartItem = {
       product: product,

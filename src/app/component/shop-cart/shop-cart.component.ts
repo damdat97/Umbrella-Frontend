@@ -15,7 +15,8 @@ import {NgToastService} from "ng-angular-popup";
 export class ShopCartComponent implements OnInit {
   countProduct: number = 0;
   totalMoney: number = 0;
-  carts: CartItem[] | any;
+ carts: CartItem[] | any;
+ userId = localStorage.getItem("ID")
   id: any
   editCartForm: FormGroup = new FormGroup({
     id: new FormControl(0),
@@ -37,34 +38,25 @@ export class ShopCartComponent implements OnInit {
       this.findById(id);
     })
   }
-
-  getAllCart() {
-    this.cartService.getAllCart().subscribe((data) => {
-      this.carts = data;
-      this.countProduct = this.carts.length;
-      this.totalMoney = this.total(this.carts);
-      for (let i = 0; i < data.length; i++) {
-        this.imageService.findAllByProductId(data[i].product.id).subscribe((image) => {
-          this.carts[i].product.image = image;
-          console.log(this.carts)
-        })
-      }
-      console.log(this.carts);
-    }, error => {
-      console.log(error);
-    })
-  };
-
-  delete(id: any) {
-    if (confirm('Bạn có muốn xóa sản phẩm này không ?')) {
-      this.cartService.remover(id).subscribe(() => {
-        this.getAllCart();
-        this.toast.success({detail: "Thành Công", summary: 'Xóa thành công!', duration: 3000})
-      }, e => {
-        console.log(e);
-      });
+getAllCart(){
+  this.cartService.getAllCart(this.userId).subscribe((data) => {
+    console.log(data)
+    this.carts = data;
+    this.countProduct = this.carts.length;
+    this.totalMoney = this.total(this.carts);
+    for (let i = 0; i < data.length; i++) {
+      this.imageService.findAllByProductId(data[i].product.id).subscribe((image) => {
+        this.carts[i].product.image = image;
+        console.log(this.carts)
+      })
     }
-
+    console.log(this.carts);
+  }, error => {
+    console.log(error);
+  })
+};
+  delete(id:any){
+    alert("xóa")
   }
 
   findById(id: any) {
@@ -91,7 +83,6 @@ export class ShopCartComponent implements OnInit {
     this.toast.success({detail: "Thành Công", summary: 'Giảm Thành Công!', duration: 3000})
 
   }
-
   // gọi api để thực hiện thanh toán.
   checkOut() {
     alert("đã thanh toán giỏ hàng");
