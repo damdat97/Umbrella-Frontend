@@ -1465,13 +1465,23 @@ img {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px
 }
+.img-responsive-new-product{
+  padding: 0;
+  display: block;
+  max-width: 100%;
+  width: 302px;
+  height: 250px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px
+}
 .img-responsive-showHome {
   padding: 0;
   display: block;
   max-width: 100%;
-  width: 540px;
-  height: auto;
-  border-radius: 5px;
+  width: 302px;
+  height: 303px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px
 }
 .img-responsive-home {
   padding: 0;
@@ -1488,8 +1498,8 @@ img {
   max-width: 100%;
   width: 302px;
   height: 303px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px
 }
 
 .img-rounded {
