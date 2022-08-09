@@ -84,17 +84,18 @@
                         <th style="width: 212px;height: 50px">STT</th>
                         <th style="width: 212px;height: 50px" colspan="2">Tên sản phẩm</th>
                         <th style="width: 212px;height: 50px">Số lượng</th>
-                        <th style="width: 212px;height: 50px" colspan="2">giá</th>
+                        <th style="width: 212px;height: 50px" colspan="2">giá($)</th>
                       </tr>
                       </thead>
                       <tr class="rem1" *ngFor="let cart of carts; index as i">
                         <td style="height: 50px">{{i+1}}</td>
                         <td colspan="2">{{cart.product.name}}</td>
                         <td>{{cart.quantity}}</td>
-                        <td style="font-weight: 600" colspan="2">{{cart.product.price*cart.quantity}} $</td>
+                        <td style="font-weight: 600" colspan="2">{{cart.product.price*cart.quantity}}</td>
                       </tr>
-                      <td colspan="4" style="font-size: 20px;font-weight: 600"><i class="fa-solid fa-sack-dollar" style="margin-right: 5px"></i>Tổng:</td>
-                      <td style="height: 50px;font-weight: 600;font-size: 18px">{{totalMoney}} $</td>
+                      <td colspan="3" style="font-size: 20px;font-weight: 600"><i class="fa-solid fa-sack-dollar" style="margin-right: 5px"></i>Tổng:</td>
+                      <td style="font-size: 20px;font-weight: 600">{{totalQuantity1}}</td>
+                      <td style="height: 50px;font-weight: 600;font-size: 18px">{{totalMoney}}</td>
                     </table>
           </div>
           <div class="clearfix"> </div>
@@ -102,7 +103,7 @@
       </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn button-shop-cart" (click)="checkout()">Xác Nhận</button>
+        <button type="button" class="btn button-shop-cart" style="margin-right: 350px" (click)="checkout()">Xác Nhận</button>
       </div>
     </div>
   </div>
