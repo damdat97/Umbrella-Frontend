@@ -32,7 +32,7 @@
               <div class="quantity">
                 <div class="quantity-select">
                   <button (click)="downCountPr(i)" style="border: none"><i class="entry value-minus">&nbsp;</i></button>
-                  <div style="margin-left: 3px; top: -8px; position: relative;" class="entry value" formControlName="quantity"><span>{{cart.quantity}} </span></div>
+                  <div style="margin-left: 3px; top: -8px; position: relative;" class=" value" formControlName="quantity"><label>{{cart.quantity}} </label></div>
                   <button (click)="upCountPr(i)" style="border: none"><div class="entry value-plus active">&nbsp;</div></button>
                 </div>
               </div>
@@ -70,9 +70,6 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="exampleModalLabel" style="text-align: center">Hóa Đơn Thanh Toán</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" >X</span>
-        </button>
       </div>
       <div>
       <div>
