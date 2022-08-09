@@ -24,16 +24,16 @@
           <td class="invert">{{i+1}}</td>
           <td style="width: 200px" class="invert-image"><img src="{{cart.product.image[0].image}}" alt="" style="border-radius: 5px;border:1px solid white; height:170px;width:200px" class="img-responsive" /></td>
           <td class="invert">
-            <div class="quantity">
-
+            <form [formGroup]="editCartForm">
+              <div class="quantity">
                 <div class="quantity-select">
-                  <div class="entry value-minus" (click)="downCountPr(i)" >&nbsp;</div>
-                  <div class="entry value" ><span>{{cart.quantity}} </span></div>
-                  <div class="entry value-plus active" (click)="upCountPr(i)">&nbsp;</div>
+                  <button (click)="downCountPr(i)" style="border: none"><i class="entry value-minus">&nbsp;</i></button>
+                  <div style="margin-left: 3px; top: -8px; position: relative;" class="entry value" formControlName="quantity"><span>{{cart.quantity}} </span></div>
+                  <button (click)="upCountPr(i)" style="border: none"><div class="entry value-plus active">&nbsp;</div></button>
                 </div>
+              </div>
+            </form>
 
-
-            </div>
           </td>
           <td class="invert">{{cart.product.name}}</td>
 
@@ -52,7 +52,7 @@
         <table class="timetable_sub">
           <thead>
           <tr>
-            <th style="font-size: 20px" colspan="5" rowspan="2"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thanh Toán</th>
+            <th style="font-size: 20px" colspan="5" rowspan="2"><button type="button" (click)="checkout()"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thanh Toán</button></th>
           </tr>
           <tr>
           </tr>

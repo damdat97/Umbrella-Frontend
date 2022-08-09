@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../../service/product.service";
 import {ImageService} from "../../../service/image.service";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-list-product',
@@ -15,7 +16,8 @@ export class ListProductComponent implements OnInit {
   total: number = 0;
 
   constructor(private productService: ProductService,
-              private imageService: ImageService) {
+              private imageService: ImageService,
+              private toast:NgToastService) {
   }
 
   ngOnInit(): void {
@@ -41,8 +43,8 @@ export class ListProductComponent implements OnInit {
   deleteProduct(id: any) {
     if (confirm('Bạn chắc chắn muốn xóa sản phẩm này chứ ???')) {
       this.productService.delete(id).subscribe(() => {
-        alert("Thành Công");
         this.findProductByUserId(id)
+        this.toast.success({detail: "Thành Công", summary: 'Xóa thành công!', duration: 3000})
       }, e => {
         console.log(e);
       });
