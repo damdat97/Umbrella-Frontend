@@ -14,12 +14,16 @@
         <div class="row">
           <img
             src="{{obj.image[0].image}}" style="width: 600px; height:auto;border-radius: 5px "
-            class="img-responsive"/></div>
+            class="img-responsive img-hover"/></div>
         <div class="row">
           <br>
-          <carousel>
+          <carousel (click)="image('hi')">
             <div class="carousel-cell" *ngFor="let img of obj.image">
+<<<<<<< HEAD
+              <img src="{{img.image}}" style="width: 110%" #hoa class="img-hover">
+=======
               <img src="{{img.image}}" style="width: 110%" >
+>>>>>>> 302ac90871a0dca7cc1960afeacbdc601c3ec822
             </div>
           </carousel>
         </div>

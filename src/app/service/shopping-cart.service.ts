@@ -27,5 +27,9 @@ export class ShoppingCartService {
     return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/cart/' + id, cartItem);
   }
 
+  checkout(id: string): Observable<boolean> {
+    return this.httpClient.put<boolean>(API_URL + '/shopping_carts/checkout/' + id, null);
+  }
+
 
 }

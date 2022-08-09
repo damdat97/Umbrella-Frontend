@@ -118,5 +118,8 @@ export class DetailProductComponent implements OnInit {
     }
   }
 
+  image($event: any) {
+    console.log("hihhihh")
+  }
 }
 

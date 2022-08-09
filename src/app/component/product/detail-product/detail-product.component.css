@@ -35,3 +35,10 @@ body {
 .hit-voting {
   cursor: pointer;
 }
+.img-hover{
+  transition: 0.4s;
+  z-index: 100;
+}
+.img-hover:hover {
+  transform: scale(1.05);
+}

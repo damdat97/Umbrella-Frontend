@@ -68,7 +68,6 @@ export class CreateProductComponent implements OnInit {
   }
 
   add() {
-
     this.product = {
       name: this.productForm.value.name,
       category: {
@@ -136,6 +135,9 @@ export class CreateProductComponent implements OnInit {
       }
     }
 
+  }
+  deleteImg(i: any) {
+    this.images.splice(i, 1)
   }
 
 
