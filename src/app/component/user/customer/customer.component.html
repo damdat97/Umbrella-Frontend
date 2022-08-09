@@ -24,6 +24,8 @@
           <th style="font-size: large">STT</th>
           <th style="font-size: large">Tên khách hàng</th>
           <th style="font-size: large">Số điện thoại</th>
+          <th style="font-size: large">Địa chỉ</th>
+          <th style="font-size: large">Email</th>
         </tr>
         </thead>
         <tr class="rem1" *ngFor="let item of users|paginate: { itemsPerPage: 12, currentPage: p, totalItems: total },index as i">
@@ -33,13 +35,10 @@
           </a>
           </td>
           <td class="invert">
-            <div class="quantity">
-              <div class="quantity-select">
                 <div style="font-size: medium;">{{item.phone}}</div>
-
-              </div>
-            </div>
           </td>
+          <td>{{item.address}}</td>
+          <td>{{item.email}}</td>
         </tr>
       </table>
       <nav class="numbering">
