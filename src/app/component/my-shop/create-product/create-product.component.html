@@ -78,9 +78,9 @@
                      (change)="showPreview($event)"
                      formControlName="image"
                      autocomplete="off" class="custom-file-input" id="inputGroupFile01" style="margin-left: 20%">
-              <div style="margin-left: 220px;margin-top10px; width: 60%;overflow: auto ;height: 250px">
-                <div *ngFor="let img of images;let i = index">
-                  <img class="img-fluid" style="border:1px solid white; height:100px; width:100px"
+              <div style="margin-top:10px;width:500px;overflow: auto ;height: 230px;margin-left: 180px">
+                <div *ngFor="let img of images;let i = index" class="col-sm-6">
+                  <img class="img-fluid" style="border:1px solid white; height:200px; width:200px"
                        (click)="deleteImg(i)" src="{{img}}" alt="">
                 </div>
               </div>
