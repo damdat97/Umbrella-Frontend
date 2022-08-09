@@ -109,16 +109,30 @@ export class ListComponent implements OnInit {
     }
   }
 
+  //add to cart
+  addCartForm = new FormGroup({
+    quantity: new FormControl()
+  })
+  product: any;
 
   addToShoppingCart(product: Product){
-
     // @ts-ignore
     const cartItem: CartItem = {
       product: product,
-      quantity: 1,
+      quantity: this.addCartForm.value.quantity,
     }
     console.log(cartItem);
-    this.shoppingCartService.save(cartItem).subscribe(() => {})
+    this.shoppingCartService.save(cartItem).subscribe((data) => {
+      console.log(data)
+    })
     this.toast.success({detail: "Thành Công", summary: 'Thêm vào giỏ hàng thành công!', duration: 3000})
+  }
+
+  findByIdProduct(id) {
+    console.log(id)
+    this.productService.findById(id).subscribe((data) => {
+      this.product = data;
+      console.log(data);
+    })
   }
 }

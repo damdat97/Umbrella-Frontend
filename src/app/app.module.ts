@@ -38,6 +38,7 @@ import { CustomerComponent } from './component/user/customer/customer.component'
 import { CustomerShopComponent } from './component/user/customer-shop/customer-shop.component';
 import { NewProductComponent } from './component/product/new-product/new-product.component';
 import {IvyCarouselModule} from "angular-responsive-carousel";
+import {ListCartComponent} from "./component/customer-shopping-cart/listcart/listcart.component";
 import {NzModalModule, NzModalService} from "ng-zorro-antd/modal";
 
 @NgModule({
@@ -65,8 +66,8 @@ import {NzModalModule, NzModalService} from "ng-zorro-antd/modal";
     ShopCartComponent,
     CustomerComponent,
     CustomerShopComponent,
-    NewProductComponent
-
+    NewProductComponent,
+    ListCartComponent
   ],
   imports: [
     BrowserModule,

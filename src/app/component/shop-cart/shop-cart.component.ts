@@ -33,7 +33,6 @@ export class ShopCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCart();
-
     this.activatedRoute.paramMap.subscribe((param) => {
       const id = param.get('id');
       this.findById(id);
