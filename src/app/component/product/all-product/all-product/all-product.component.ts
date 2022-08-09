@@ -70,6 +70,13 @@ export class AllProductComponent implements OnInit {
   }
 
 
+  findByIdProduct(id) {
+    console.log(id)
+    this.productService.findById(id).subscribe((data) => {
+      this.listProduct = data;
+      console.log(data);
+    })
+  }
 
   searchByAll() {
     this.listImage = []
@@ -130,17 +137,27 @@ export class AllProductComponent implements OnInit {
     }
   }
 
+  addCartForm = new FormGroup({
+    quantity: new FormControl()
+  })
+  pd: any;
 
-  // addToShoppingCart(product: Product){
-  //
-  //   // @ts-ignore
-  //   const cartItem: CartItem = {
-  //     product: product,
-  //     quantity: 1,
-  //   }
-  //   console.log(cartItem);
-  //   this.shoppingCartService.save(cartItem).subscribe(() => {});
-  // }
+
+  addToShoppingCart(pd: Product) {
+    // @ts-ignore
+    const cartItem: CartItem = {
+      product: pd,
+      quantity: this.addCartForm.value.quantity,
+    }
+    console.log(cartItem);
+    this.shoppingCartService.save(cartItem).subscribe((data) => {
+      // @ts-ignore
+      $('#exampleModalAdd').modal('hide');
+      console.log(data)
+    })
+    this.toast.success({detail: "Thành Công", summary: 'Thêm vào giỏ hàng thành công!', duration: 3000})
+  }
+
 
 
 
