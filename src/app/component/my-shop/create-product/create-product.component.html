@@ -78,15 +78,17 @@
                      (change)="showPreview($event)"
                      formControlName="image"
                      autocomplete="off" class="custom-file-input" id="inputGroupFile01" style="margin-left: 20%">
-              <div *ngFor="let img of images;let i = index"
-                   style=" width: 60%; height: 250px;margin-left: 270px;margin-top: 20px">
-                <img class="img-fluid " style="border:1px solid white; height:100%; width:50%"
-                     (click)="deleteImg(i)" src="{{img}}" alt="">
+              <div style="margin-left: 220px;margin-top10px; width: 60%;overflow: auto ;height: 250px">
+                <div *ngFor="let img of images;let i = index">
+                  <img class="img-fluid" style="border:1px solid white; height:100px; width:100px"
+                       (click)="deleteImg(i)" src="{{img}}" alt="">
+                </div>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn button-edit" style="margin-right: 375px"><i class="fa-solid fa-plus" style="margin-right: 5px"></i>Thêm
+            <button type="submit" class="btn button-edit" style="margin-right: 375px"><i class="fa-solid fa-plus"
+                                                                                         style="margin-right: 5px"></i>Thêm
             </button>
           </div>
         </form>
