@@ -67,7 +67,6 @@ export class ListComponent implements OnInit {
   }
 
 
-
   sortByAll(event: any) {
     if (event == 0) {
       return this.products = this.products.sort((obj1: any, obj2: any) => {
@@ -116,8 +115,9 @@ export class ListComponent implements OnInit {
     quantity: new FormControl()
   })
   product: any;
+  shop: any
 
-  addToShoppingCart(product: Product){
+  addToShoppingCart(product: Product, shop: User) {
     if (this.userId == null) {
       this.router.navigate(['/login'])
       this.toast.error({detail:"Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
@@ -126,6 +126,7 @@ export class ListComponent implements OnInit {
     else {
       // @ts-ignore
       const cartItem: CartItem = {
+        shop: shop,
         product: product,
         quantity: this.addCartForm.value.quantity,
       }

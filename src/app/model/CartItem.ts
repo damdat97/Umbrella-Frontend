@@ -8,4 +8,6 @@ export interface CartItem{
   date:string,
   product:Product,
   user: User,
+  shop: User,
+  billId: string
 }
