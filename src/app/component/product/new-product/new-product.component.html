@@ -13,7 +13,7 @@
                     <h4 style="font-size: 22px; margin-top: 5px; text-align: center">{{item.price}} $</h4>
                   </div>
                   <div class="snipcart-details top_brand_home_details" >
-                    <button class="btn button-edit button-shop" (click)="addToShoppingCart(item)" style="margin-right: 55px;font-size: 15px;height: 48px; width: 200px"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px;"></i>Thêm
+                    <button class="btn button-edit button-shop" data-toggle="modal" data-target="#exampleModalAdd" (click)="findByIdProduct(item.id)" style="margin-right: 55px;font-size: 15px;height: 48px; width: 200px"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px;"></i>Thêm
                       Vào Giỏ Hàng
                     </button>
                     <br>
@@ -29,3 +29,25 @@
   </div>
 </div>
 
+<div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel" style="text-align: center">Sửa Sản Phẩm</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addCartForm" (submit)="addToShoppingCart(product)">
+          <label style="margin-left: 20%">Số Lượng Sản Phẩm:</label>
+          <input type='text' formControlName="quantity" class="form-control"
+                 style="width: 500px; height: 35px;margin-left: 20%"><br>
+          <div class="modal-footer">
+            <button type="submit" style="margin-right: 375px" class="btn button-edit">Thêm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

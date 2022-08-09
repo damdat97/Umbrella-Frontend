@@ -39,7 +39,6 @@ import { CustomerShopComponent } from './component/user/customer-shop/customer-s
 import { NewProductComponent } from './component/product/new-product/new-product.component';
 import {IvyCarouselModule} from "angular-responsive-carousel";
 import {ListCartComponent} from "./component/customer-shopping-cart/listcart/listcart.component";
-import {NzModalModule, NzModalService} from "ng-zorro-antd/modal";
 
 @NgModule({
   declarations: [
@@ -80,8 +79,6 @@ import {NzModalModule, NzModalService} from "ng-zorro-antd/modal";
     FormsModule,
     NgToastModule,
     IvyCarouselModule,
-    NzModalModule,
-
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
@@ -93,4 +90,5 @@ import {NzModalModule, NzModalService} from "ng-zorro-antd/modal";
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }

@@ -5,6 +5,8 @@ import {ImageService} from "../../../service/image.service";
 import {NgToastService} from "ng-angular-popup";
 import {ShoppingCartService} from "../../../service/shopping-cart.service";
 import {CartItem} from "../../../model/CartItem";
+import {FormControl, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-product',
@@ -16,10 +18,16 @@ export class NewProductComponent implements OnInit {
   image: any;
   userId = localStorage.getItem("ID")
 
+  addCartForm = new FormGroup({
+    quantity: new FormControl()
+  })
+  product: any;
+
   constructor(private productService: ProductService,
               private imageService: ImageService,
               private toast: NgToastService,
-              private shoppingCartService: ShoppingCartService) { }
+              private shoppingCartService: ShoppingCartService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.findNewProduct()
@@ -38,13 +46,31 @@ export class NewProductComponent implements OnInit {
       })
   }
 
-  addToShoppingCart(item: any) {
-    // @ts-ignore
-    const cartItem: CartItem = {
-      product: item,
-      quantity: 1,
+  addToShoppingCart(product: Product) {
+    if (this.userId == null) {
+      this.router.navigate(['/login'])
+      this.toast.error({detail: "Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
+      window.location.href = "/login"
+    } else {
+      // @ts-ignore
+      const cartItem: CartItem = {
+        product: product,
+        quantity: this.addCartForm.value.quantity,
+      }
+      console.log(cartItem);
+      this.shoppingCartService.save(cartItem).subscribe((data) => {
+        console.log(data)
+        // @ts-ignore
+        $('#exampleModalAdd').modal('hide');
+      })
+      this.toast.success({detail: "Thành Công", summary: 'Thêm vào giỏ hàng thành công!', duration: 3000})
     }
-    console.log(cartItem);
-    this.shoppingCartService.save(cartItem).subscribe(() => {});
+  }
+  findByIdProduct(id) {
+    console.log(id)
+    this.productService.findById(id).subscribe((data) => {
+      this.products = data;
+      console.log(data);
+    })
   }
 }

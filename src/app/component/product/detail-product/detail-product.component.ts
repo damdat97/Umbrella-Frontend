@@ -6,6 +6,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {Product} from "../../../model/product";
 import {CommentService} from "../../../service/comment.service";
 import {NgToastService} from "ng-angular-popup";
+import {CartItem} from "../../../model/CartItem";
+import {ShoppingCartService} from "../../../service/shopping-cart.service";
 
 @Component({
   selector: 'app-detail-product',
@@ -38,7 +40,8 @@ export class DetailProductComponent implements OnInit {
               private imageService: ImageService,
               private commentService: CommentService,
               private router: Router,
-              private toast: NgToastService) {
+              private toast: NgToastService,
+              private shoppingCartService: ShoppingCartService) {
   }
 
   ngOnInit(): void {
@@ -117,9 +120,36 @@ export class DetailProductComponent implements OnInit {
       });
     }
   }
-
-  image($event: any) {
-    console.log("hihhihh")
+  addCartForm = new FormGroup({
+    quantity: new FormControl()
+  })
+  product: any;
+  addToShoppingCart(product: Product) {
+    if (this.userId == null) {
+      this.router.navigate(['/login'])
+      this.toast.error({detail: "Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
+      window.location.href = "/login"
+    } else {
+      // @ts-ignore
+      const cartItem: CartItem = {
+        product: product,
+        quantity: this.addCartForm.value.quantity,
+      }
+      console.log(cartItem);
+      this.shoppingCartService.save(cartItem).subscribe((data) => {
+        // @ts-ignore
+        $('#exampleModalAdd').modal('hide');
+        console.log(data)
+      })
+      this.toast.success({detail: "Thành Công", summary: 'Thêm vào giỏ hàng thành công!', duration: 3000})
+    }
+  }
+  findByIdProduct(id) {
+    console.log(id)
+    this.productService.findById(id).subscribe((data) => {
+      this.product = data;
+      console.log(data);
+    })
   }
 }
 
