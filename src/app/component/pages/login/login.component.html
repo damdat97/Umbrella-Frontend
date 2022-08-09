@@ -1,48 +1,52 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 
-<div class="breadcrumbs">
-  <div class="container">
-    <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-      <li><a [routerLink]="['/']"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
-      <li class="active">Đăng nhập</li>
-    </ol>
-  </div>
-</div>
+
 <div class="login">
   <div class="container">
-    <h2>Đăng nhập</h2>
-    <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+
+    <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s" style="border-radius: 10px">
       <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <label for="email">Tên đăng nhập</label>
-        <input type="text" class="form-control" id="email" formControlName="username" class="form-control" style="width: 417px;height: 42px;">
-        <div *ngIf="!loginForm.controls.username?.valid && (loginForm.controls.username?.dirty || loginForm.controls.username?.touched)">
-          <div *ngIf="loginForm.controls.username?.errors?.['required']">
-            <div style="color: red; float: left ">Tên tài khoản không được bỏ trống</div>
-          </div>
-          <div *ngIf="loginForm.controls.username?.errors?.['pattern']">
-            <div  style="color: red; float: left ">Tên tài khoản sai định dạng</div>
-          </div>
-        </div>
+        <h2>Đăng nhập</h2>
         <br>
-        <div class="form-group">
-          <label for="password">Mật khẩu</label>
-          <input type="password" class="form-control" id="password" formControlName="password" class="form-control" style="width: 417px;height: 42px;">
-          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-            <div style="color: red" *ngIf="password?.errors?.['required']">
-              <div> Mật khẩu không được bỏ trống</div>
+        <br>
+
+        <div style="margin-left: 55px">
+          <label for="email" style="margin-bottom:8px ">Tên Đăng Nhập</label>
+          <input type="text" class="form-control" id="email" formControlName="username" class="form-control"
+                 style="width: 417px;height: 42px;">
+          <div
+            *ngIf="!loginForm.controls.username?.valid && (loginForm.controls.username?.dirty || loginForm.controls.username?.touched)">
+            <div *ngIf="loginForm.controls.username?.errors?.['required']">
+              <div style="color: red; float: left ">Tên tài khoản không được bỏ trống</div>
+            </div>
+            <div *ngIf="loginForm.controls.username?.errors?.['pattern']">
+              <div style="color: red; float: left ">Tên tài khoản sai định dạng</div>
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="password">Mật Khẩu</label>
+            <input type="password" class="form-control" id="password" formControlName="password" class="form-control"
+                   style="width: 417px;height: 42px;">
+            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+              <div style="color: red" *ngIf="password?.errors?.['required']">
+                <div> Mật khẩu không được bỏ trống</div>
+              </div>
             </div>
           </div>
         </div>
-        <input type="submit" value="Đăng nhập" class="form-control" style="width: 40%;height: 42px;position: relative;left: 30%;">
+        <input type="submit" value="Đăng nhập" class="form-control"
+               style="width: 40%;height: 42px;position: relative;left: 30%;background-color: dodgerblue">
+        <br>
+        <h4>Dành cho người mới</h4>
+        <p><a routerLink="/register">Đăng kí tại đây</a> hoặc trở lại <a (click)="goHome()" routerLink="/">Trang
+          chủ<span
+            class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
       </form>
+
     </div>
-    <h4>Dành cho người mới</h4>
-    <p><a routerLink="/register">Đăng kí tại đây</a> hoặc trở lại <a routerLink="/">Trang chủ<span
-      class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
   </div>
+  <br>
 </div>
-
 <app-footer></app-footer>
-
-

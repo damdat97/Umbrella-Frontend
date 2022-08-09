@@ -94,4 +94,7 @@ export class RegisterComponent implements OnInit {
     };
     return user;
   }
+  goHome() {
+    window.location.href = '/';
+  }
 }
