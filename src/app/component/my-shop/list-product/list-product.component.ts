@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../../service/product.service";
 import {ImageService} from "../../../service/image.service";
 import {NgToastService} from "ng-angular-popup";
-import {NzModalService} from "ng-zorro-antd/modal";
 
 @Component({
   selector: 'app-list-product',
