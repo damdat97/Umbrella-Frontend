@@ -3,22 +3,17 @@
     <h3>Sản phẩm mới</h3>
     <div class="agile_top_brands_grids">
       <div class="col-md-3 top_brand_left-1" *ngFor="let item of products">
-        <div class="hover14 column">
-          <div class="agile_top_brand_left_grid">
-            <div class="agile_top_brand_left_grid_pos">
-              <img src="images/offer.png" alt=" " class="img-responsive">
-            </div>
-            <div class="agile_top_brand_left_grid1">
-              <figure>
+        <div class="hover14 column" style="width: 240px;height: 440px;border: 1px solid grey;border-radius: 5px">
+          <div class="agile_top_brand_left_grid" style=" width: auto;height: auto;border-top-left-radius: 5px;border-top-right-radius: 5px;padding: 0">
+              <figure style="width: 238px;height: 437px">
                 <div class="snipcart-item block">
                   <div class="snipcart-thumb">
-                    <a [routerLink]="['/product-detail', item.id]"><img title=" " alt=" " src="{{item.image[0].image}}"></a>
-                    <p>{{item.name}}</p>
-                    <h4>{{item.price}} $</h4>
+                    <a [routerLink]="['/product-detail', item.id]"><img title=" " alt=" " src="{{item.image[0].image}}" class="img-responsive-new-product"></a>
+                    <p><a href="#" [routerLink]="['/product-detail',item.id]" class="show-product">{{item.name}} </a></p>
+                    <h4 style="font-size: 22px; margin-top: 5px; text-align: center">{{item.price}} $</h4>
                   </div>
                   <div class="snipcart-details top_brand_home_details" >
-                    <button class="btn button-edit button-shop" (click)="addToShoppingCart(item)" style="margin-right: 55px;font-size: 14px;height: 48px; width: 200px"><i class="fa-solid fa-basket-shopping"
-                                                                                                                                                                              style="margin-right: 5px;"></i>Thêm
+                    <button class="btn button-edit button-shop" (click)="addToShoppingCart(item)" style="margin-right: 55px;font-size: 15px;height: 48px; width: 200px"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px;"></i>Thêm
                       Vào Giỏ Hàng
                     </button>
                     <br>
@@ -26,7 +21,6 @@
                 </div>
               </figure>
             </div>
-          </div>
         </div>
       </div>
 
