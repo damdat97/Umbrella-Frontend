@@ -19,7 +19,11 @@
           <br>
           <carousel (click)="image('hi')">
             <div class="carousel-cell" *ngFor="let img of obj.image">
+<<<<<<< HEAD
               <img src="{{img.image}}" style="width: 110%" #hoa class="img-hover">
+=======
+              <img src="{{img.image}}" style="width: 110%" >
+>>>>>>> 302ac90871a0dca7cc1960afeacbdc601c3ec822
             </div>
           </carousel>
         </div>
@@ -35,14 +39,11 @@
               </button>
               <br>
             </div>
-            <div class="snipcart-details1 top_brand_home_details" *ngIf="userId == obj.user.id"
-                 style="">
-              <button type="button" class="btn button-edit button-ed" data-toggle="modal"
-                      data-target="#exampleModalEdit"
-                      [routerLink]="['/edit-product',obj.id]" style="margin-right: 10px;width: 90px"><i
-                class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Sửa
-              </button>
-              <button class="btn button-delete" (click)="deleteProduct(obj.id)"><i class="fa-solid fa-trash-can"
+            <div class="rem" *ngIf="userId == obj.user.id"
+                 style="margin-left: 130px;margin-top: 50px">
+              <button type="button" class="btn button-edit" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-product',obj.id]" ><i
+                class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Sửa</button>
+              <button class="btn button-delete"  style="margin-left: 10px" (click)="deleteProduct(obj.id)"><i class="fa-solid fa-trash-can"
                                                                                    style="margin-right: 5px"></i>Xóa
               </button>
             </div>

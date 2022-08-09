@@ -67,7 +67,7 @@
           <div class="clearfix"></div>
         </div>
       </div>
-      <div class="agile_top_brands_grids">
+      <div class="agile_top_brands_grids" style="margin-top: 10px;border-radius: 5px" >
         <div class="col-md-3 top_brand_left" style="width: 250px;height: auto;margin-bottom: 30px;border-radius: 5px"
              *ngFor="let product of productByCate|paginate: { itemsPerPage: 8, currentPage: p, totalItems: total }, index as i">
           <div class="hover14 column" style="width: 240px;height: 380px;border: 1px solid grey;border-radius: 5px">
@@ -85,7 +85,7 @@
                       <h4 style="font-size: 22px; margin-top: 5px; text-align: center">{{product.price}} $</h4>
                     </div>
                     <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
-                      <button class="btn button-shop" style="font-size: 14px;margin-right: 20px">
+                      <button class="btn button-shop" style="font-size: 16px;margin-right: 20px">
                         <i class="fa-solid fa-basket-shopping" style="margin-right: 5px">
                         </i>Thêm Vào Giỏ Hàng
                       </button>

@@ -68,8 +68,8 @@ export class DetailProductComponent implements OnInit {
       description: this.commentForm.value.description
     }
     this.commentService.save(obj).subscribe(() => {
-      this.commentForm.reset();
-      this.comment()
+        this.commentForm.reset();
+        this.comment()
       }, error => {
         alert("Loi");
         console.log(error)
@@ -88,23 +88,24 @@ export class DetailProductComponent implements OnInit {
 
   getProduct() {
     this.productService.findById(this.id).subscribe((data) => {
-        this.imageService.findAllByProductId(data.id).subscribe((x)=> {
-          console.log(x)
-          this.obj = ({
-            id: data.id,
-            name:data.name,
-            description: data.description,
-            price: data.price,
-            quantity: data.quantity,
-            category: data.category,
-            user: data.user,
-            image: x
-          })
+      this.imageService.findAllByProductId(data.id).subscribe((x) => {
+        console.log(x)
+        this.obj = ({
+          id: data.id,
+          name: data.name,
+          description: data.description,
+          price: data.price,
+          quantity: data.quantity,
+          category: data.category,
+          user: data.user,
+          image: x
         })
+      })
     }, error => {
       console.log(error);
     })
   }
+
   deleteProduct(id: any) {
     if (confirm('Bạn có muốn xóa sản phẩm này không ?')) {
       this.productService.delete(id).subscribe(() => {
@@ -121,3 +122,4 @@ export class DetailProductComponent implements OnInit {
     console.log("hihhihh")
   }
 }
+
