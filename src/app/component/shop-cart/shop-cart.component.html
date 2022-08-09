@@ -20,7 +20,7 @@
           <th style="font-size: 18px">Số Lượng</th>
           <th style="font-size: 18px">Tên Sản Phẩm</th>
 
-          <th style="font-size: 18px">Giá</th>
+          <th style="font-size: 18px">Giá (VND)</th>
           <th style="font-size: 18px">Xóa</th>
         </tr>
         </thead>
@@ -41,7 +41,7 @@
           </td>
           <td class="invert">{{cart.product.name}}</td>
 
-          <td class="invert">{{cart.product.price}} $</td>
+          <td class="invert">{{cart.product.price}}</td>
           <td class="invert">
             <div class="rem">
               <button  class="btn button-delete" style="background-color: grey"  (click)="delete(cart.id)"><i class="fa-solid fa-trash"></i> </button>
