@@ -29,7 +29,8 @@
           <td class="invert">{{i + 1}}</td>
           <td style="width: 200px" class="invert-image"><a [routerLink]="['/product-detail', product.id]">
             <img
-              src="{{product.image[0].image}}" style="border:1px solid white; height:170px;width:200px;border-radius: 5px"
+              src="{{product.image[0].image}}"
+              style="border:1px solid white; height:170px;width:200px;border-radius: 5px"
             /></a>
           </td>
           <td class="invert">
@@ -51,8 +52,7 @@
                                                                              style="margin-right: 5px"></i> Sửa
               </button>
               <button class="btn button-delete" (click)="deleteProduct(product.id)"
-                      style="font-size: small;width: 90px"><i class="fa-solid fa-trash-can"
-                                                              style="margin-right: 5px"></i>Xóa
+                      style="font-size: small;width: 90px"><i class="fa-solid fa-trash-can" style="margin-right: 5px"></i>Xóa
               </button>
             </div>
           </td>

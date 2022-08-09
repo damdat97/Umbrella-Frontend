@@ -15,6 +15,7 @@ import {NgToastService} from "ng-angular-popup";
 export class ShopCartComponent implements OnInit {
   countProduct: number = 0;
   totalMoney: number = 0;
+  totalQuantity1: number = 0;
   carts: CartItem[] | any;
   userId = localStorage.getItem("ID")
   id: any
@@ -32,7 +33,6 @@ export class ShopCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCart();
-
     this.activatedRoute.paramMap.subscribe((param) => {
       const id = param.get('id');
       this.findById(id);
@@ -44,6 +44,7 @@ export class ShopCartComponent implements OnInit {
       this.carts = data;
       this.countProduct = this.carts.length;
       this.totalMoney = this.total(this.carts);
+      this.totalQuantity1= this.totalQuantity(this.carts)
       for (let i = 0; i < data.length; i++) {
         this.imageService.findAllByProductId(data[i].product.id).subscribe((image) => {
           this.carts[i].product.image = image;
@@ -126,5 +127,12 @@ export class ShopCartComponent implements OnInit {
       result += (carts[i].quantity * carts[i].product.price);
     }
     return result;
+  }
+  private totalQuantity(cart:CartItem[]){
+    let count=0;
+    for (let i=0;i<cart.length;i++){
+      count+=cart[i].quantity;
+    }
+    return count;
   }
 }

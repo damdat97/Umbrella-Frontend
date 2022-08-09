@@ -1363,7 +1363,7 @@ td.invert-image a img {
   text-align: center;
   -webkit-user-select: none;
   -moz-user-select: none;
-  border: 1px solid #b2b2b2;
+
   vertical-align: bottom;
 }
 
@@ -1408,7 +1408,6 @@ td.invert-image a img {
 
 .quantity-select .entry.value-minus:hover,
 .quantity-select .entry.value-plus:hover {
-  background: #E5E5E5;
 }
 
 .quantity-select .entry.value-minus {

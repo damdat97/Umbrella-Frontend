@@ -15,6 +15,7 @@ import {ShopCartComponent} from "./component/shop-cart/shop-cart.component";
 import * as events from "events";
 import {CustomerComponent} from "./component/user/customer/customer.component";
 import {CustomerShopComponent} from "./component/user/customer-shop/customer-shop.component";
+import {ListCartComponent} from "./component/customer-shopping-cart/listcart/listcart.component";
 
 const routes: Routes = [
   {
@@ -67,6 +68,10 @@ const routes: Routes = [
   {
     path: "customer-shop/:id",
     component: CustomerShopComponent
+  },
+  {
+    path: "carts",
+    component: ListCartComponent
   }];
 
 @NgModule({

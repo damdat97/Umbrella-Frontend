@@ -6,7 +6,11 @@
 <br>
 <div class="checkout">
   <div class="container">
-    <h2>Số lượng sản phẩm trong giỏ hàng <span>{{countProduct}} sản phẩm</span></h2>
+    <div class="row">
+      <h2>Số lượng sản phẩm trong giỏ hàng <span>{{countProduct}} sản phẩm</span></h2>
+      <button style="margin-left: 910px;margin-bottom: 20px;" data-toggle="modal" data-target="#exampleModal-shop-cart" type="submit" class="btn button-shop-cart" ><i class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thanh Toán</button>
+    </div>
+
     <div class="checkout-right">
       <table class="timetable_sub">
         <thead>
@@ -16,7 +20,7 @@
           <th style="font-size: 18px">Số Lượng</th>
           <th style="font-size: 18px">Tên Sản Phẩm</th>
 
-          <th style="font-size: 18px">Giá</th>
+          <th style="font-size: 18px">Giá (VND)</th>
           <th style="font-size: 18px">Xóa</th>
         </tr>
         </thead>
@@ -28,7 +32,7 @@
               <div class="quantity">
                 <div class="quantity-select">
                   <button (click)="downCountPr(i)" style="border: none"><i class="entry value-minus">&nbsp;</i></button>
-                  <div style="margin-left: 3px; top: -8px; position: relative;" class="entry value" formControlName="quantity"><span>{{cart.quantity}} </span></div>
+                  <div style="margin-left: 3px; top: -8px; position: relative;" class=" value" formControlName="quantity"><label>{{cart.quantity}} </label></div>
                   <button (click)="upCountPr(i)" style="border: none"><div class="entry value-plus active">&nbsp;</div></button>
                 </div>
               </div>
@@ -37,10 +41,10 @@
           </td>
           <td class="invert">{{cart.product.name}}</td>
 
-          <td class="invert">{{cart.product.price}} $</td>
+          <td class="invert">{{cart.product.price}}</td>
           <td class="invert">
             <div class="rem">
-              <button  class="btn button-delete" style="background-color: grey" (click)="delete(cart.id)"><i class="fa-solid fa-trash"></i> </button>
+              <button  class="btn button-delete" style="background-color: grey"  (click)="delete(cart.id)"><i class="fa-solid fa-trash"></i> </button>
             </div>
           </td>
         </tr>
@@ -49,30 +53,7 @@
     <!---728x90--->
     <div class="checkout-left">
       <div class="checkout-left-basket">
-        <table class="timetable_sub">
-          <thead>
-          <tr>
-            <th style="font-size: 20px" colspan="5" rowspan="2"><button type="button" (click)="checkout()"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thanh Toán</button></th>
-          </tr>
-          <tr>
-          </tr>
-          <tr>
-            <th>STT</th>
-            <th colspan="2">Tên sản phẩm</th>
-            <th>Số lượng</th>
-            <th colspan="2">giá</th>
-          </tr>
-          </thead>
-          <tr class="rem1" *ngFor="let cart of carts; index as i">
-            <td>{{i+1}}</td>
-            <td colspan="2">{{cart.product.name}}</td>
-            <td>{{cart.quantity}}</td>
-            <td colspan="2">{{cart.product.price*cart.quantity}} $</td>
-          </tr>
-          <td colspan="2"><i class="fa-solid fa-sack-dollar" style="margin-right: 5px"></i>Tổng:</td>
-          <td colspan="3">{{totalMoney}} $</td>
 
-        </table>
       </div>
       <div class="checkout-right-basket" >
         <a href="/" style="background-color: #fe9126;border-radius: 5px">Tiếp Tục Mua Sắm <i class="fa-solid fa-cart-shopping" style="margin-left: 5px"></i></a>
@@ -82,3 +63,46 @@
   </div>
 </div>
 <app-footer></app-footer>
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal-shop-cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel" style="text-align: center">Hóa Đơn Thanh Toán</h3>
+      </div>
+      <div>
+      <div>
+        <div>
+          <div>
+                    <table class="timetable_sub">
+                      <thead >
+                      <tr style="width: 848px">
+                        <th style="width: 212px;height: 50px">STT</th>
+                        <th style="width: 212px;height: 50px" colspan="2">Tên sản phẩm</th>
+                        <th style="width: 212px;height: 50px">Số lượng</th>
+                        <th style="width: 212px;height: 50px" colspan="2">giá($)</th>
+                      </tr>
+                      </thead>
+                      <tr class="rem1" *ngFor="let cart of carts; index as i">
+                        <td style="height: 50px">{{i+1}}</td>
+                        <td colspan="2">{{cart.product.name}}</td>
+                        <td>{{cart.quantity}}</td>
+                        <td style="font-weight: 600" colspan="2">{{cart.product.price*cart.quantity}}</td>
+                      </tr>
+                      <td colspan="3" style="font-size: 20px;font-weight: 600">Tổng:</td>
+                      <td style="font-size: 20px;font-weight: 600">{{totalQuantity1}}</td>
+                      <td style="height: 50px;font-weight: 600;font-size: 18px">{{totalMoney}}</td>
+                    </table>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn button-shop-cart" style="margin-right: 350px" (click)="checkout()">Xác Nhận</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

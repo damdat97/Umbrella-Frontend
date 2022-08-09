@@ -1,0 +1,41 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<div class="checkout">
+  <div class="container" style="width: 80%">
+    <div style="">
+      <table class="timetable_sub" style="border:2px solid #CDCDCD;border-radius: 10px">
+        <thead>
+        <tr>
+          <th style="font-size: large">STT</th>
+          <th style="font-size: large">Số lượng sản phẩm</th>
+          <th style="font-size: large">Tổng tiền</th>
+          <th style="font-size: large">Trạng thái đơn</th>
+        </tr>
+        </thead>
+        <tr class="rem1" *ngFor="let item of carts,index as i">
+          <td class="invert">{{i + 1}}</td>
+          <td>
+            <div style="font-size: medium;">{{item.quantity}}</div>
+          </td>
+          <td class="invert">
+            <div style="font-size: medium;">{{item.price}} $</div>
+          </td>
+          <div *ngIf="item.status == 0">
+          <td><div>Đang chờ thanh toán</div></td>
+          </div>
+          <div *ngIf="item.status == 1">
+            <td><div>Đang chờ xác nhận</div></td>
+          </div>
+          <div *ngIf="item.status == 2">
+            <td><div>Đơn hàng đã được xác nhận</div></td>
+          </div>
+          <div *ngIf="item.status == 3">
+            <td><div>Đơn hàng bị hủy</div></td>
+          </div>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
