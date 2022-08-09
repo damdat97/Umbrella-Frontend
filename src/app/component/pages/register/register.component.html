@@ -36,14 +36,14 @@
         </div>
 
         <input type="text" placeholder="Địa chỉ" formControlName="address" class="form-control"
-               style="width: 417px;height: 42px;">
+               style="width: 417px;height: 42px;  margin-top: 3%">
         <div class="error-page" *ngIf="address?.invalid && (address?.dirty || address?.touched)">
           <div style="color: red" *ngIf="address?.errors?.['required']">
             <p>Địa chỉ không được để trống</p>
           </div>
         </div>
 
-        <input type="email" class="form-control" placeholder="Nhập email" formControlName="email" class="form-control"style="width: 417px;height: 42px;">
+        <input type="email" class="form-control" placeholder="Nhập email" formControlName="email" class="form-control"style="width: 417px;height: 42px; margin-top: 3%">
         <div style="display: none;color: red" id="check-email">
           <div>Email đã tồn tại</div>
         </div>

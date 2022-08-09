@@ -12,7 +12,7 @@
       </div>
       <div class="modal-body">
         <form [formGroup]="productForm" (ngSubmit)="add()">
-<<<<<<< HEAD
+
           <div class="row">
             <div style="margin-bottom: 20px">
               <label style="margin-left: 20%">Tên sản phẩm:</label>
@@ -26,8 +26,6 @@
             </div>
             <div style="margin-bottom: 20px">
               <label style="margin-left: 20%">Nội dung :</label>
-              <!--                    <input class="form-control" type="" placeholder="Mô tả sản phẩm" formControlName="description"-->
-              <!--                           style="width: 500px; height: 35px ;margin-left: 20%"><br>-->
               <textarea class="form-control" rows="5" formControlName="description"
                         style=" width: 500px;margin-left: 20%" placeholder="Nhập mô tả sản phẩm"></textarea>
               <div *ngIf="description?.invalid && (description?.dirty || description?.touched)">
@@ -86,79 +84,7 @@
               </div>
             </div>
           </div>
-=======
-                  <div class="row">
-                  <div style="margin-bottom: 20px">
-                    <label style="margin-left: 20%">Tên sản phẩm:</label>
-                    <input class="form-control" type="text" placeholder="Tên sản phẩm" formControlName="name"
-                           style="width: 500px; height: 35px;margin-left: 20%">
-                    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
-                      <div style="color: red" *ngIf="name?.errors?.['required']">
-                        <div style="margin-left: 170px">Tên sản phẩm không được bỏ trống</div>
-                      </div>
-                    </div>
-                  </div>
-                   <div style="margin-bottom: 20px">
-                     <label style="margin-left: 20%">Nội dung :</label>
-                     <!--                    <input class="form-control" type="" placeholder="Mô tả sản phẩm" formControlName="description"-->
-                     <!--                           style="width: 500px; height: 35px ;margin-left: 20%"><br>-->
-                     <textarea class="form-control" rows="5" formControlName="description" style=" width: 500px;margin-left: 20%" placeholder="Nhập mô tả sản phẩm"></textarea>
-                     <div *ngIf="description?.invalid && (description?.dirty || description?.touched)">
-                       <div style="color: red" *ngIf="description?.errors?.['required']">
-                         <div style="margin-left: 170px">Nội dung sản phẩm không được bỏ trống</div>
-                       </div>
-                     </div>
-                   </div>
-                  <div style="margin-bottom: 20px">
-                     <label style="margin-left: 20%">Giá sản phẩm ($):</label>
-                     <input class="form-control" type="number" placeholder="Giá sản phẩm" formControlName="price"
-                            style="width: 500px; height: 35px;margin-left: 20%">
-                     <div *ngIf="price?.invalid && (price?.dirty || price?.touched)">
-                       <div style="color: red" *ngIf="price?.errors?.['required']">
-                         <div style="margin-left: 170px">Giá sản phẩm không được bỏ trống</div>
-                       </div>
-                     </div>
-                   </div>
-                    <div style="margin-bottom: 20px">
-                      <label  style="margin-left: 20%">Số lượng sản phẩm:</label><br>
-                      <input class="form-control" type="number" placeholder="Số lượng sản phẩm" formControlName="quantity"
-                             style="width: 500px; height: 35px ;margin-left: 20%">
-                      <div *ngIf="quantity?.invalid && (quantity?.dirty || quantity?.touched)">
-                        <div style="color: red" *ngIf="quantity?.errors?.['required']">
-                          <div style="margin-left: 170px">Số lượng sản phẩm không được bỏ trống</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div style="margin-bottom: 20px">
-                      <label style="margin-left: 20%">Loại Sản Phẩm:</label>
-                      <select  formControlName="categoryId" class="form-control" style="width: 500px; height: 35px;margin-left: 20%;font-size: 17px">
-                        <option class="form-control" style="font-size: 17px" *ngFor="let category of listCategory" value="{{category.id}}">
-                          {{category.name}}
-                        </option>
-                      </select>
-                      <div *ngIf="categoryId?.invalid && (categoryId?.dirty || categoryId?.touched)">
-                        <div style="color: red" *ngIf="categoryId?.errors?.['required']">
-                          <div style="margin-left: 170px">Loại sản phẩm không được bỏ trống</div>
-                        </div>
-                      </div>
-                    </div>
-                  <div style="margin-bottom: 20px">
-                    <label style="margin-left: 20%">Ảnh :</label>
-                    <input type="file" placeholder="Chọn ảnh" id="file"
-                           #userPhoto
-                           multiple
-                           (change)="showPreview($event)"
-                           formControlName="image"
-                           autocomplete="off" class="custom-file-input" id="inputGroupFile01" style="margin-left: 20%">
-<!--                   ;margin-left: 270px;margin-top: 20px"-->
-                    <div *ngFor="let img of images"  class="col-3" style="height: 150px; overflow: auto" >
-                      <img class="img-fluid col-3" style="height: 100%"
-                           src="{{img}}"
-                           alt="">
-                    </div>
-                    </div>
-                  </div>
->>>>>>> 302ac90871a0dca7cc1960afeacbdc601c3ec822
+
           <div class="modal-footer">
             <button type="submit" class="btn button-edit" style="margin-right: 375px"><i class="fa-solid fa-plus" style="margin-right: 5px"></i>Thêm
             </button>
