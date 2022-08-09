@@ -67,12 +67,13 @@
           <i>{{obj.description}}</i>
         </div>
       </div>
-      <hr>
+
       <div class="row">
         <div style="margin-top: 100px;border: 1px solid #ffffff; border-radius: 5px;width: 775px;">
-          <div class="container mt-6 mb-6" style="width: 775px">
+          <hr>
+          <div class="container mt-6 mb-6" style="width: 775px; overflow: auto; height: 400px">
             <br>
-            <div class="d-flex justify-content-center row" style="width: 775px">
+            <div class="d-flex justify-content-center row" style="width: 755px">
               <div>
                 <div class="d-flex flex-column col-md-8" *ngFor="let item of listComment" style="margin-top: -30px">
                   <div
@@ -85,7 +86,7 @@
                           <i class="fa-solid fa-user"
                              style="margin-right: 5px;"></i>{{item.user.name}}
                         </label></div>
-                      <div class="comment-text-sm"><pre
+                      <div style="width: 735px" class="comment-text-sm"><pre
                         style=" word-wrap:break-word; margin-left: 10px; "><i> {{item.description}} </i></pre>
                       </div>
                       <div
@@ -99,6 +100,7 @@
               </div>
             </div>
           </div>
+
           <div class="container mt-6 mb-6">
             <div class="d-flex justify-content-center row">
               <div class="d-flex flex-column col-md-8">
