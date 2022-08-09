@@ -31,5 +31,20 @@ export class ShoppingCartService {
     return this.httpClient.put<boolean>(API_URL + '/shopping_carts/checkout/' + id, null);
   }
 
+  findBillByStatusEqualsZero(userId:any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-zero/' + userId);
+  }
+
+  findBillByStatusEqualsOne(userId:any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-one/' + userId);
+  }
+
+  findBillByStatusEqualsTwo(userId:any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-two/' + userId);
+  }
+
+  findBillByStatusEqualsThree(userId:any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-three/' + userId);
+  }
 
 }
