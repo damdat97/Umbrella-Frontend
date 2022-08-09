@@ -38,6 +38,7 @@ import { CustomerComponent } from './component/user/customer/customer.component'
 import { CustomerShopComponent } from './component/user/customer-shop/customer-shop.component';
 import { NewProductComponent } from './component/product/new-product/new-product.component';
 import {IvyCarouselModule} from "angular-responsive-carousel";
+import {NzModalModule, NzModalService} from "ng-zorro-antd/modal";
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import {IvyCarouselModule} from "angular-responsive-carousel";
     AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
     FormsModule,
     NgToastModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    NzModalModule,
 
   ],
   providers: [{

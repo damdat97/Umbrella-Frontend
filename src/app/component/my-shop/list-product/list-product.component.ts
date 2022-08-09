@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../../service/product.service";
 import {ImageService} from "../../../service/image.service";
 import {NgToastService} from "ng-angular-popup";
+import {NzModalService} from "ng-zorro-antd/modal";
 
 @Component({
   selector: 'app-list-product',
@@ -17,7 +18,7 @@ export class ListProductComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private imageService: ImageService,
-              private toast:NgToastService) {
+              private toast:NgToastService,) {
   }
 
   ngOnInit(): void {
@@ -50,7 +51,6 @@ export class ListProductComponent implements OnInit {
       });
     }
   }
-
   pageChangeEvent(event: number) {
     this.p = event;
   }

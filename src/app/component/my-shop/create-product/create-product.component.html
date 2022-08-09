@@ -80,7 +80,7 @@
                      autocomplete="off" class="custom-file-input" id="inputGroupFile01" style="margin-left: 20%">
               <div *ngFor="let img of images;let i = index"
                    style=" width: 60%; height: 250px;margin-left: 270px;margin-top: 20px">
-                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="border:1px solid white; height:100%; width:50%"
+                <img class="img-fluid " style="border:1px solid white; height:100%; width:50%"
                      (click)="deleteImg(i)" src="{{img}}" alt="">
               </div>
             </div>
