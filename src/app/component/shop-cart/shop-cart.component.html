@@ -2,16 +2,18 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 <br>
-<br>
-<br>
 <div class="checkout">
   <div class="container">
-    <div class="row">
-      <h2>Số lượng sản phẩm trong giỏ hàng <span>{{countProduct}} sản phẩm</span></h2>
-      <button style="margin-left: 910px;margin-bottom: 20px;" data-toggle="modal" data-target="#exampleModal-shop-cart" type="submit" class="btn button-shop-cart" ><i class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thanh Toán</button>
-    </div>
 
+
+<div>
+  <button style="margin-left: 40px;margin-bottom: 5px;font-size: 20px" data-toggle="modal" data-target="#exampleModal-shop-cart" type="submit" class="btn button-shop-cart" ><i class="fa-solid fa-basket-shopping" style="margin-right: 5px"></i>Thanh Toán</button>
+  <button (click)="goHome()" style="margin-left: 800px;margin-bottom: 5px" class="btn button-shop-cart">Tiếp Tục Mua Sắm <i class="fa-solid fa-cart-shopping" style="margin-left: 5px"></i></button>
+</div>
+    <br>
+    <h2 style="">Số lượng sản phẩm trong giỏ hàng <span>{{countProduct}} sản phẩm</span></h2>
     <div class="checkout-right">
+
       <table class="timetable_sub">
         <thead>
         <tr>
@@ -51,15 +53,7 @@
       </table>
     </div>
     <!---728x90--->
-    <div class="checkout-left">
-      <div class="checkout-left-basket">
 
-      </div>
-      <div class="checkout-right-basket" >
-        <a href="/" style="background-color: #fe9126;border-radius: 5px">Tiếp Tục Mua Sắm <i class="fa-solid fa-cart-shopping" style="margin-left: 5px"></i></a>
-      </div>
-      <div class="clearfix"> </div>
-    </div>
   </div>
 </div>
 <app-footer></app-footer>

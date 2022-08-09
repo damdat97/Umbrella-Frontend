@@ -135,4 +135,7 @@ export class ShopCartComponent implements OnInit {
     }
     return count;
   }
+  goHome(){
+    window.location.href="/"
+}
 }
