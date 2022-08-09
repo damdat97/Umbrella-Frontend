@@ -92,7 +92,6 @@ export class ShopCartComponent implements OnInit {
     this.carts[i].quantity++;
     this.cartService.updateCarItem(this.carts[i].id ,this.carts[i]).subscribe(data =>{
       if(data){
-        // this.toast.success({detail: "Thành Công", summary: 'Tăng Thành Công!', duration: 3000})
         this.getAllCart();
       }else {
         this.toast.success({detail: "Thất bại", summary: 'Tăng thất bại!', duration: 3000})
