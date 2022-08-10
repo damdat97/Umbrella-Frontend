@@ -3,7 +3,8 @@
 
 <div class="checkout">
   <div class="container" style="width: 70%">
-    <select style="width: 18% ;height: 34px;border-radius: 5px;border: 1px solid black;margin-top:70px;margin-bottom: 30px">
+    <select style="width: 18% ;height: 34px;border-radius: 5px;border: 1px solid black;margin-top:70px;margin-bottom: 30px"
+            #sort (change)="sortByCart(sort.value)">
       <option value="1" style="color: #259f40 "><i class="fa fa-arrow-right" aria-hidden="true"></i>Đang Chờ Thanh Toán</option>
       <option value="2" style="color: dodgerblue "><i class="fa fa-arrow-right" aria-hidden="true"></i>Đang Chờ Xác Nhận</option>
       <option value="3" style="color: #259f40 "><i class="fa fa-arrow-right" aria-hidden="true"></i>Đơn hàng đã được xác nhận</option>
