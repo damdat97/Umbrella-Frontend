@@ -271,6 +271,10 @@ RIGHT SIDEBAR TOGGLE SECTION
   background-color: #fe9126;
   color: #ffffff;
 }
+.button-shop-list:hover {
+  background-color: #ffffff;
+  color: #fe9126;
+}
 .button-edit-bill:hover {
   background-color: #fe9126;
   color: #ffffff;
@@ -589,11 +593,36 @@ width: auto;
   -webkit-user-select: none;
   width: auto;
 }
+.button-shop-list {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  margin: -14px;
+  outline: none;
+  padding: 0px 0px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+
+}
 
 /*name*/
 .show-product {
-  font-size: 17px;
-  margin-left: 10px;
+  font-size: 20px;
+  margin-left: 32px;
   margin-top: 10px;
   height: 50px;
   width: 229px;
