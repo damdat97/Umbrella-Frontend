@@ -19,12 +19,12 @@ export class DetailBillComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param) => {
       const id = param.get('id');
-      this.findDetailBill(this.userId,id);
+      this.findDetailBill(id);
     })
   }
 
-  findDetailBill(userId,id) {
-    this.cartService.findDetailBill(this.userId,id).subscribe((data) => {
+  findDetailBill(id) {
+    this.cartService.findDetailBill(id).subscribe((data) => {
       this.carts = data;
       console.log(data)
     } , error => {

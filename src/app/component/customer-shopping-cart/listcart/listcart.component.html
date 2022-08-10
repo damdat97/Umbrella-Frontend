@@ -24,7 +24,7 @@
         <tr class="rem1" *ngFor="let item of carts,index as i">
           <td class="invert">{{i + 1}}</td>
           <td>
-            <a [routerLink]="['/detail-bill-of-customer', item.id]"><span style="font-size: medium;">{{item.billId}}</span></a>
+            <a [routerLink]="['/detail-bill-of-customer']" [queryParams]="{billId: item.billId}"><span style="font-size: medium;">{{item.billId}}</span></a>
           </td>
           <td class="invert">
             <div style="font-size: medium;">{{item.shopId.name}} </div>
