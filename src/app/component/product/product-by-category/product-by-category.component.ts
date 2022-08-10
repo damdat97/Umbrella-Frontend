@@ -177,7 +177,7 @@ export class ProductByCategoryComponent implements OnInit {
     }
   }
 
-  addToShoppingCart(product?: Product) {
+  addToShoppingCart(product: Product) {
     if (this.userId == null) {
       this.router.navigate(['/login'])
       this.toast.error({detail: "Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
