@@ -179,9 +179,10 @@ export class ProductByCategoryComponent implements OnInit {
 
   addToShoppingCart(product: Product) {
     if (this.userId == null) {
+      // @ts-ignore
+      $('#exampleModalAdd').modal('hide');
+      this.toast.error({detail:"Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
       this.router.navigate(['/login'])
-      this.toast.error({detail: "Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
-      window.location.href = "/login"
     } else {
       // @ts-ignore
       const cartItem: CartItem = {

@@ -147,7 +147,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="addCartForm" (submit)="addToShoppingCart(product)">
+        <form [formGroup]="addCartForm" (submit)="addToShoppingCart(product, shop)">
           <label style="margin-left: 20%">Số Lượng Sản Phẩm:</label>
           <input type='text' formControlName="quantity" class="form-control"
                  style="width: 500px; height: 35px;margin-left: 20%"><br>

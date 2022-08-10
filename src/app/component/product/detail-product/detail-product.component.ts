@@ -8,6 +8,7 @@ import {CommentService} from "../../../service/comment.service";
 import {NgToastService} from "ng-angular-popup";
 import {CartItem} from "../../../model/CartItem";
 import {ShoppingCartService} from "../../../service/shopping-cart.service";
+import {User} from "../../../model/user";
 
 @Component({
   selector: 'app-detail-product',
@@ -124,14 +125,18 @@ export class DetailProductComponent implements OnInit {
     quantity: new FormControl()
   })
   product: any;
-  addToShoppingCart(product: Product) {
+  shop: User
+  addToShoppingCart(product: Product, shop: User) {
     if (this.userId == null) {
+      // @ts-ignore
+      $('#exampleModalAdd').modal('hide');
+      this.toast.error({detail:"Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
       this.router.navigate(['/login'])
-      this.toast.error({detail: "Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
-      window.location.href = "/login"
-    } else {
+    }
+    else {
       // @ts-ignore
       const cartItem: CartItem = {
+        shop: shop,
         product: product,
         quantity: this.addCartForm.value.quantity,
       }

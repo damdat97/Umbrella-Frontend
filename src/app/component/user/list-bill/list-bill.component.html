@@ -14,6 +14,7 @@
           <th style="font-size: large;width: 300px">Chức Năng</th>
         </tr>
         </thead>
+        <ng-template [ngIf]="carts.length != 0" [ngIfElse]="NULL">
         <tr class="rem1" *ngFor="let item of carts,index as i">
           <td class="invert">{{i + 1}}</td>
           <td>
@@ -43,6 +44,12 @@
             <button class="button-delete-bill" style="font-size: 13px" (click)="deleteBill(item.id, item)"><i class="fa-solid fa-xmark" style="margin-right: 5px" ></i>Hủy Đơn</button>
           </td>
         </tr>
+        </ng-template>
+        <ng-template #NULL>
+          <tr>
+            <td colspan="5" style="text-align: center"><h1>Không có đơn hàng nào!</h1></td>
+          </tr>
+        </ng-template>
       </table>
     </div>
   </div>
