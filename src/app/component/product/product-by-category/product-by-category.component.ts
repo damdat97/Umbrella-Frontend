@@ -94,7 +94,7 @@ export class ProductByCategoryComponent implements OnInit {
 
   searchByAll() {
     this.image = []
-    this.productService.searchByAll( this.product.value.name, this.product.value.description,this.product.value.from, this.product.value.to).subscribe((data1) => {
+    this.productService.searchByAll( this.product.value.name, this.product.value.description,this.product.value.from, this.product.value.to, this.userId).subscribe((data1) => {
       console.log(data1)
       this.productByCate = data1;
       for (let i = 0; i < data1.length; i++) {
