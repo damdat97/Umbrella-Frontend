@@ -36,8 +36,8 @@ export class ProductService {
   save(product: Product): Observable<Product> {
     return this.httpClient.post<Product>(API_URL + '/products', product);
   }
-  searchByAll( name:any,description:any,from:any,to:any):Observable<Product[]> {
-    return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-filter?name='+name+'&description='+description+'&from='+from+'&to='+to );
+  searchByAll( name:any,description:any,from:any,to:any, userId: any):Observable<Product[]> {
+    return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-filter?name='+name+'&description='+description+'&from='+from+'&to='+to + '&userId=' +userId );
   }
   findProductByName(name: any): Observable<Product[]> {
     return this.httpClient.get<Product[]>(API_URL + '/products/find-products-by-name?name=' + name)
