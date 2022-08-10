@@ -93,6 +93,9 @@ export class ListCartComponent implements OnInit {
       // this.countProduct = this.carts.length ;
       this.totalMoney = this.total(this.carts);
       console.log(data)
+      for (let i = 0; i < this.carts.length; i++) {
+        localStorage.setItem("BILLID", this.carts[i].billId);
+      }
     }, error => {
       console.log(error);
     })
@@ -105,4 +108,5 @@ export class ListCartComponent implements OnInit {
     }
     return result;
   }
+
 }

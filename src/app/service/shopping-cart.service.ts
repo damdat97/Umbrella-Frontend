@@ -51,8 +51,8 @@ export class ShoppingCartService {
     return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-all-carts-by-ownerId/' + id);
   }
 
-  findDetailBill(id: any, cartId: any): Observable<CartItem[]> {
-    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-cart-by-cartId/' + id + '/' + cartId);
+  findDetailBill(billId: string): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-cart-by-billId?billId=' + billId);
   }
 
   acceptBill(id: any, cartItem: CartItem): Observable<CartItem> {
