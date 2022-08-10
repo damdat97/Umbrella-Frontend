@@ -5,11 +5,11 @@
         <h1><a (click)="goHome()" routerLink="/">umbrella</a></h1>
       </div>
     </div>
-    <div class="agile-login" *ngIf="!isLogin">
-      <ul>
-        <li><a routerLink="/register" style="margin-right: 10px"><i class="fa-solid fa-id-card "
+    <div *ngIf="!isLogin">
+      <ul class="main-nav nav navbar-nav navbar-right">
+        <li><a routerLink="/register" style="margin-right: 10px;color: #fe9126;font-size: 19px"><i class="fa-solid fa-id-card "
                                                                     style="margin-right: 5px"></i> Đăng ký </a></li>
-        <li><a routerLink="/login" style="margin-right: 10px"><i class="fa-solid fa-unlock"
+        <li><a routerLink="/login" style="margin-right: 10px;font-size: 19px;color: #fe9126"><i class="fa-solid fa-unlock"
                                                                  style="margin-right: 5px"></i> Đăng nhập</a></li>
       </ul>
     </div>

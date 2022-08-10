@@ -5,13 +5,13 @@
 <app-navbar></app-navbar>
 <br>
 <div class="checkout">
-  <div class="container">
+  <div class="container" style="width: 80%">
     <div class="top-brands1">
     <h2 style=" margin-top: -50px;font-size: 40px">Chi Tiết Hóa Đơn</h2>
     </div>
     <div>
-      <button [routerLink]="['/shop-bills']" style="margin-left: 920px;margin-bottom: 5px" class="btn button-shop-cart">
-        Về danh sách hóa đơn <i
+      <button [routerLink]="['/shop-bills']" style="margin-left: 1264px;margin-bottom: 5px" class="btn button-shop-cart">
+        Về Danh Sách Hóa Đơn <i
         class="fa-solid fa-file-invoice" style="margin-left: 5px"></i></button>
     </div>
     <br>
@@ -23,7 +23,7 @@
           <th style="font-size: 20px">STT</th>
           <th style="font-size: 20px">Hình ảnh</th>
           <th style="font-size: 20px">Số Lượng</th>
-          <th style="font-size: 20px">Tên Sản Phẩm</th>
+          <th style="font-size: 20px;width: 500px">Tên Sản Phẩm</th>
           <th style="font-size: 20px">Tên Cửa Hàng</th>
           <th style="font-size: 20px">Giá (VNĐ)</th>
         </tr>
@@ -39,9 +39,9 @@
             <div style="text-align: center;font-size: 18px"><label>{{cart.quantity}} </label></div>
 
           </td>
-          <td class="invert" style="text-align: center;font-size: 18px"><label>{{cart.product.name}}</label></td>
-          <td class="invert" style="text-align: center;font-size: 18px"><label>{{cart.shopId.name}}</label></td>
-          <td class="invert" style="text-align: center;font-size: 18px"><label>{{cart.product.price}}</label></td>
+          <td class="invert" style="text-align: center;font-size: 20px;"><label>{{cart.product.name}}</label></td>
+          <td class="invert" style="text-align: center;font-size: 20px"><label>{{cart.shopId.name}}</label></td>
+          <td class="invert" style="text-align: center;font-size: 20px"><label>{{cart.product.price}}</label></td>
         </tr>
       </table>
     </div>
