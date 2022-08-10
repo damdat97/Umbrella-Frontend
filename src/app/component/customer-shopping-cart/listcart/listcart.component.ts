@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CartItem} from "../../../model/CartItem";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ProductService} from "../../../service/product.service";
@@ -25,9 +25,9 @@ export class ListCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBillByStatusEqualsZero();
-    // this.getBillByStatusEqualsOne();
-    // this.getBillByStatusEqualsTwo();
-    // this.getBillByStatusEqualsThree();
+    this.getBillByStatusEqualsOne();
+    this.getBillByStatusEqualsTwo();
+    this.getBillByStatusEqualsThree();
   }
 
   getBillByStatusEqualsZero() {
@@ -40,6 +40,7 @@ export class ListCartComponent implements OnInit {
       console.log(error);
     })
   };
+
   getBillByStatusEqualsOne() {
     this.cartService.findBillByStatusEqualsOne(this.userId).subscribe((data) => {
       this.carts = data;
@@ -50,6 +51,7 @@ export class ListCartComponent implements OnInit {
       console.log(error);
     })
   };
+
   getBillByStatusEqualsTwo() {
     this.cartService.findBillByStatusEqualsTwo(this.userId).subscribe((data) => {
       this.carts = data;
@@ -60,6 +62,7 @@ export class ListCartComponent implements OnInit {
       console.log(error);
     })
   };
+
   getBillByStatusEqualsThree() {
     this.cartService.findBillByStatusEqualsThree(this.userId).subscribe((data) => {
       this.carts = data;
@@ -71,11 +74,18 @@ export class ListCartComponent implements OnInit {
     })
   };
 
-  // private total(carts: CartItem[]) {
-  //   let result = 0;
-  //   for (let i = 0; i < carts.length; i++) {
-  //     result += (carts[i].quantity * carts[i].product.price);
-  //   }
-  //   return result;
-  // }
+  sortByCart(event: any) {
+    if (event == 0) {
+      this.getBillByStatusEqualsZero();
+    }
+    if(event==1){
+      this.getBillByStatusEqualsOne();
+    }
+    if(event==2){
+      this.getBillByStatusEqualsTwo();
+    }
+    if(event==3){
+      this.getBillByStatusEqualsThree();
+    }
+  }
 }
