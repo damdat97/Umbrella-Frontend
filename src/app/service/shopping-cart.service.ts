@@ -31,20 +31,20 @@ export class ShoppingCartService {
     return this.httpClient.put<boolean>(API_URL + '/shopping_carts/checkout/' + id, null);
   }
 
-  findBillByStatusEqualsZero(userId:any): Observable<CartItem[]> {
-    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-zero/' + userId);
+  findBillByStatusEqualsZero(id:any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-zero/' + id);
   }
 
-  findBillByStatusEqualsOne(userId:any): Observable<CartItem[]> {
-    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-one/' + userId);
+  findBillByStatusEqualsOne(id:any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-one/' + id);
   }
 
-  findBillByStatusEqualsTwo(userId:any): Observable<CartItem[]> {
-    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-two/' + userId);
+  findBillByStatusEqualsTwo(id:any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-two/' + id);
   }
 
-  findBillByStatusEqualsThree(userId:any): Observable<CartItem[]> {
-    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-three/' + userId);
+  findBillByStatusEqualsThree(id:any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-three/' + id);
   }
 
 }

@@ -70,7 +70,7 @@ const routes: Routes = [
     component: CustomerShopComponent
   },
   {
-    path: "carts",
+    path: "my-bills",
     component: ListCartComponent
   }];
 

@@ -4,7 +4,7 @@ import {User} from "./user";
 export interface CartItem{
   id: string,
   quantity: number,
-  status: boolean,
+  status: number,
   date:string,
   product:Product,
   user: User,

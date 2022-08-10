@@ -8,6 +8,9 @@
         <thead>
         <tr>
           <th style="font-size: large">STT</th>
+          <th style="font-size: large">Hóa đơn</th>
+          <th style="font-size: large">Tên sản phẩm</th>
+          <th style="font-size: large">Tên cửa hàng</th>
           <th style="font-size: large">Số lượng sản phẩm</th>
           <th style="font-size: large">Tổng tiền</th>
           <th style="font-size: large">Trạng thái đơn</th>
@@ -16,10 +19,19 @@
         <tr class="rem1" *ngFor="let item of carts,index as i">
           <td class="invert">{{i + 1}}</td>
           <td>
-            <div style="font-size: medium;">{{item.quantity}}</div>
+            <div style="font-size: medium;">{{item.billId}}</div>
           </td>
           <td class="invert">
-            <div style="font-size: medium;">{{item.price}} VND</div>
+            <div style="font-size: medium;">{{item.product.name}} </div>
+          </td>
+          <td class="invert">
+            <div style="font-size: medium;">{{item.shopId.name}} </div>
+          </td>
+          <td class="invert">
+            <div style="font-size: medium;">{{item.quantity}} </div>
+          </td>
+          <td class="invert">
+            <div style="font-size: medium;">{{item.product.price*item.quantity}} </div>
           </td>
           <div *ngIf="item.status == 0">
           <td><div>Đang chờ thanh toán</div></td>

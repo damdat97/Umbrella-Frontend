@@ -24,25 +24,58 @@ export class ListCartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllCart();
+    this.getBillByStatusEqualsZero();
+    // this.getBillByStatusEqualsOne();
+    // this.getBillByStatusEqualsTwo();
+    // this.getBillByStatusEqualsThree();
   }
 
-  getAllCart() {
-    this.cartService.getAllCart(this.userId).subscribe((data) => {
+  getBillByStatusEqualsZero() {
+    this.cartService.findBillByStatusEqualsZero(this.userId).subscribe((data) => {
+      console.log(data)
       this.carts = data;
-      this.countProduct = this.carts.length ;
-      this.totalMoney = this.total(this.carts);
+
+      console.log(data)
+    }, error => {
+      console.log(error);
+    })
+  };
+  getBillByStatusEqualsOne() {
+    this.cartService.findBillByStatusEqualsOne(this.userId).subscribe((data) => {
+      this.carts = data;
+      // this.countProduct = this.carts.length ;
+      // this.totalMoney = this.total(this.carts);
+      console.log(data)
+    }, error => {
+      console.log(error);
+    })
+  };
+  getBillByStatusEqualsTwo() {
+    this.cartService.findBillByStatusEqualsTwo(this.userId).subscribe((data) => {
+      this.carts = data;
+      // this.countProduct = this.carts.length ;
+      // this.totalMoney = this.total(this.carts);
+      console.log(data)
+    }, error => {
+      console.log(error);
+    })
+  };
+  getBillByStatusEqualsThree() {
+    this.cartService.findBillByStatusEqualsThree(this.userId).subscribe((data) => {
+      this.carts = data;
+      // this.countProduct = this.carts.length ;
+      // this.totalMoney = this.total(this.carts);
       console.log(data)
     }, error => {
       console.log(error);
     })
   };
 
-  private total(carts: CartItem[]) {
-    let result = 0;
-    for (let i = 0; i < carts.length; i++) {
-      result += (carts[i].quantity * carts[i].product.price);
-    }
-    return result;
-  }
+  // private total(carts: CartItem[]) {
+  //   let result = 0;
+  //   for (let i = 0; i < carts.length; i++) {
+  //     result += (carts[i].quantity * carts[i].product.price);
+  //   }
+  //   return result;
+  // }
 }
