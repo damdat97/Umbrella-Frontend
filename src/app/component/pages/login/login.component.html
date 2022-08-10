@@ -14,7 +14,7 @@
         <div style="margin-left: 55px">
           <label for="email" style="margin-bottom:8px ">Tên Đăng Nhập</label>
           <input type="text" class="form-control" id="email" formControlName="username" class="form-control"
-                 style="width: 417px;height: 42px;">
+                placeholder="Nhập Tài Khoản" style="width: 417px;height: 42px;">
           <div
             *ngIf="!loginForm.controls.username?.valid && (loginForm.controls.username?.dirty || loginForm.controls.username?.touched)">
             <div *ngIf="loginForm.controls.username?.errors?.['required']">
@@ -28,7 +28,7 @@
           <div class="form-group">
             <label for="password">Mật Khẩu</label>
             <input type="password" class="form-control" id="password" formControlName="password" class="form-control"
-                   style="width: 417px;height: 42px;">
+                  placeholder="Nhập Mật Khẩu" style="width: 417px;height: 42px;">
             <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
               <div style="color: red" *ngIf="password?.errors?.['required']">
                 <div> Mật khẩu không được bỏ trống</div>

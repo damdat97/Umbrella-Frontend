@@ -24,7 +24,7 @@
             <div style="font-size: medium;"><a [routerLink]="['/bill-detail']" [queryParams]="{billId: item.billId}">{{item.billId}}</a></div>
           </td>
           <td class="invert">
-            <label style="font-size: medium;">{{item.product.name}} </label>
+            <p style="font-size: medium;">{{item.product.name}} </p>
           </td>
           <td *ngIf="item.status == 1">
             <div style="font-size: 18px;margin-left: 10px;color: dodgerblue;font-weight: 600">Đang chờ xác nhận</div>

@@ -4,7 +4,7 @@ import {ShoppingCartService} from "../../service/shopping-cart.service";
 import {CartItem} from "../../model/CartItem";
 import {ImageService} from "../../service/image.service";
 import {FormControl, FormGroup} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NgToastService} from "ng-angular-popup";
 
 @Component({
@@ -28,7 +28,8 @@ export class ShopCartComponent implements OnInit {
               private cartService: ShoppingCartService,
               private imageService: ImageService,
               private activatedRoute: ActivatedRoute,
-              private toast: NgToastService) {
+              private toast: NgToastService,
+              private route:Router) {
   }
 
   ngOnInit(): void {
@@ -44,7 +45,7 @@ export class ShopCartComponent implements OnInit {
       this.carts = data;
       this.countProduct = this.carts.length;
       this.totalMoney = this.total(this.carts);
-      this.totalQuantity1= this.totalQuantity(this.carts)
+      this.totalQuantity1 = this.totalQuantity(this.carts)
       for (let i = 0; i < data.length; i++) {
         this.imageService.findAllByProductId(data[i].product.id).subscribe((image) => {
           this.carts[i].product.image = image;
@@ -78,12 +79,14 @@ export class ShopCartComponent implements OnInit {
       })
     })
   }
+
   checkout() {
     this.cartService.checkout(this.userId).subscribe(res => {
       if (res.valueOf()) {
         this.toast.success({detail: "Thành Công", summary: 'Thanh toán thành công!', duration: 3000});
         // @ts-ignore
         $('#exampleModal-shop-cart').modal('hide');
+        this.route.navigate(["/my-bills"])
       } else {
         this.toast.error({detail: "Thất bại", summary: 'Thanh toán thất bại', duration: 3000});
       }
@@ -94,7 +97,7 @@ export class ShopCartComponent implements OnInit {
     this.carts[i].quantity++;
     this.cartService.updateCarItem(this.carts[i].id, this.carts[i]).subscribe(data => {
       if (data) {
-this.getAllCart()
+        this.getAllCart()
       } else {
         this.toast.success({detail: "Thất bại", summary: 'Tăng thất bại!', duration: 3000})
       }
@@ -125,15 +128,17 @@ this.getAllCart()
     }
     return result;
   }
-  private totalQuantity(cart:CartItem[]){
-    let count=0;
-    for (let i=0;i<cart.length;i++){
-      count+=cart[i].quantity;
+
+  private totalQuantity(cart: CartItem[]) {
+    let count = 0;
+    for (let i = 0; i < cart.length; i++) {
+      count += cart[i].quantity;
     }
     return count;
 
   }
-  goHome(){
-    window.location.href="/"
-}
+
+  goHome() {
+    window.location.href = "/"
+  }
 }
