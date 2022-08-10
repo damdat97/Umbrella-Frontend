@@ -81,7 +81,7 @@ const routes: Routes = [
     component: ListBillComponent
   },
   {
-    path: "bill-detail/:id",
+    path: "bill-detail",
     component: DetailBillComponent
   },
   {
