@@ -81,7 +81,7 @@
                         class="img-responsive"/></a>
                       <p><a href="#" [routerLink]="['/product-detail',product.id]"
                             class="show-product" style="margin-left: 8px;">{{product.name}}</a></p>
-                      <h4 style="font-size: 22px; margin-top: 5px; text-align: center;color: #fe9126">{{product.price}} VND</h4>
+                      <h4 style="font-size: 22px; margin-top: 5px; text-align: center;color: #fe9126">{{product.price}} VNĐ</h4>
                     </div>
                     <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
                       <button class="btn button-shop-list-all" style="font-size: 16px;margin-right: 20px" data-toggle="modal" data-target="#exampleModalAdd" (click)="findByIdProduct(product.id)">
