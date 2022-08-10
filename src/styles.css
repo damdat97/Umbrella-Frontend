@@ -271,18 +271,21 @@ RIGHT SIDEBAR TOGGLE SECTION
   background-color: #fe9126;
   color: #ffffff;
 }
-
-.button-edit {
+.button-edit-bill:hover {
+  background-color: #fe9126;
+  color: #ffffff;
+}
+.button-edit-bill {
   background-color: dodgerblue;
-  border: 1px solid;
-  border-radius: 8px;
+  border: 0 solid;
+  border-radius: 5px;
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 800;
   line-height: 20px;
   margin: 0;
   outline: none;
@@ -294,9 +297,56 @@ RIGHT SIDEBAR TOGGLE SECTION
   transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
   user-select: none;
   -webkit-user-select: none;
-  width: auto;
+  width: 120px;
 }
-
+.button-edit {
+  background-color: dodgerblue;
+border: 1px solid;
+border-radius: 8px;
+box-sizing: border-box;
+color: #ffffff;
+cursor: pointer;
+display: inline-block;
+font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+font-size: 16px;
+font-weight: 600;
+line-height: 20px;
+margin: 0;
+outline: none;
+padding: 13px 23px;
+position: relative;
+text-align: center;
+text-decoration: none;
+touch-action: manipulation;
+transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+user-select: none;
+-webkit-user-select: none;
+width: auto;
+}
+.button-delete-bill {
+  background-color: red;
+  border: 0px solid;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 39%;
+}
 .button-delete {
   background-color: red;
   border: 1px solid;
@@ -321,7 +371,11 @@ RIGHT SIDEBAR TOGGLE SECTION
   -webkit-user-select: none;
   width: auto;
 }
-
+.button-delete-bill:hover {
+  background-color: #fe9126;
+  color: #ffffff;
+  border: 1px solid;
+}
 .button-delete:hover {
   background-color: #fe9126;
   color: #ffffff;
