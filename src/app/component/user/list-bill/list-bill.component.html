@@ -10,9 +10,6 @@
           <th style="font-size: large">STT</th>
           <th style="font-size: large">Hóa đơn</th>
           <th style="font-size: large">Tên sản phẩm</th>
-          <th style="font-size: large">Tên cửa hàng</th>
-          <th style="font-size: large">Số lượng sản phẩm</th>
-          <th style="font-size: large">Tổng tiền(VND)</th>
           <th style="font-size: large;width: 300px">Trạng thái đơn</th>
           <th style="font-size: large;width: 300px">Chức Năng</th>
         </tr>
@@ -20,19 +17,10 @@
         <tr class="rem1" *ngFor="let item of carts,index as i">
           <td class="invert">{{i + 1}}</td>
           <td>
-            <div style="font-size: medium;"><a [routerLink]="['/bill-detail', item.id]">{{item.billId}}</a></div>
+            <div style="font-size: medium;"><a [routerLink]="['/bill-detail']" [queryParams]="{billId: item.billId}">{{item.billId}}</a></div>
           </td>
           <td class="invert">
             <div style="font-size: medium;">{{item.product.name}} </div>
-          </td>
-          <td class="invert">
-            <div style="font-size: medium;">{{item.shopId.name}} </div>
-          </td>
-          <td class="invert">
-            <div style="font-size: medium;">{{item.quantity}} </div>
-          </td>
-          <td class="invert">
-            <div style="font-size: medium;">{{item.product.price * item.quantity}} </div>
           </td>
           <td *ngIf="item.status == 0">
             <div style="font-size: 18px;margin-left: 10px;color: #fe9126;font-weight: 600">Đang chờ thanh toán</div>

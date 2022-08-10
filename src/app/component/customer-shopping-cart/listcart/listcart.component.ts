@@ -20,10 +20,15 @@ export class ListCartComponent implements OnInit {
   id: any
 
   constructor(private productService: ProductService,
-              private cartService: ShoppingCartService) {
+              private cartService: ShoppingCartService,
+              private activatedRouter: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.activatedRouter.params.subscribe(params => {
+      this.id = params['id'];
+      console.log(this.id)
+    })
     this.getAllCartByCustomerId();
   }
 
@@ -71,20 +76,7 @@ export class ListCartComponent implements OnInit {
     })
   };
 
-  sortByCart(event: any) {
-    if (event == 0) {
-      this.getBillByStatusEqualsZero();
-    }
-    if(event==1){
-      this.getBillByStatusEqualsOne();
-    }
-    if(event==2){
-      this.getBillByStatusEqualsTwo();
-    }
-    if(event==3){
-      this.getBillByStatusEqualsThree();
-    }
-  }
+
 
 
   private getAllCartByCustomerId() {
