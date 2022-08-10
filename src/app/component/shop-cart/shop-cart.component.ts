@@ -78,23 +78,24 @@ export class ShopCartComponent implements OnInit {
       })
     })
   }
-  checkout(){
+
+  checkout() {
     this.cartService.checkout(this.userId).subscribe(res => {
-      if(res.valueOf()){
+      if (res.valueOf()) {
         this.getAllCart();
         this.toast.success({detail: "Thành Công", summary: 'Thanh toán thành công!', duration: 3000});
-      }else {
+      } else {
         this.toast.error({detail: "Thất bại", summary: 'Thanh toán thất bại', duration: 3000});
       }
     })
   }
-  upCountPr(i: any) {
 
+  upCountPr(i: any) {
     this.carts[i].quantity++;
-    this.cartService.updateCarItem(this.carts[i].id ,this.carts[i]).subscribe(data =>{
-      if(data){
+    this.cartService.updateCarItem(this.carts[i].id, this.carts[i]).subscribe(data => {
+      if (data) {
         this.getAllCart();
-      }else {
+      } else {
         this.toast.success({detail: "Thất bại", summary: 'Tăng thất bại!', duration: 3000})
       }
     });
@@ -102,18 +103,15 @@ export class ShopCartComponent implements OnInit {
 
   // gọi api để giảm sản phẩm *** vd: const param: {cartItemId: ..., Count:... }
   downCountPr(i: any) {
-    console.log(i);
-  if((this.carts[i].quantity-1)<0){
-
-    return
-  }
+    if ((this.carts[i].quantity - 1) < 0) {
+      return
+    }
     this.carts[i].quantity--;
-    this.cartService.updateCarItem(this.carts[i].id ,this.carts[i]).subscribe(res =>{
-      if(res){
+    this.cartService.updateCarItem(this.carts[i].id, this.carts[i]).subscribe(res => {
+      if (res) {
         this.toast.success({detail: "Thành Công", summary: 'Giảm Thành Công!', duration: 3000})
         this.getAllCart();
-      }
-      else {
+      } else {
         this.toast.success({detail: "Thất bại", summary: 'Giảm thất bại!', duration: 3000})
       }
     });

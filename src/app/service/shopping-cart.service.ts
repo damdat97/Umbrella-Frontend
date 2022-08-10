@@ -26,7 +26,6 @@ export class ShoppingCartService {
   updateCarItem(id: string, cartItem: CartItem): Observable<CartItem> {
     return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/cart/' + id, cartItem);
   }
-
   checkout(id: string): Observable<boolean> {
     return this.httpClient.put<boolean>(API_URL + '/shopping_carts/checkout/' + id, null);
   }
