@@ -25,4 +25,12 @@ export class ListBillComponent implements OnInit {
       console.log(error);
     })
   }
+
+  acceptBill(id: any, cartItem: CartItem) {
+    console.log(id)
+    this.cartService.acceptBill(id, cartItem).subscribe((data) => {
+      console.log(data)
+      this.getAllBillByOwner()
+    })
+  }
 }

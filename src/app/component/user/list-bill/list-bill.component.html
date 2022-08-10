@@ -51,8 +51,8 @@
           <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
 
           <td *ngIf="item.status == 1">
-            <button class="button-edit-bill" style="margin-right: 10px;font-size: 13px"><i class="fa-solid fa-check" style="margin-right: 5px"></i>Xác Nhận</button>
-            <button class="button-delete-bill" style=";font-size: 13px"><i class="fa-solid fa-xmark" style="margin-right: 5px"></i>Hủy Đơn</button>
+            <button class="button-edit-bill" style="margin-right: 10px;font-size: 13px" (click)="acceptBill(item.id, item)"><i class="fa-solid fa-check" style="margin-right: 5px"></i>Xác Nhận</button>
+            <button class="button-delete-bill" style="font-size: 13px"><i class="fa-solid fa-xmark" style="margin-right: 5px"></i>Hủy Đơn</button>
           </td>
         </tr>
       </table>

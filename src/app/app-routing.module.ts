@@ -78,7 +78,7 @@ const routes: Routes = [
     component: ListBillComponent
   },
   {
-    path: "detail-bill/:id",
+    path: "bill-detail/:id",
     component: DetailBillComponent
   }];
 
