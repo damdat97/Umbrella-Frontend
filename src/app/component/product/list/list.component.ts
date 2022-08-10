@@ -119,9 +119,10 @@ export class ListComponent implements OnInit {
 
   addToShoppingCart(product: Product, shop: User) {
     if (this.userId == null) {
-      this.router.navigate(['/login'])
+      // @ts-ignore
+      $('#exampleModalAdd').modal('hide');
       this.toast.error({detail:"Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
-      window.location.href= "/login"
+      this.router.navigate(['/login'])
     }
     else {
       // @ts-ignore

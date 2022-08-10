@@ -3,8 +3,12 @@ import {Product} from "../../../model/product";
 import {ProductService} from "../../../service/product.service";
 import {ImageService} from "../../../service/image.service";
 import {FormControl, FormGroup} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AuthenticationService} from "../../../service/authentication.service";
+import {NgToastService} from "ng-angular-popup";
+import {ShoppingCartService} from "../../../service/shopping-cart.service";
+import {User} from "../../../model/user";
+import {CartItem} from "../../../model/CartItem";
 
 @Component({
   selector: 'app-customer-shop',
@@ -26,8 +30,11 @@ export class CustomerShopComponent implements OnInit {
   user: any
 
   constructor(private productService: ProductService,
-              private imageService: ImageService,
               private activatedRoute: ActivatedRoute,
+              private imageService: ImageService,
+              private toast: NgToastService,
+              private shoppingCartService: ShoppingCartService,
+              private router: Router,
               private authentication: AuthenticationService) {
   }
 
@@ -118,4 +125,41 @@ export class CustomerShopComponent implements OnInit {
     }
   }
 
+  addCartForm = new FormGroup({
+    quantity: new FormControl()
+  })
+  productAdd: any;
+  shop: any
+
+  addToShoppingCart(product: Product, shop: User) {
+    if (this.userId == null) {
+      // @ts-ignore
+      $('#exampleModalAdd').modal('hide');
+      this.toast.error({detail:"Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
+      this.router.navigate(['/login'])
+    }
+    else {
+      // @ts-ignore
+      const cartItem: CartItem = {
+        shop: shop,
+        product: product,
+        quantity: this.addCartForm.value.quantity,
+      }
+      console.log(cartItem);
+      this.shoppingCartService.save(cartItem).subscribe((data) => {
+        // @ts-ignore
+        $('#exampleModalAdd').modal('hide');
+        console.log(data)
+      })
+      this.toast.success({detail: "Thành Công", summary: 'Thêm vào giỏ hàng thành công!', duration: 3000})
+    }
+  }
+
+  findByIdProduct(id) {
+    console.log(id)
+    this.productService.findById(id).subscribe((data) => {
+      this.listProduct = data;
+      console.log(data);
+    })
+  }
 }

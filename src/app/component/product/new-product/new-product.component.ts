@@ -7,6 +7,7 @@ import {ShoppingCartService} from "../../../service/shopping-cart.service";
 import {CartItem} from "../../../model/CartItem";
 import {FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
+import {User} from "../../../model/user";
 
 @Component({
   selector: 'app-new-product',
@@ -22,6 +23,7 @@ export class NewProductComponent implements OnInit {
     quantity: new FormControl()
   })
   product: any;
+  shop: User;
 
   constructor(private productService: ProductService,
               private imageService: ImageService,
@@ -46,22 +48,25 @@ export class NewProductComponent implements OnInit {
       })
   }
 
-  addToShoppingCart(product: Product) {
+  addToShoppingCart(product: Product, shop: User) {
     if (this.userId == null) {
+      // @ts-ignore
+      $('#exampleModalAdd').modal('hide');
+      this.toast.error({detail:"Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
       this.router.navigate(['/login'])
-      this.toast.error({detail: "Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
-      window.location.href = "/login"
-    } else {
+    }
+    else {
       // @ts-ignore
       const cartItem: CartItem = {
+        shop: shop,
         product: product,
         quantity: this.addCartForm.value.quantity,
       }
       console.log(cartItem);
       this.shoppingCartService.save(cartItem).subscribe((data) => {
-        console.log(data)
         // @ts-ignore
         $('#exampleModalAdd').modal('hide');
+        console.log(data)
       })
       this.toast.success({detail: "Thành Công", summary: 'Thêm vào giỏ hàng thành công!', duration: 3000})
     }

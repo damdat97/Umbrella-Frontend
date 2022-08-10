@@ -6,6 +6,8 @@ import {NgToastService} from "ng-angular-popup";
 import {FormControl, FormGroup} from "@angular/forms";
 import {CartItem} from "../../../../model/CartItem";
 import {ShoppingCartService} from "../../../../service/shopping-cart.service";
+import {Router} from "@angular/router";
+import {User} from "../../../../model/user";
 
 @Component({
   selector: 'app-all-product',
@@ -29,7 +31,8 @@ export class AllProductComponent implements OnInit {
   constructor(private productService: ProductService,
               private imageService: ImageService,
               private toast: NgToastService,
-              private shoppingCartService: ShoppingCartService) {
+              private shoppingCartService: ShoppingCartService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -141,21 +144,31 @@ export class AllProductComponent implements OnInit {
     quantity: new FormControl()
   })
   pd: any;
+  shop: User;
 
 
-  addToShoppingCart(pd: Product) {
-    // @ts-ignore
-    const cartItem: CartItem = {
-      product: pd,
-      quantity: this.addCartForm.value.quantity,
-    }
-    console.log(cartItem);
-    this.shoppingCartService.save(cartItem).subscribe((data) => {
+  addToShoppingCart(pd: Product, shop: User) {
+    if (this.userId == null) {
       // @ts-ignore
       $('#exampleModalAdd').modal('hide');
-      console.log(data)
-    })
-    this.toast.success({detail: "Thành Công", summary: 'Thêm vào giỏ hàng thành công!', duration: 3000})
+      this.toast.error({detail:"Lỗi", summary: "Cần đăng nhập để có thể mua hàng!", duration: 3000})
+      this.router.navigate(['/login'])
+    }
+    else {
+      // @ts-ignore
+      const cartItem: CartItem = {
+        shop: shop,
+        product: pd,
+        quantity: this.addCartForm.value.quantity,
+      }
+      console.log(cartItem);
+      this.shoppingCartService.save(cartItem).subscribe((data) => {
+        // @ts-ignore
+        $('#exampleModalAdd').modal('hide');
+        console.log(data)
+      })
+      this.toast.success({detail: "Thành Công", summary: 'Thêm vào giỏ hàng thành công!', duration: 3000})
+    }
   }
 
 
