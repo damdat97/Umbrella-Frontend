@@ -1302,7 +1302,7 @@ table.timetable_sub {
 
 .timetable_sub th, .timetable_sub td {
   text-align: center;
-  padding: 7px;
+  padding: 20px;
   font-size: 14px;
   color: #212121;
 }

@@ -84,6 +84,8 @@ export class ShopCartComponent implements OnInit {
       if (res.valueOf()) {
         this.getAllCart();
         this.toast.success({detail: "Thành Công", summary: 'Thanh toán thành công!', duration: 3000});
+        // @ts-ignore
+        $('#exampleModal-shop-cart').modal('hide');
       } else {
         this.toast.error({detail: "Thất bại", summary: 'Thanh toán thất bại', duration: 3000});
       }

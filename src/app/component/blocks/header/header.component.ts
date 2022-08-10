@@ -47,4 +47,7 @@ export class HeaderComponent implements OnInit {
   search() {
     this.searchEvent.emit(this.searchName.value.name)
   }
+  goHome(){
+    window.location.href="/"
+  }
 }

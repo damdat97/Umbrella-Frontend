@@ -618,7 +618,31 @@ width: auto;
   width: auto;
 
 }
+.button-shop-list-all {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  margin: 11px;
+  outline: none;
+  padding: 0px 0px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
 
+}
 /*name*/
 .show-product {
   font-size: 20px;

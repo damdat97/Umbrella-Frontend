@@ -81,11 +81,11 @@
                         src="{{product.image[0].image}}"
                         class="img-responsive"/></a>
                       <p><a href="#" [routerLink]="['/product-detail',product.id]"
-                            class="show-product">{{product.name}}</a></p>
-                      <h4 style="font-size: 22px; margin-top: 5px; text-align: center">{{product.price}} VND</h4>
+                            class="show-product" style="margin-left: 8px">{{product.name}}</a></p>
+                      <h4 style="font-size: 22px; margin-top: 5px; text-align: center;color: #fe9126">{{product.price}} VND</h4>
                     </div>
                     <div class="snipcart-details top_brand_home_details" *ngIf="userId != product.user.id">
-                      <button class="btn button-shop" style="font-size: 16px;margin-right: 20px" data-toggle="modal" data-target="#exampleModalAdd" (click)="findByIdProduct(product.id)">
+                      <button class="btn button-shop-list-all" style="font-size: 16px;margin-right: 20px;" data-toggle="modal" data-target="#exampleModalAdd" (click)="findByIdProduct(product.id)">
                         <i class="fa-solid fa-basket-shopping" style="margin-right: 5px">
                         </i>Thêm Vào Giỏ Hàng
                       </button>

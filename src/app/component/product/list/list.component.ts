@@ -26,9 +26,9 @@ export class ListComponent implements OnInit {
               private imageService: ImageService,
               private toast: NgToastService,
               private shoppingCartService: ShoppingCartService,
-              private router: Router) {
+              private router: Router,
+  ) {
   }
-
   ngOnInit(): void {
     this.getAllProduct()
   }

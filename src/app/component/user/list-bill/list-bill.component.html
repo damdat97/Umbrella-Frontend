@@ -2,19 +2,19 @@
 <app-navbar></app-navbar>
 
 <div class="checkout">
-  <div class="container" style="width: 70%">
+  <div class="container" style="width: 80%">
     <div style="">
       <table class="timetable_sub" style="border:2px solid #CDCDCD;border-radius: 10px">
         <thead>
         <tr>
           <th style="font-size: large">STT</th>
-          <th style="font-size: large">Hóa đơn</th>
-          <th style="font-size: large">Tên sản phẩm</th>
-          <th style="font-size: large">Tên cửa hàng</th>
-          <th style="font-size: large">Số lượng sản phẩm</th>
-          <th style="font-size: large">Tổng tiền(VND)</th>
-          <th style="font-size: large;width: 300px">Trạng thái đơn</th>
-          <th style="font-size: large;width: 300px">Chức Năng</th>
+          <th style="font-size: large;width: 180px">Hóa đơn</th>
+          <th style="font-size: large;width: 180px">Tên sản phẩm</th>
+          <th style="font-size: large;width: 180px">Tên cửa hàng</th>
+          <th style="font-size: large;width: 180px">Số lượng sản phẩm</th>
+          <th style="font-size: large;width: 190px">Tổng tiền (VNĐ)</th>
+          <th style="font-size: large;width: 420px">Trạng thái đơn</th>
+          <th style="font-size: large;width: 450px">Chức Năng</th>
         </tr>
         </thead>
         <tr class="rem1" *ngFor="let item of carts,index as i">
@@ -32,7 +32,7 @@
             <div style="font-size: medium;">{{item.quantity}} </div>
           </td>
           <td class="invert">
-            <div style="font-size: medium;">{{item.product.price * item.quantity}} </div>
+            <div style="font-size: medium;font-weight: 700">{{item.product.price * item.quantity}} </div>
           </td>
           <td *ngIf="item.status == 0">
             <div style="font-size: 18px;margin-left: 10px;color: #fe9126;font-weight: 600">Đang chờ thanh toán</div>

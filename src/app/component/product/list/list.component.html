@@ -29,17 +29,18 @@
                 <div class="hover14 column" style="border: 1px solid grey;border-radius: 5px">
                   <div class="agile_top_brand_left_grid" style="border-radius: 5px;padding: 0">
                     <figure>
-                      <div class="snipcart-item block" style="width: 250px;height: 350px">
+                      <div class="snipcart-item block" style="width: 250px;height:380px">
                         <div class="snipcart-thumb">
                           <img
                             src="{{product.image[0].image}}"
                             class="img-responsive-home"/>
                           <p><a href="#" [routerLink]="['/product-detail',product.id]"
                                 class="show-product-home">{{product.name}}</a></p>
-                          <h3 style="width: 250px;font-size: 16px; margin-top: 15px; text-align: center;color: #fe9126"> {{product.price}}
+                          <h3 style="width: 230px;font-size: 16px; margin-top: 15px; text-align: center;color: #fe9126"> {{product.price}}
                             VND</h3>
                         </div>
                         <div class="snipcart-details top_brand_home_details">
+                          <br>
                           <button class="btn button-edit button-shop-list" data-toggle="modal" data-target="#exampleModalAdd"
                                   style="margin-right: 20px;font-size: 16px;height: 48px; width: 200px" (click)="findByIdProduct(product.id)"><i
                             class="fa-solid fa-basket-shopping"
@@ -81,10 +82,9 @@
       </div>
       <div>
         <form [formGroup]="addCartForm" (submit)="addToShoppingCart(product, shop)">
-          <label style="margin-left: 40%">Số Lượng Sản Phẩm:</label>
           <br>
           <br>
-          <input type='text' formControlName="quantity" class="form-control"
+          <input type='text' formControlName="quantity" class="form-control" placeholder="Số lượng sản phẩm"
                  style="width: 150px; height: 35px;margin-left: 40%"><br>
           <div class="modal-footer">
             <button type="submit" style="margin-right: 290px" class="btn button-edit">Thêm</button>

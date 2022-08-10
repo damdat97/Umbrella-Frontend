@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProductService} from "../../../service/product.service";
 import {ImageService} from "../../../service/image.service";
 import {NgToastService} from "ng-angular-popup";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-list-product',
@@ -14,6 +15,10 @@ export class ListProductComponent implements OnInit {
   image: any;
   p: number = 1;
   total: number = 0;
+  editCartForm: FormGroup = new FormGroup({
+    id: new FormControl(0),
+    quantity: new FormControl('')
+  })
 
   constructor(private productService: ProductService,
               private imageService: ImageService,
