@@ -33,4 +33,12 @@ export class ListBillComponent implements OnInit {
       this.getAllBillByOwner()
     })
   }
+
+  deleteBill(id, cartItem: CartItem) {
+    console.log(id)
+    this.cartService.deleteBill(id, cartItem).subscribe((data) => {
+      console.log(data)
+      this.getAllBillByOwner()
+    })
+  }
 }
