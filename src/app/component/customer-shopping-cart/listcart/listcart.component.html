@@ -1,8 +1,109 @@
+<script>
+  var properties = [
+    'name',
+    'wins',
+    'draws',
+    'losses',
+    'total',
+  ];
+
+  $.each( properties, function( i, val ) {
+
+    var orderClass = '';
+
+    $("#" + val).click(function(e){
+      e.preventDefault();
+      $('.filter__link.filter__link--active').not(this).removeClass('filter__link--active');
+      $(this).toggleClass('filter__link--active');
+      $('.filter__link').removeClass('asc desc');
+
+      if(orderClass == 'desc' || orderClass == '') {
+        $(this).addClass('asc');
+        orderClass = 'asc';
+      } else {
+        $(this).addClass('desc');
+        orderClass = 'desc';
+      }
+
+      var parent = $(this).closest('.header__item');
+      var index = $(".header__item").index(parent);
+      var $table = $('.table-content');
+      var rows = $table.find('.table-row').get();
+      var isSelected = $(this).hasClass('filter__link--active');
+      var isNumber = $(this).hasClass('filter__link--number');
+
+      rows.sort(function(a, b){
+
+        var x = $(a).find('.table-data').eq(index).text();
+        var y = $(b).find('.table-data').eq(index).text();
+
+        if(isNumber == true) {
+
+          if(isSelected) {
+            return x - y;
+          } else {
+            return y - x;
+          }
+
+        } else {
+
+          if(isSelected) {
+            if(x < y) return -1;
+            if(x > y) return 1;
+            return 0;
+          } else {
+            if(x > y) return -1;
+            if(x < y) return 1;
+            return 0;
+          }
+        }
+      });
+
+      $.each(rows, function(index,row) {
+        $table.append(row);
+      });
+
+      return false;
+    });
+
+  });
+</script>
 <app-header></app-header>
 <app-navbar></app-navbar>
 
 <div class="checkout">
-  <div class="container" style="width: 80%">
+  <div class="container" style="width: 70%">
+
+    <details class="custom-select">
+      <summary class="radios">
+        <input type="radio" name="item" id="default" title="Auswählen..." checked>
+        <input type="radio" name="item" id="item1" title="Item 1">
+        <input type="radio" name="item" id="item2" title="Item 2">
+        <input type="radio" name="item" id="item3" title="Item 3">
+        <input type="radio" name="item" id="item4" title="Item 4">
+        <input type="radio" name="item" id="item5" title="Item 5">
+      </summary>
+      <ul class="list">
+        <li>
+          <label for="item1">
+            Item 1
+            <span></span>
+          </label>
+        </li>
+        <li>
+          <label for="item2">Item 2</label>
+        </li>
+        <li>
+          <label for="item3">Item 3</label>
+        </li>
+        <li>
+          <label for="item4">Item 4</label>
+        </li>
+        <li>
+          <label for="item5">Item 5</label>
+        </li>
+      </ul>
+    </details>
     <div style="">
       <table class="timetable_sub" style="border:2px solid #CDCDCD;border-radius: 10px">
         <thead>
@@ -12,7 +113,7 @@
           <th style="font-size: large">Tên sản phẩm</th>
           <th style="font-size: large">Tên cửa hàng</th>
           <th style="font-size: large">Số lượng sản phẩm</th>
-          <th style="font-size: large">Tổng tiền</th>
+          <th style="font-size: large">Tổng tiền(VND)</th>
           <th style="font-size: large">Trạng thái đơn</th>
         </tr>
         </thead>
@@ -34,16 +135,16 @@
             <div style="font-size: medium;">{{item.product.price*item.quantity}} </div>
           </td>
           <div *ngIf="item.status == 0">
-          <td><div>Đang chờ thanh toán</div></td>
+          <div style="font-size: 20px;margin-left: 30px;color: #259f40;font-weight: 600">Đang chờ thanh toán</div>
           </div>
           <div *ngIf="item.status == 1">
-            <td><div>Đang chờ xác nhận</div></td>
+            <div style="font-size: 20px;margin-left: 30px;color: dodgerblue;font-weight: 600">Đang chờ xác nhận</div>
           </div>
           <div *ngIf="item.status == 2">
-            <td><div>Đơn hàng đã được xác nhận</div></td>
+            <div style="font-size: 20px;margin-left: 30px;color: #259f40;font-weight: 600">Đơn hàng đã được xác nhận</div>
           </div>
           <div *ngIf="item.status == 3">
-            <td><div>Đơn hàng bị hủy</div></td>
+            <div style="font-size: 20px;margin-left: 30px;color: red;font-weight: 600">Đơn hàng bị hủy</div>
           </div>
         </tr>
       </table>
