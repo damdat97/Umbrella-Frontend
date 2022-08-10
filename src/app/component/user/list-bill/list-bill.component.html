@@ -13,7 +13,8 @@
           <th style="font-size: large">Tên cửa hàng</th>
           <th style="font-size: large">Số lượng sản phẩm</th>
           <th style="font-size: large">Tổng tiền(VND)</th>
-          <th style="font-size: large">Trạng thái đơn</th>
+          <th style="font-size: large;width: 300px">Trạng thái đơn</th>
+          <th style="font-size: large;width: 300px">Chức Năng</th>
         </tr>
         </thead>
         <tr class="rem1" *ngFor="let item of carts,index as i">
@@ -31,23 +32,27 @@
             <div style="font-size: medium;">{{item.quantity}} </div>
           </td>
           <td class="invert">
-            <div style="font-size: medium;">{{item.product.price*item.quantity}} </div>
+            <div style="font-size: medium;">{{item.product.price * item.quantity}} </div>
           </td>
-          <td>
-          <div *ngIf="item.status == 0">
-            <div style="font-size: 20px;margin-left: 30px;color: #259f40;font-weight: 600">Đang chờ thanh toán</div>
-          </div>
-          <div *ngIf="item.status == 1">
-            <div style="font-size: 20px;margin-left: 30px;color: dodgerblue;font-weight: 600">Đang chờ xác nhận</div>
-            <div><button>ABC</button></div>
-            <div><button>ABC</button></div>
-          </div>
-          <div *ngIf="item.status == 2">
-            <div style="font-size: 20px;margin-left: 30px;color: #259f40;font-weight: 600">Đơn hàng đã được xác nhận</div>
-          </div>
-          <div *ngIf="item.status == 3">
-            <div style="font-size: 20px;margin-left: 30px;color: red;font-weight: 600">Đơn hàng bị hủy</div>
-          </div>
+          <td *ngIf="item.status == 0">
+            <div style="font-size: 18px;margin-left: 10px;color: #259f40;font-weight: 600">Đang chờ thanh toán</div>
+          </td>
+
+          <td *ngIf="item.status == 1">
+            <div style="font-size: 18px;margin-left: 10px;color: dodgerblue;font-weight: 600">Đang chờ xác nhận</div>
+          </td>
+          <td *ngIf="item.status == 2">
+            <div style="font-size: 18px;margin-left: 10px;color: #259f40;font-weight: 600">Đơn hàng đã được xác nhận
+            </div>
+          </td>
+          <td *ngIf="item.status == 3">
+            <div style="font-size: 18px;margin-left: 10px;color: red;font-weight: 600">Đơn hàng bị hủy</div>
+          </td>
+          <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+          <td *ngIf="item.status == 1">
+            <button class="button-edit" style="margin-right: 10px">Xác Nhận</button>
+            <button class="button-delete">Hủy Đơn</button>
           </td>
         </tr>
       </table>
