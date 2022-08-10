@@ -15,6 +15,7 @@ import {CustomerComponent} from "./component/user/customer/customer.component";
 import {CustomerShopComponent} from "./component/user/customer-shop/customer-shop.component";
 import {ListCartComponent} from "./component/customer-shopping-cart/listcart/listcart.component";
 import {ListBillComponent} from "./component/user/list-bill/list-bill.component";
+import {DetailBillComponent} from "./component/user/detail-bill/detail-bill.component";
 
 const routes: Routes = [
   {
@@ -75,6 +76,10 @@ const routes: Routes = [
   {
     path: "shop-bills",
     component: ListBillComponent
+  },
+  {
+    path: "detail-bill/:id",
+    component: DetailBillComponent
   }];
 
 @NgModule({
