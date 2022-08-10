@@ -271,6 +271,10 @@ RIGHT SIDEBAR TOGGLE SECTION
   background-color: #fe9126;
   color: #ffffff;
 }
+.button-shop-list-all:hover {
+  background-color: #ffffff;
+  color: #fe9126;
+}
 .button-shop-list:hover {
   background-color: #ffffff;
   color: #fe9126;
@@ -621,7 +625,7 @@ width: auto;
 .button-shop-list-all {
   background-color: white;
   border: 1px solid white;
-  border-radius: 8px;
+  border-radius: 5px;
   box-sizing: border-box;
   color: #222222;
   cursor: pointer;
@@ -631,8 +635,7 @@ width: auto;
   font-weight: bold;
   line-height: 20px;
   margin: 11px;
-  outline: none;
-  padding: 0px 0px;
+  padding: 0px 5px;
   position: relative;
   text-align: center;
   text-decoration: none;
