@@ -1334,7 +1334,7 @@ table.timetable_sub {
 
 td.invert-image a img {
   width: 30%;
-  margin: 0 auto;
+  margin: -20px;
 }
 
 .rem {

@@ -542,7 +542,7 @@ width: auto;
 }
 
 .button-search {
-  background-color: rgba(224, 224, 224, 0.7);
+  background-color: rgb(255, 255, 255);
   border: 1px solid black;
   border-radius: 8px;
   box-sizing: border-box;
@@ -648,7 +648,7 @@ width: auto;
 }
 /*name*/
 .show-product {
-  font-size: 20px;
+  font-size: 18px;
   margin-left: 20px;
   margin-top: 10px;
   height: 50px;

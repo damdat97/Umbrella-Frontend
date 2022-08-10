@@ -4,6 +4,9 @@
 <div class="checkout">
 
   <div class="container" style="width: 80%">
+    <div class="top-brands1">
+      <h2 style=" margin-top: 20px;font-size: 40px">Cửa Hàng Của Tôi</h2>
+    </div>
     <div style="margin-bottom: 50px">
       <button class="button-add" role="button" data-toggle="modal" data-target="#exampleModalCreateProduct"
               [routerLink]="['/create-product/']"><i class="fa-solid fa-plus" style="margin-right: 5px"></i> Thêm sản
@@ -31,7 +34,7 @@
           <td style="width: 200px" class="invert-image"><a [routerLink]="['/product-detail', product.id]">
             <img
               src="{{product.image[0].image}}"
-              style="border:1px solid white; height:170px;width:200px;border-radius: 5px"
+              style="border:1px solid white; height:212px;width:242px;border-radius: 5px"
             /></a>
           </td>
           <td class="invert">
@@ -44,7 +47,7 @@
           </td>
           <td class="invert" style="font-size: medium">{{product.name}}</td>
 
-          <td class="invert" style="font-size: medium;font-weight: 700">{{product.price}}</td>
+          <td class="invert" style="font-size: medium">{{product.price}}</td>
           <td class="invert">
             <div class="rem">
               <button type="button" class="btn button-edit" style="margin-right: 15px; width: 90px;font-size: small"

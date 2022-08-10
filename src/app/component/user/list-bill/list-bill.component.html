@@ -3,6 +3,9 @@
 
 <div class="checkout">
   <div class="container" style="width: 80%">
+    <div class="top-brands1">
+      <h2 style=" margin-top: 20px;font-size: 40px">Danh Sách Đơn Đặt Hàng</h2>
+    </div>
     <div style="">
       <table class="timetable_sub" style="border:2px solid #CDCDCD;border-radius: 10px">
         <thead>
@@ -21,12 +24,8 @@
             <div style="font-size: medium;"><a [routerLink]="['/bill-detail']" [queryParams]="{billId: item.billId}">{{item.billId}}</a></div>
           </td>
           <td class="invert">
-            <div style="font-size: medium;">{{item.product.name}} </div>
+            <label style="font-size: medium;">{{item.product.name}} </label>
           </td>
-          <td *ngIf="item.status == 0">
-            <div style="font-size: 18px;margin-left: 10px;color: #fe9126;font-weight: 600">Đang chờ thanh toán</div>
-          </td>
-
           <td *ngIf="item.status == 1">
             <div style="font-size: 18px;margin-left: 10px;color: dodgerblue;font-weight: 600">Đang chờ xác nhận</div>
           </td>
@@ -41,6 +40,9 @@
             <button class="button-edit-bill" style="margin-right: 10px;font-size: 13px" (click)="acceptBill(item.id, item)"><i class="fa-solid fa-check" style="margin-right: 5px"></i>Xác Nhận</button>
             <button class="button-delete-bill" style="font-size: 13px" (click)="deleteBill(item.id, item)"><i class="fa-solid fa-xmark" style="margin-right: 5px" ></i>Hủy Đơn</button>
           </td>
+          <td *ngIf="item.status==2||item.status==3">
+            <div></div>
+          </td>
         </tr>
         </ng-template>
         <ng-template #NULL>
@@ -52,7 +54,10 @@
     </div>
     <nav class="numbering">
       <ul class="pagination paging">
-        <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+        <pagination-controls
+          previousLabel="Trước"
+          nextLabel="Sau"
+          (pageChange)="pageChangeEvent($event)"></pagination-controls>
       </ul>
     </nav>
   </div>
