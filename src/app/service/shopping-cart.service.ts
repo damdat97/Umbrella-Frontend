@@ -47,4 +47,7 @@ export class ShoppingCartService {
     return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-bill-by-status-equals-three/' + id);
   }
 
+  findBillByOwnerId(id:any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-all-carts-by-ownerId/' + id);
+  }
 }

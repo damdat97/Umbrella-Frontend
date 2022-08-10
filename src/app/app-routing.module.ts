@@ -11,11 +11,10 @@ import {ListProductComponent} from "./component/my-shop/list-product/list-produc
 import {EditProductComponent} from "./component/my-shop/edit-product/edit-product.component";
 import {AllProductComponent} from "./component/product/all-product/all-product/all-product.component";
 import {ShopCartComponent} from "./component/shop-cart/shop-cart.component";
-
-import * as events from "events";
 import {CustomerComponent} from "./component/user/customer/customer.component";
 import {CustomerShopComponent} from "./component/user/customer-shop/customer-shop.component";
 import {ListCartComponent} from "./component/customer-shopping-cart/listcart/listcart.component";
+import {ListBillComponent} from "./component/user/list-bill/list-bill.component";
 
 const routes: Routes = [
   {
@@ -72,6 +71,10 @@ const routes: Routes = [
   {
     path: "my-bills",
     component: ListCartComponent
+  },
+  {
+    path: "shop-bills",
+    component: ListBillComponent
   }];
 
 @NgModule({
