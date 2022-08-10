@@ -70,7 +70,10 @@
       </table>
       <nav class="numbering">
         <ul class="pagination paging">
-          <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+          <pagination-controls
+            previousLabel="Trước"
+            nextLabel="Sau"
+            (pageChange)="pageChangeEvent($event)"></pagination-controls>
         </ul>
       </nav>
     </div>
