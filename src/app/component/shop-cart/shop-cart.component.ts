@@ -78,11 +78,9 @@ export class ShopCartComponent implements OnInit {
       })
     })
   }
-
   checkout() {
     this.cartService.checkout(this.userId).subscribe(res => {
       if (res.valueOf()) {
-        this.getAllCart();
         this.toast.success({detail: "Thành Công", summary: 'Thanh toán thành công!', duration: 3000});
         // @ts-ignore
         $('#exampleModal-shop-cart').modal('hide');
@@ -96,7 +94,7 @@ export class ShopCartComponent implements OnInit {
     this.carts[i].quantity++;
     this.cartService.updateCarItem(this.carts[i].id, this.carts[i]).subscribe(data => {
       if (data) {
-        this.getAllCart();
+this.getAllCart()
       } else {
         this.toast.success({detail: "Thất bại", summary: 'Tăng thất bại!', duration: 3000})
       }
@@ -111,8 +109,7 @@ export class ShopCartComponent implements OnInit {
     this.carts[i].quantity--;
     this.cartService.updateCarItem(this.carts[i].id, this.carts[i]).subscribe(res => {
       if (res) {
-        this.toast.success({detail: "Thành Công", summary: 'Giảm Thành Công!', duration: 3000})
-        this.getAllCart();
+        this.getAllCart()
       } else {
         this.toast.success({detail: "Thất bại", summary: 'Giảm thất bại!', duration: 3000})
       }
@@ -134,6 +131,7 @@ export class ShopCartComponent implements OnInit {
       count+=cart[i].quantity;
     }
     return count;
+
   }
   goHome(){
     window.location.href="/"
