@@ -18,7 +18,7 @@ export class ShoppingCartService {
     return this.httpClient.post<CartItem>(API_URL + '/shopping_carts',cart);
   }
   findById(id: any): Observable<CartItem> {
-    return this.httpClient.get<CartItem>(API_URL + '/shopping_carts/' + id)
+    return this.httpClient.get<CartItem>(API_URL + '/shopping_carts/cart/' + id)
   }
   remover(id: any): Observable<CartItem> {
     return this.httpClient.delete<CartItem>(API_URL + '/shopping_carts/cart/' + id);
@@ -49,5 +49,17 @@ export class ShoppingCartService {
 
   findBillByOwnerId(id:any): Observable<CartItem[]> {
     return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-all-carts-by-ownerId/' + id);
+  }
+
+  findDetailBill(id: any, cartId: any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-cart-by-cartId/' + id + '/' + cartId);
+  }
+
+  acceptBill(id: any, cartItem: CartItem): Observable<CartItem> {
+    return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/accept-bill-by-shop/' + id, cartItem);
+  }
+
+  deleteBill(id:any, cartItem: CartItem): Observable<CartItem> {
+    return this.httpClient.delete<CartItem>(API_URL + '/shopping_carts/delete-bill-by-shop/' + id + '/' + cartItem);
   }
 }
