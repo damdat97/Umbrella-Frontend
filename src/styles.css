@@ -403,7 +403,7 @@ width: auto;
   font-size: 16px;
   font-weight: bold;
   line-height: 20px;
-  margin: -10px;
+  margin: -45px;
   outline: none;
   padding: 11px 21px;
   position: relative;
@@ -622,7 +622,7 @@ width: auto;
 /*name*/
 .show-product {
   font-size: 20px;
-  margin-left: 32px;
+  margin-left: 20px;
   margin-top: 10px;
   height: 50px;
   width: 229px;

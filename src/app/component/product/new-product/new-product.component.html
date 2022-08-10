@@ -2,18 +2,18 @@
   <div class="container">
     <h3 style="margin-top: -112px;">Sản phẩm mới</h3>
     <div class="agile_top_brands_grids">
-      <div class="col-md-3 top_brand_left-1" *ngFor="let item of products" style="width: 30%">
-        <div class="hover14 column" style="width: 283px;height: 426px;border: 1px solid grey;border-radius: 5px">
+      <div class="col-md-3 top_brand_left-1" *ngFor="let item of products" style="width: 25%">
+        <div class="hover14 column" style="width: 265px;height: 412px;border: 1px solid grey;border-radius: 5px">
           <div class="agile_top_brand_left_grid" style=" width: 100%;height: 100%;border-top-left-radius: 5px;border-top-right-radius: 5px;padding: 0">
               <figure style="width: 300px;height: 437px">
                 <div class="snipcart-item block">
                   <div class="snipcart-thumb">
                     <a [routerLink]="['/product-detail', item.id]"><img title=" " alt=" "  src="{{item.image[0].image}}" class="img-responsive-new-product"></a>
                     <p><a href="#" [routerLink]="['/product-detail',item.id]" class="show-product">{{item.name}} </a></p>
-                    <h4 style="font-size: 25px; margin-top: 5px; text-align: center">{{item.price}} $</h4>
+                    <h4 style="width: 265px;font-size: 22px; margin-top: 5px;text-align: center">{{item.price}} VND</h4>
                   </div>
                   <div class="snipcart-details top_brand_home_details" >
-                    <button class="btn button-edit button-shop" data-toggle="modal" data-target="#exampleModalAdd" (click)="findByIdProduct(item.id)" style="margin-right: 12px;font-size: 20px;height: 48px; width: 200px"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px;"></i>Thêm
+                    <button class="btn button-edit button-shop" data-toggle="modal" data-target="#exampleModalAdd" (click)="findByIdProduct(item.id)" style="margin-right: 12px;font-size: 18px;height: 48px; width: 200px"><i class="fa-solid fa-basket-shopping" style="margin-right: 5px;"></i>Thêm
                       Vào Giỏ Hàng
                     </button>
                     <br>
