@@ -26,6 +26,7 @@ export class ShoppingCartService {
   updateCarItem(id: string, cartItem: CartItem): Observable<CartItem> {
     return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/cart/' + id, cartItem);
   }
+
   checkout(id: string): Observable<boolean> {
     return this.httpClient.put<boolean>(API_URL + '/shopping_carts/checkout/' + id, null);
   }
@@ -59,7 +60,10 @@ export class ShoppingCartService {
   }
 
   deleteBill(id:any, cartItem: CartItem): Observable<CartItem> {
+    return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/delete-bill-by-shop/' + id, cartItem);
+  }
 
-    return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/delete-bill-by-shop/' + id ,cartItem);
+  findAllCartByCustomerId(id: any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-all-cart-by-customer-id/' + id);
   }
 }
