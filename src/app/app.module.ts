@@ -40,6 +40,7 @@ import { NewProductComponent } from './component/product/new-product/new-product
 import {IvyCarouselModule} from "angular-responsive-carousel";
 import {ListCartComponent} from "./component/customer-shopping-cart/listcart/listcart.component";
 import { ListBillComponent } from './component/user/list-bill/list-bill.component';
+import { DetailBillComponent } from './component/user/detail-bill/detail-bill.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ListBillComponent } from './component/user/list-bill/list-bill.componen
     CustomerShopComponent,
     NewProductComponent,
     ListCartComponent,
-    ListBillComponent
+    ListBillComponent,
+    DetailBillComponent
   ],
   imports: [
     BrowserModule,
