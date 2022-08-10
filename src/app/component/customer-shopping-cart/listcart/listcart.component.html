@@ -16,42 +16,34 @@
         <tr>
           <th style="font-size: large">STT</th>
           <th style="font-size: large">Hóa đơn</th>
-          <th style="font-size: large">Tên sản phẩm</th>
           <th style="font-size: large">Tên cửa hàng</th>
-          <th style="font-size: large">Số lượng sản phẩm</th>
-          <th style="font-size: large">Tổng tiền(VND)</th>
+          <th style="font-size: large">Tổng tiền (VND)</th>
           <th style="font-size: large">Trạng thái đơn</th>
         </tr>
         </thead>
         <tr class="rem1" *ngFor="let item of carts,index as i">
           <td class="invert">{{i + 1}}</td>
           <td>
-           <span style="font-size: medium;">{{item.billId}}</span>
-          </td>
-          <td class="invert">
-            <span style="font-size: medium;">{{item.product.name}} </span>
+            <a [routerLink]="['/detail-bill-of-customer', item.id]"><span style="font-size: medium;">{{item.billId}}</span></a>
           </td>
           <td class="invert">
             <div style="font-size: medium;">{{item.shopId.name}} </div>
           </td>
           <td class="invert">
-            <div style="font-size: medium;">{{item.quantity}} </div>
-          </td>
-          <td class="invert">
-            <div style="font-size: medium;">{{item.product.price*item.quantity}} </div>
+            <div style="font-size: medium;">{{totalMoney}} </div>
           </td>
           <td>
           <div *ngIf="item.status == 0">
-          <div style="font-size: 18px;margin-left: 30px;color: #259f40;font-weight: 600">Đang chờ thanh toán</div>
+          <div style="font-size: 18px;color: #259f40;font-weight: 600; text-align: center">Đang chờ thanh toán</div>
           </div>
           <div *ngIf="item.status == 1">
-            <div style="font-size: 18px;margin-left: 10px;color: dodgerblue;font-weight: 600">Đang chờ xác nhận</div>
+            <div style="font-size: 18px;text-align: center;color: dodgerblue;font-weight: 600">Đang chờ xác nhận</div>
           </div>
           <div *ngIf="item.status == 2">
-            <div style="font-size: 18px;margin-left: 10px;color: #259f40;font-weight: 600">Đơn hàng đã được xác nhận</div>
+            <div style="font-size: 18px;text-align: center;color: #259f40;font-weight: 600">Đơn hàng đã được xác nhận</div>
           </div>
           <div *ngIf="item.status == 3">
-            <div style="font-size: 18px;margin-left: 10px;color: red;font-weight: 600">Đơn hàng bị hủy</div>
+            <div style="font-size: 18px;text-align: center;color: red;font-weight: 600">Đơn hàng bị hủy</div>
           </div>
           </td>
         </tr>
