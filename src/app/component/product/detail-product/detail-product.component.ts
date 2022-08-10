@@ -75,7 +75,8 @@ export class DetailProductComponent implements OnInit {
         this.commentForm.reset();
         this.comment()
       }, error => {
-        alert("Loi");
+        this.toast.error({detail: "Lỗi", summary: "Cần đăng nhập để bình luận!", duration: 3000})
+        this.router.navigate(['/login'])
         console.log(error)
       }
     )
