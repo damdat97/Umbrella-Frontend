@@ -60,6 +60,10 @@ export class ShoppingCartService {
   }
 
   deleteBill(id:any, cartItem: CartItem): Observable<CartItem> {
-    return this.httpClient.delete<CartItem>(API_URL + '/shopping_carts/delete-bill-by-shop/' + id + '/' + cartItem);
+    return this.httpClient.put<CartItem>(API_URL + '/shopping_carts/delete-bill-by-shop/' + id, cartItem);
+  }
+
+  findAllCartByCustomerId(id: any): Observable<CartItem[]> {
+    return this.httpClient.get<CartItem[]>(API_URL + '/shopping_carts/find-all-cart-by-customer-id/' + id);
   }
 }
