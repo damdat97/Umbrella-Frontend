@@ -15,7 +15,7 @@
         </tr>
         </thead>
         <ng-template [ngIf]="carts.length != 0" [ngIfElse]="NULL">
-        <tr class="rem1" *ngFor="let item of carts,index as i">
+        <tr class="rem1" *ngFor="let item of carts|paginate: { itemsPerPage: 10, currentPage: p, totalItems: total },index as i">
           <td class="invert">{{i + 1}}</td>
           <td>
             <div style="font-size: medium;"><a [routerLink]="['/bill-detail']" [queryParams]="{billId: item.billId}">{{item.billId}}</a></div>
@@ -37,8 +37,6 @@
           <td *ngIf="item.status == 3">
             <div style="font-size: 18px;margin-left: 10px;color: red;font-weight: 600">Đơn hàng bị hủy</div>
           </td>
-          <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-
           <td *ngIf="item.status == 1">
             <button class="button-edit-bill" style="margin-right: 10px;font-size: 13px" (click)="acceptBill(item.id, item)"><i class="fa-solid fa-check" style="margin-right: 5px"></i>Xác Nhận</button>
             <button class="button-delete-bill" style="font-size: 13px" (click)="deleteBill(item.id, item)"><i class="fa-solid fa-xmark" style="margin-right: 5px" ></i>Hủy Đơn</button>
@@ -52,6 +50,11 @@
         </ng-template>
       </table>
     </div>
+    <nav class="numbering">
+      <ul class="pagination paging">
+        <pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
+      </ul>
+    </nav>
   </div>
 </div>
 <app-footer></app-footer>

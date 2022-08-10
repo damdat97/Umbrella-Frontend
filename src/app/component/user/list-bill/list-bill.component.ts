@@ -10,6 +10,8 @@ import {ShoppingCartService} from "../../../service/shopping-cart.service";
 export class ListBillComponent implements OnInit {
   carts: CartItem[] | any;
   userId = localStorage.getItem("ID")
+  p: number = 1;
+  total: number = 0;
 
   constructor(private cartService: ShoppingCartService) { }
 
@@ -41,4 +43,9 @@ export class ListBillComponent implements OnInit {
       this.getAllBillByOwner()
     })
   }
+
+  pageChangeEvent(event: number) {
+    this.p = event;
+  }
+
 }
