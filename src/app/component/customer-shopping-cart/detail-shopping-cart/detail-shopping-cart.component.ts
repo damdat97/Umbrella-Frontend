@@ -16,7 +16,7 @@ export class DetailShoppingCartComponent implements OnInit {
   totalQuantity1: number = 0;
   carts: CartItem[] | any;
   userId = localStorage.getItem("ID")
-  billId = localStorage.getItem("BILLID")
+
   constructor(private productService: ProductService,
               private cartService: ShoppingCartService,
               private activatedRoute: ActivatedRoute,
@@ -28,24 +28,23 @@ export class DetailShoppingCartComponent implements OnInit {
   }
 
   findDetailBill() {
-    this.cartService.findDetailBill(this.billId).subscribe((data) => {
-      this.carts = data;
-
-      console.log(data)
-      this.countProduct = this.carts.length;
-      this.totalMoney = this.total(this.carts);
-      this.totalQuantity1= this.totalQuantity(this.carts)
-      for (let i = 0; i < data.length; i++) {
-        this.imageService.findAllByProductId(data[i].product.id).subscribe((image) => {
-          this.carts[i].product.image = image;
-          console.log(this.carts)
-        })
-      }
-      localStorage.removeItem("BILLID")
-    }, error => {
-      console.log(error);
-    })
-  };
+      const billId = this.activatedRoute.snapshot.queryParamMap.get('billId');
+      this.cartService.findDetailBill(billId).subscribe((data) => {
+        this.carts = data;
+        console.log(data)
+        this.countProduct = this.carts.length;
+        this.totalMoney = this.total(this.carts);
+        this.totalQuantity1= this.totalQuantity(this.carts)
+        for (let i = 0; i < data.length; i++) {
+          this.imageService.findAllByProductId(data[i].product.id).subscribe((image) => {
+            this.carts[i].product.image = image;
+            console.log(this.carts)
+          })
+        }
+      }, error => {
+        console.log(error);
+      })
+    }
 
   private total(carts: CartItem[]) {
     let result = 0;

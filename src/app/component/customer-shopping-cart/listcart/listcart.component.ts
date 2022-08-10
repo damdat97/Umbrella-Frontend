@@ -42,7 +42,7 @@ export class ListCartComponent implements OnInit {
     this.cartService.findBillByStatusEqualsOne(this.userId).subscribe((data) => {
       this.carts = data;
       // this.countProduct = this.carts.length ;
-      this.totalMoney = this.total(this.carts);
+      // this.totalMoney = this.total(this.carts);
       console.log(data)
     }, error => {
       console.log(error);
@@ -91,22 +91,13 @@ export class ListCartComponent implements OnInit {
     this.cartService.findAllCartByCustomerId(this.userId).subscribe((data) => {
       this.carts = data;
       // this.countProduct = this.carts.length ;
-      this.totalMoney = this.total(this.carts);
+      // this.totalMoney = this.total(this.carts);
       console.log(data)
-      for (let i = 0; i < this.carts.length; i++) {
-        localStorage.setItem("BILLID", this.carts[i].billId);
-      }
     }, error => {
       console.log(error);
     })
   }
 
-  total(carts: CartItem[]) {
-    let result = 0;
-    for (let i = 0; i < carts.length; i++) {
-      result += (carts[i].quantity * carts[i].product.price);
-    }
-    return result;
-  }
+
 
 }

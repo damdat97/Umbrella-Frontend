@@ -17,7 +17,6 @@
           <th style="font-size: large">STT</th>
           <th style="font-size: large">Hóa đơn</th>
           <th style="font-size: large">Tên cửa hàng</th>
-          <th style="font-size: large">Tổng tiền (VND)</th>
           <th style="font-size: large">Trạng thái đơn</th>
         </tr>
         </thead>
@@ -28,9 +27,6 @@
           </td>
           <td class="invert">
             <div style="font-size: medium;">{{item.shopId.name}} </div>
-          </td>
-          <td class="invert">
-            <div style="font-size: medium;">{{totalMoney}} </div>
           </td>
           <td>
           <div *ngIf="item.status == 0">
