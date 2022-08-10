@@ -71,22 +71,24 @@
 </div>
 
 
-<div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="width: 700px;margin-left: 600px">
+  <div class="modal-dialog" style="width: 700px">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel" style="text-align: center">Sửa Sản Phẩm</h3>
+        <h3 class="modal-title" id="exampleModalLabel" style="text-align: center;width: 100%">Số Lượng Sản Phẩm</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true">X</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div>
         <form [formGroup]="addCartForm" (submit)="addToShoppingCart(product, shop)">
-          <label style="margin-left: 20%">Số Lượng Sản Phẩm:</label>
+          <label style="margin-left: 40%">Số Lượng Sản Phẩm:</label>
+          <br>
+          <br>
           <input type='text' formControlName="quantity" class="form-control"
-                 style="width: 500px; height: 35px;margin-left: 20%"><br>
+                 style="width: 150px; height: 35px;margin-left: 40%"><br>
           <div class="modal-footer">
-            <button type="submit" style="margin-right: 375px" class="btn button-edit">Thêm</button>
+            <button type="submit" style="margin-right: 290px" class="btn button-edit">Thêm</button>
           </div>
         </form>
       </div>
