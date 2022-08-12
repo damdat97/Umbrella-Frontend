@@ -36,8 +36,8 @@
                             class="img-responsive-home"/>
                           <p><a href="#" [routerLink]="['/product-detail',product.id]"
                                 class="show-product-home">{{product.name}}</a></p>
-                          <h3 style="width: 230px;font-size: 16px; margin-top: 15px; text-align: center;color: #fe9126"> {{product.price}}
-                            VNĐ</h3>
+                          <h3 style="width: 230px;font-size: 16px; margin-top: 15px; text-align: center;color: #fe9126"> {{ product.price | currency:' VNĐ ':'symbol':'3.0'}}
+                          </h3>
                         </div>
                         <div class="snipcart-details top_brand_home_details">
                           <br>

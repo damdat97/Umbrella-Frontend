@@ -1,7 +1,9 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <div class="footer">
-  <div class="container" style="width: 90%">
+  <div class="container" style="width: 80%">
     <div class="w3_footer_grids">
-      <div class="col-md-3 w3_footer_grid">
+      <div class="col-md-4 w3_footer_grid">
         <h3>Liên Hệ</h3>
 
         <ul class="address">
@@ -10,30 +12,20 @@
           <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+08434567890</li>
         </ul>
       </div>
-      <div class="col-md-3 w3_footer_grid">
-        <h3>Thông Tin</h3>
+      <div class="col-md-4 w3_footer_grid">
+        <h3>Theo dõi chúng tôi</h3>
         <ul class="info">
-          <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">About Us</a></li>
-          <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">Contact Us</a></li>
-          <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="short-codes.html">Short Codes</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100042011136760"><i class="fa-brands fa-facebook" style="font-size: 30px;margin-left: 30px"></i></a>
+          <a href="https://www.tiktok.com/"><i class="fa-brands fa-tiktok" style="font-size: 30px;margin-left: 30px"></i></a>
+          <a href="https://www.youtube.com/channel/UCPrH6Wikun8RTsWexurpcqA"><i class="fa-brands fa-youtube" style="font-size: 30px;margin-left: 30px"></i></a></li>
+
         </ul>
       </div>
-      <div class="col-md-3 w3_footer_grid">
-        <h3>Danh Mục Sản Phẩm</h3>
-          <ul class="info" >
-            <li ><i class="fa fa-arrow-right" aria-hidden="true"></i>
-              <a [routerLink]="['/all-products']">Tất Cả Sản Phẩm</a>
-            </li>
-            <li *ngFor="let category of categories"><i class="fa fa-arrow-right" aria-hidden="true"></i>
-              <a [routerLink]="['/products-by-categories',category.id]" (click)="searchCategory(category.id)">{{category.name}}</a>
-            </li>
-          </ul>
-      </div>
-      <div class="col-md-3 w3_footer_grid">
+      <div class="col-md-4 w3_footer_grid">
         <h3>Trang Cá Nhân</h3>
         <ul class="info" *ngIf="isLogin">
           <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a [routerLink]="['/my-shop',id]">Cửa hàng của tôi</a></li>
-          <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="checkout.html">My Cart</a></li>
+          <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="checkout.html">Giỏ hàng của tôi</a></li>
         </ul>
         <ul class="info" *ngIf="!isLogin">
           <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a routerLink="/login">Đăng nhập</a></li>

@@ -62,6 +62,7 @@ export class RegisterComponent implements OnInit {
       console.log(data)
       this.router.navigate(["/login"])
     }, error => {
+      this.toast.error({detail: "Thất Bại", summary: 'Nhập Sai Tài Khoản Hoặc Mật Khẩu', duration: 3000})
       if (error.error == "Tên người dùng đã tồn tại") {
         // @ts-ignore
         document.getElementById("check-username").style.display = "block"

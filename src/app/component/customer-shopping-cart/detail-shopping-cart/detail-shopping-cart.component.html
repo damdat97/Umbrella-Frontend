@@ -5,9 +5,11 @@
 <div class="checkout">
   <div class="container">
 
-
+    <div class="top-brands1">
+      <h2 style=" margin-top: -50px;font-size: 40px">Chi Tiết Hóa Đơn</h2>
+    </div>
     <div>
-      <button [routerLink]="['/my-bills']" style="margin-left: 800px;margin-bottom: 5px" class="btn button-shop-cart">Về danh sách hóa đơn <i class="fa-solid fa-cart-shopping" style="margin-left: 5px"></i></button>
+      <button [routerLink]="['/my-bills']" style="margin-left: 910px;margin-bottom: 5px" class="btn button-shop-cart">Về danh sách hóa đơn <i class="fa-solid fa-cart-shopping" style="margin-left: 5px"></i></button>
     </div>
     <br>
     <h2 style="">Số lượng sản phẩm trong giỏ hàng <span>{{countProduct}} sản phẩm</span></h2>
@@ -30,7 +32,7 @@
           <td class="invert">
 
 
-                  <div style="margin-left: 3px; top: -8px; position: relative;" ><label>{{cart.quantity}} </label></div>
+                  <div style="margin-left: 3px; top: -8px; position: relative;" ><p>{{cart.quantity}} </p></div>
 
           </td>
           <td class="invert">{{cart.product.name}}</td>
@@ -43,7 +45,7 @@
     <div class="checkout-left">
       <div class="checkout-left-basket">
         <ul >
-          <h2 style="font-size: 25px">Tổng tiền: <i></i> <span >{{totalMoney}} VNĐ</span></h2>
+          <h2 style="font-size: 25px;width: 900px">Tổng tiền: <i></i> <span >{{totalMoney| currency:' VNĐ ':'symbol':'3.0'}}</span></h2>
         </ul>
       </div>
       <div class="clearfix"> </div>

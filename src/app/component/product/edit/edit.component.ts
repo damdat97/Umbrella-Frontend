@@ -20,10 +20,11 @@ export class EditComponent implements OnInit {
     price: new FormControl(''),
     quantity: new FormControl(''),
     categoryId: new FormControl(''),
-    user:new FormControl('')
+    user: new FormControl('')
   })
   obj: any;
   listCategory: Category[] = []
+
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private categoriesService: CategoryService,
@@ -32,7 +33,7 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoriesService.getAll().subscribe((data)=> {
+    this.categoriesService.getAll().subscribe((data) => {
       console.log(data)
       this.listCategory = data
     })
@@ -54,7 +55,7 @@ export class EditComponent implements OnInit {
         quantity: new FormControl(data.quantity),
         description: new FormControl(data.description),
         categoryId: new FormControl(data.category),
-        user:new FormControl(data.user)
+        user: new FormControl(data.user)
       })
     })
   }
@@ -78,7 +79,7 @@ export class EditComponent implements OnInit {
       // @ts-ignore
       $('#exampleModalEdit').modal('hide');
       this.editForm.reset()
-      this.router.navigate(["/product-detail", this.editForm.value.id])
+      this.router.navigate(['/my-shop',this.obj.user.id])
     }, error => {
       this.toast.warning({detail: "Lỗi!", summary: 'Nhập sai, không thẻ sửa!', duration: 3000})
       console.log(error)
